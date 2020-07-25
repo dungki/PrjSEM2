@@ -37,7 +37,7 @@ return array(
     'App\\role' => $baseDir . '/app/role.php',
     'App\\salary' => $baseDir . '/app/salary.php',
     'App\\salary-more' => $baseDir . '/app/salary-more.php',
-    'App\\salary_more_history' => $baseDir . '/app/salary_more_history.php',
+    'App\\salary_mores_history' => $baseDir . '/app/salary_mores_history.php',
     'App\\timeSheet' => $baseDir . '/app/timeSheet.php',
     'App\\type_user' => $baseDir . '/app/type_user.php',
     'App\\user-contact' => $baseDir . '/app/user-contact.php',

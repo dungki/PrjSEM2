@@ -522,7 +522,7 @@ class ComposerStaticInitecaaca1eec6fa8f7d19714e1e495c1d7
         'App\\role' => __DIR__ . '/../..' . '/app/role.php',
         'App\\salary' => __DIR__ . '/../..' . '/app/salary.php',
         'App\\salary-more' => __DIR__ . '/../..' . '/app/salary-more.php',
-        'App\\salary_more_history' => __DIR__ . '/../..' . '/app/salary_more_history.php',
+        'App\\salary_mores_history' => __DIR__ . '/../..' . '/app/salary_mores_history.php',
         'App\\timeSheet' => __DIR__ . '/../..' . '/app/timeSheet.php',
         'App\\type_user' => __DIR__ . '/../..' . '/app/type_user.php',
         'App\\user-contact' => __DIR__ . '/../..' . '/app/user-contact.php',
