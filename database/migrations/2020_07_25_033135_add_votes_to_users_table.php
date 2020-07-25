@@ -36,7 +36,7 @@ class AddVotesToUsersTable extends Migration
             //
             $table->foreign('user_id')->references('id')->on('users');
         });
-        Schema::table('salary_mores_history', function (Blueprint $table) {
+        Schema::table('salary_mores_histories', function (Blueprint $table) {
             //
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('salary_id')->references('id')->on('salaries');
