@@ -15,7 +15,7 @@ class CreateUserContactsTable extends Migration
     {
         Schema::create('user_contacts', function (Blueprint $table) {
             $table->increments("id");
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('relationship');
             $table->string('name');
             $table->string('identity_cart',20);

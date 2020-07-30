@@ -183,28 +183,29 @@
       <h2 class="title-1 m-b-25" style="text-align:center;">Add bonus</h2>
         <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
             <div class="panel-body" style="color:white;">
-              <form class="" action="index.html" method="post">
+              <form class="" action="{{ route('insertBonus') }}" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
                   <label for="id">Id:</label>
-                  <input required="true" type="text" class="form-control" id="id" placeholder="...">
+                  <input required="true" type="text" class="form-control" id="id" placeholder="..." readonly>
                 </div>
                 <div class="form-group">
                   <label for="title">Title:</label>
-                  <input required="true" type="text" class="form-control" id="title" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="title" id="title" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="amount">Amount:</label>
-                  <input required="true" type="text" class="form-control" id="amount" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="amount"  id="amount" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="num">Num:</label>
-                  <input required="true" type="text" class="form-control" id="num" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="num" id="num" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="usr_id">User id:</label>
-                  <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="usr_id" value="" id="usr_id" placeholder="...">
                 </div>
-                <button class="btn btn-secondary" style="margin-top:15px;">Save</button>
+                <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Save</button>
               </form>
             </div>
         </div>

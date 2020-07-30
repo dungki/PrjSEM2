@@ -16,7 +16,7 @@ class CreateHistoryTimeSheetsTable extends Migration
         Schema::create('history_time_sheets', function (Blueprint $table) {
             $table->increments("id");
             $table->unsignedInteger('timeSheet_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('note_change',350);
             $table->date('created_at');
             $table->date('updated_at');

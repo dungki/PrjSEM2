@@ -192,20 +192,26 @@
                             <th>Amount</th>
                             <th>Num</th>
                             <th>User id</th>
+                            <th></th>
+                            <th></th>
                           </tr>
                         </thead>
                         <tbody>
                             <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
+                              @foreach ($salary_mores as $item)
+                            <td>{{$index++}}</td>
+                                  <td>{{$item->title}}</td>
+                                  <td>{{$item->amount}}</td>
+                                  <td>{{$item->num}}</td>
+                                  <td>{{$item->user_id}}</td>
+                                  <td><a href="" class="btn btn-warning">Edit</a></td>
+                                  <td><a href="" class="btn btn-danger">Delete</a></td>
+                              @endforeach
                             </tr>
                         </tbody>
                       </table>
                   </div>
-                <a href="addbonus.html" class="btn btn-dark" style="border-radius:20px;"><i class="fas fa-plus"></i> Add bonus</a>
+                <a href="{{ route('showForm') }}" class="btn btn-dark" style="border-radius:20px;"><i class="fas fa-plus"></i> Add bonus</a>
               </div>
           </div>
     </div>

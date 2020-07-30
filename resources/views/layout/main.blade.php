@@ -100,10 +100,10 @@
                                 <i class="fas fa-building"></i>Department</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="group.html"><i class="fas fa-sliders-h"></i>Set department</a>
+                                        <a href="{{ route('showGroup') }}"><i class="fas fa-sliders-h"></i>Set department</a>
                                     </li>
                                     <li>
-                                        <a href="department.html"><i class="fas fa-tasks"></i>Manage</a>
+                                        <a href="{{ route('setGroup') }}"><i class="fas fa-tasks"></i>Manage</a>
                                     </li>
                                 </ul>
                         </li>

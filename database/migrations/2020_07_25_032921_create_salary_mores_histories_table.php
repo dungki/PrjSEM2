@@ -15,7 +15,7 @@ class CreateSalaryMoresHistoriesTable extends Migration
     {
         Schema::create('salary_mores_histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('salary_id');
             $table->string('title');
             $table->integer('amount');
