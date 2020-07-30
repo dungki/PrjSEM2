@@ -22,8 +22,8 @@ class CreateSalariesTable extends Migration
             $table->integer('total_salary');
             $table->date('pay_day');
             $table->tinyInteger('status');
-            $table->date('created_at');
-            $table->date('updated_day');
+            $table->datetime('created_at');
+            $table->datetime('updated_day');
         });
     }
 

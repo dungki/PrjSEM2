@@ -18,8 +18,8 @@ class CreateHistoryTimeSheetsTable extends Migration
             $table->unsignedInteger('timeSheet_id');
             $table->unsignedBigInteger('user_id');
             $table->string('note_change',350);
-            $table->date('created_at');
-            $table->date('updated_at');
+            $table->datetime('created_at');
+            $table->datetime('updated_at');
 
         });
     }

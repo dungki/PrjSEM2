@@ -19,8 +19,8 @@ class CreateSalaryMoreTable extends Migration
             $table->string('title');
             $table->integer('amount');
             $table->integer('num');
-            $table->date('created_at');
-            $table->date('updated_at');
+            $table->datetime('created_at');
+            $table->datetime('updated_at');
 
         });
     }
