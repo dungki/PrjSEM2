@@ -25,7 +25,6 @@ class AddVotesToUsersTable extends Migration
             $table->unsignedInteger('type_user_id')->nullable();;
             $table->unsignedInteger('role_id')->nullable();;
             $table->tinyInteger('status')->nullable();
-            $table->foreign('department_id')->references('id')->on('departments');
             $table->foreign('type_user_id')->references('id')->on('type_users');
             $table->foreign('role_id')->references('id')->on('roles');
         });

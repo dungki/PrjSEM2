@@ -24,7 +24,6 @@ class CreateTimeSheetsTable extends Migration
             $table->date('created_at');
             $table->date('updated_at');
             $table->float('resttime');
-            $table->tinyInteger('status');
         });
     }
 
