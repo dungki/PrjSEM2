@@ -180,28 +180,36 @@
                   <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
                     <div class="panel-body">
                       <div style="padding:60px;">
-                        <form style="margin-bottom:25px;">
-                          <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
+                        <form method="GET"  action="#" style="margin-bottom:25px;">
+                          <input type="text" name="s"  class="form-control search-input" placeholder="Search here">
                         </form>
                           <div class="table-responsive table--no-card m-b-40">
                               <table class="table table-borderless table-striped table-earning">
                                 <thead>
                                   <tr>
-                                    <th>Index</th>
+                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Status</th>
                                     <th>Email</th>
                                     <th>Password</th>
+                                    <th></th>
+                                    <th></th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                      <td>1</td>
-                                      <td>Deviluke</td>
-                                      <td><span class="badge badge-pill badge-success">in progress..</span></td>
-                                      <td>plusthicc@gmail.com</td>
-                                      <td>ohmylord123</td>
-                                    </tr>
+                                    
+                                   @foreach ($users as $item)
+                                   <tr>
+                                    <td><a href="{{ route('userDetail') }}?id={{$item->id}}">{{$item->id}}</a></td>
+                                       <td>{{$item->name}}</td>
+                                       <td>{{$item->status}}</td>
+                                       <td>{{$item->email}}</td>
+                                       <td>{{$item->password}}</td>
+                                    <td><a class="btn btn-primary" href="{{ route('userDetail') }}?id={{$item->id}}">Detail</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Bonus</a></td>
+                                </tr>
+                                   @endforeach
+                                   
                                 </tbody>
                               </table>
                           </div>

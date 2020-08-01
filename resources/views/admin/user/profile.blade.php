@@ -1,10 +1,28 @@
 @extends('layout.main')
 @section('css')
-<style>
-    .navbar-sidebar .navbar__list li.active > a {
-      color: #555;
+<style media="screen">
+    .styling100{
+      margin-left: 10px;
+      line-height: 35px;
     }
-    </style>
+
+    .info-1{
+      padding: 20px;
+    }
+
+    .btn-styling{
+        font-size: 16px;
+        color: #4f4f4f;
+        margin-left: 8px;
+    }
+
+    .btn-styling:hover{
+        color: #737373;
+        font-size:20px;   
+        transition: 0.6s;   
+    }
+
+  </style>
 @endsection
 @section('container')
 <div class="page-container">
@@ -13,12 +31,8 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                  <ul class="breadcrumb">
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
-                    <li><a href="#"><i class="far fa-id-card"></i> Department</a></li>
-                    <li><i class="fas fa-graduation-cap"></i> Set Department</li>
-                  </ul>
+                    <form class="form-header" action="" method="POST">
+                    </form>
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">
@@ -135,29 +149,33 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
+                                    <img src="images/icon/userlogo.jpg" alt="" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Admin</a>
+                                    <a class="js-acc-btn" href="#">Duong Thanh Binh</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
+                                                <img src="images/icon/userlogo.jpg" alt="" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">Admin</a>
+                                                <a href="#">Duong Thanh Binh</a>
                                             </h5>
-                                            <span class="email">admin@gmail.com</span>
+                                            <span class="email">dbinh7766@gmail.com</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-account"></i>Account</a>
+                                        </div>
+                                        <div class="account-dropdown__item">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-settings"></i>Setting</a>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
@@ -172,50 +190,71 @@
             </div>
         </div>
     </header>
-    <!-- END HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Manage</h2>
-      <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
-        <div class="panel-body">
-          <div style="padding:60px;">
-            <form style="margin-bottom:25px;">
-              <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-            </form>
-              <div class="table-responsive table--no-card m-b-40">
-                  <table class="table table-borderless table-striped table-earning">
-                    <thead>
-                      <tr style="text-align:center">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                          @foreach ($list as $item)
-                          <tr>
-                        <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
-                          <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
-                        </tr>
-                          @endforeach
-                        
-                    </tbody>
-                  </table>
-              </div>
-              <form action="{{ route('addDepartment') }}" method="post">
-                  {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
+    <div class="main-content" style="line-height: 25px;">
+
+  <div class="container-fluid" style="font-size:18px;">
+    <div class="row">
+        <div class="col-sm-5">
+            <img src="images/trantiger.jpg" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+            <div class="main-info" style="margin-top: 40px; padding: 10px; ">
+                <div class="info-1" style="margin-bottom: 25px ;">
+                <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Introduce</h3>
+                <li class="styling100">Gender: Male</li>
+                <li class="styling100">Birthday: {{$user->birthday}}</li>
+                <li class="styling100">Status: {{($user->status == 1)?'active':'false'}}</li>
                 </div>
-                <button type="submit" class="btn btn-dark">Save</button>
-              </form>
-          </div>
-      </div>
-</div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Hobbies</h3>
+                    <li class="styling100">Hát</li>
+                    <li class="styling100">live stream dọa bắn súng</li>
+                    <li class="styling100">tấu hài</li>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Contact</h3>
+                    <li class="styling100">Address: {{$user->address}}</li>
+                    <li class="styling100">Phone number: {{$user->phone}}</li>
+                    <li class="styling100">Email: {{$user->email}}</li>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="main-infor2">
+                <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
+            <h2>{{$user->name}}</h2>
+            <span>Supreme adviser to President Donald Trump</span>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px ;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Department</h3>
+                    @foreach ($departments  as $item)
+                    <li class="styling100">{{$item->name}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}">x</a></li> 
+                    @endforeach
+                    <li class="styling100"><a class="btn btn-light" href="{{ route('showGroup') }}?userid={{$user->id}}">+</a></li>
+                    </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3><i class="fas fa-university"></i> Education</h3>
+                    <li class="styling100">Graduated from shooting department</li>
+                    <li class="styling100">Graduated from Harvard University</li>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> Skills</h3>
+                    <li class="styling100">High shooting level</li>
+                    <li class="styling100">Swearing</li>
+                    <li class="styling100">Martial arts</li>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Specialize</h3>
+                    <li class="styling100">Fortune telling</li>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Experience</h3>
+                    <li class="styling100">Used to be Obama president's supreme adviser</li>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

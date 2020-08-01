@@ -192,6 +192,7 @@
                             <th>Amount</th>
                             <th>Num</th>
                             <th>User id</th>
+                            <th>updated time</th>
                             <th></th>
                             <th></th>
                           </tr>
@@ -203,9 +204,11 @@
                                   <td>{{$item->title}}</td>
                                   <td>{{$item->amount}}</td>
                                   <td>{{$item->num}}</td>
-                                  <td>{{$item->user_id}}</td>
-                                  <td><a href="" class="btn btn-warning">Edit</a></td>
-                                  <td><a href="" class="btn btn-danger">Delete</a></td>
+                                  <td><a  href="{{ route('userDetail') }}?id={{$item->user_id}}">{{$item->user_id}}</a></td>
+                                  <td>{{$item->updated_at}}</td>
+
+                            <td><a href="{{ route('editBonus') }}?id={{$item->id}}" class="btn btn-warning">Edit</a></td>
+                                  <td><a href="{{ route('deleteBonus') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
                               @endforeach
                             </tr>
                         </tbody>

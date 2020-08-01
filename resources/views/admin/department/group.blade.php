@@ -184,10 +184,11 @@
       <h2 class="title-1 m-b-25" style="text-align:center;">Set department</h2>
         <div class="container" style="background:#333;padding: 35px;border-radius: 10px;">
             <div class="panel-body" style="color:white;">
-              <form class="" action="index.html" method="post">
+              <form class="" action="{{ route('setGroup') }}" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Department id:</label>
-                  <select class="form-control" id="depa_id">
+                  <select class="form-control" name="department_id" id="depa_id">
                     @foreach ($departments as $item)
                   <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
@@ -195,9 +196,9 @@
                 </div>
                 <div class="form-group">
                   <label for="name">User id:</label>
-                  <input required="true" type="text" class="form-control" value="" id="usr_id" placeholder="...">
+                <input required="true" type="text" name="user_id" class="form-control" value="{{$userid}}" id="usr_id" placeholder="...">
                 </div>
-                <button class="btn btn-secondary" style="margin-top:15px;">Save</button>
+                <button class="btn btn-secondary" type="submit"  style="margin-top:15px;">Save</button>
               </form>
             </div>
         </div>

@@ -187,23 +187,23 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                   <label for="id">Id:</label>
-                  <input required="true" type="text" class="form-control" id="id" placeholder="..." readonly>
+                  <input required="true" type="text" class="form-control" value="{{$data->id}}" name="id" id="id" placeholder="..." readonly>
                 </div>
                 <div class="form-group">
                   <label for="title">Title:</label>
-                  <input required="true" type="text" class="form-control" name="title" id="title" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="title" value=" {{$data->title}} "id="title" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="amount">Amount:</label>
-                  <input required="true" type="text" class="form-control" name="amount"  id="amount" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="amount" value="{{$data->amount}}"  id="amount" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="num">Num:</label>
-                  <input required="true" type="text" class="form-control" name="num" id="num" placeholder="...">
+                  <input required="true" type="text" value="{{$data->num}}" class="form-control" name="num" id="num" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label for="usr_id">User id:</label>
-                  <input required="true" type="text" class="form-control" name="usr_id" value="" id="usr_id" placeholder="...">
+                <input required="true" type="text" class="form-control"  name="usr_id" value="{{$userid}}" id="usr_id" placeholder="...">
                 </div>
                 <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Save</button>
               </form>

@@ -85,13 +85,13 @@
                                 <i class="fas fa-users"></i>User</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="user.html"><i class="fas fa-info-circle"></i>User info</a>
+                                        <a href=""><i class="fas fa-info-circle"></i>User info</a>
                                     </li>
                                     <li>
-                                        <a href="usercontact.html"><i class="fas fa-address-card"></i>User contact</a>
+                                        <a href=""><i class="fas fa-address-card"></i>User contact</a>
                                     </li>
                                     <li>
-                                        <a href="addcontact.html"><i class="fas fa-plus-circle"></i>Add contact</a>
+                                        <a href=""><i class="fas fa-plus-circle"></i>Add contact</a>
                                     </li>
                                 </ul>
                         </li>
@@ -116,10 +116,10 @@
                                 <i class="fas fa-gift"></i>Salary bonus</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="bonuslist.html"><i class="fas fa-bars"></i>Bonus list</a>
+                                        <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Bonus list</a>
                                     </li>
                                     <li>
-                                        <a href="bonushistory.html"><i class="fas fa-history"></i>Bonus history</a>
+                                        <a href=""><i class="fas fa-history"></i>Bonus history</a>
                                     </li>
                                 </ul>
                         </li>
@@ -128,10 +128,10 @@
                                 <i class="far fa-calendar"></i>Timesheet</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="sheetlist.html"><i class="fas fa-bars"></i></i>Timesheet list</a>
+                                        <a href=""><i class="fas fa-bars"></i></i>Timesheet list</a>
                                     </li>
                                     <li>
-                                        <a href="sheethistory.html"><i class="fas fa-history"></i>History</a>
+                                        <a href=""><i class="fas fa-history"></i>History</a>
                                     </li>
                                 </ul>
                         </li>
