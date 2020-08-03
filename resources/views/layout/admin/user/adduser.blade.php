@@ -1,10 +1,17 @@
 @extends('layout.main')
 @section('css')
 <style>
-    .navbar-sidebar .navbar__list li.active > a {
-      color: #555;
+    .eye-hover{
+      color:#333
     }
-    </style>
+    .eye-hover:hover{
+      color:#333
+    }
+    .fc-event, .fc-event:hover {
+          color: #fff !important;
+          text-decoration: none;
+    }
+  </style>
 @endsection
 @section('container')
 <div class="page-container">
@@ -16,8 +23,8 @@
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Department</a></li>
-                    <li><a href="#"><i class="fas fa-eye"></i> Show department</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Add user</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -177,46 +184,82 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Manage</h2>
-      <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
-        <div class="panel-body">
-          <div style="padding:60px;">
-            <form style="margin-bottom:25px;">
-              <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-            </form>
-              <div class="table-responsive table--no-card m-b-40">
-                  <table class="table table-borderless table-striped table-earning">
-                    <thead>
-                      <tr style="text-align:center">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                          @foreach ($list as $item)
-                          <tr>
-                        <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
-                          <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
-                        </tr>
-                          @endforeach
-                        
-                    </tbody>
-                  </table>
+      <h2 class="title-1 m-b-25" style="text-align:center;">Add user</h2>
+      <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
+          <div class="panel-body" style="color:white;">
+            <form class="" action="index.html" method="post">
+              <div class="form-group">
+                <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
               </div>
-              <form action="{{ route('addDepartment') }}" method="post">
-                  {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input required="true" type="text" class="form-control" id="name" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="personId">Identity card:</label>
+                <input required="true" type="text" class="form-control" id="inden_card" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input required="true" type="text" class="form-control" id="email" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="address">Address:</label>
+                <input required="true" type="text" class="form-control" id="address" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="number">Phone number:</label>
+                <input required="true" type="text" class="form-control" id="number" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="number">...</label>
+                <input required="true" type="text" class="form-control" id="number" placeholder="..."
+              </div>
+              <div class="form-group">
+                <label for="number">Birthday:</label>
+                <input required="true" type="date" class="form-control" id="birthday" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="join_at">Join at:</label>
+                <input required="true" type="date" class="form-control" id="join_at" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="salary_hour">Salary:</label>
+                <input required="true" type="number" class="form-control" id="salary_hour" placeholder="...">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Type user id:</label>
+                <select class="form-control" id="type_usr_id">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Role:</label>
+                <select class="form-control" id="role">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <div class="input-group" id="show_hide_password">
+                  <input class="form-control" type="password">
+                  <div class="input-group-addon">
+                    <a  class="eye-hover" href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-dark">Save</button>
-              </form>
+              </div>
+              <button class="btn btn-secondary" style="margin-top:15px;">Save</button>
+            </form>
           </div>
       </div>
-</div>
     </div>
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>

@@ -15,8 +15,9 @@
                 <div class="header-wrap">
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
-                    <li><a href="#"><i class="far fa-id-card"></i> Personnels</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-bars"></i> User list</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -194,6 +195,8 @@
                                     <th>Password</th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
+                                    <th></th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -205,19 +208,24 @@
                                        <td>{{$item->status}}</td>
                                        <td>{{$item->email}}</td>
                                        <td>{{$item->password}}</td>
-                                    <td><a class="btn btn-primary" href="{{ route('userDetail') }}?id={{$item->id}}">Detail</a></td>
-                                    <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Bonus</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Thưởng</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('showContact') }}?userid={{$item->id}}">Liên hệ</a></td>
+
+                                    <td><a class="btn btn-primary" href="{{ route('addContact') }}?userid={{$item->id}}">+ Liên hệ</a></td>
+                                    <td><a class="btn btn-danger" href="{{ route('deleteUser') }}?userid={{$item->id}}">Xóa</a></td>
+
                                 </tr>
                                    @endforeach
                                    
                                 </tbody>
                               </table>
                           </div>
-                        <a href="adduser.html" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Add user</a>
+                        <a href="{{ route('addUser') }}" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Add user</a>
                       </div>
                   </div>
             </div>
     </div>
     <!-- END MAIN CONTENT-->
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

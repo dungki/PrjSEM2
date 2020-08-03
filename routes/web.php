@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('admin/index', function () {
+    return view('admin.index');
+})->name('index');
 Route::get('/', function () {
-    return redirect()->route('listUser');
+    return redirect()->route('index');
 });
 Route::get('layout', function () {
     return view('layout.main');

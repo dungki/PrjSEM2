@@ -22,8 +22,9 @@
                 <div class="header-wrap">
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
-                    <li><a href="#"><i class="far fa-id-card"></i> Personnels</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Add user</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -186,70 +187,62 @@
       <h2 class="title-1 m-b-25" style="text-align:center;">Add user</h2>
       <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
           <div class="panel-body" style="color:white;">
-            <form class="" action="index.html" method="post">
+            <form class="" action="{{ route('postUser') }}" method="POST">
+                {{ csrf_field() }}
               <div class="form-group">
                 <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
               </div>
               <div class="form-group">
                 <label for="name">Name:</label>
-                <input required="true" type="text" class="form-control" id="name" placeholder="...">
+                <input required="true" type="text" name="name" class="form-control" id="name" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="personId">Identity card:</label>
-                <input required="true" type="text" class="form-control" id="inden_card" placeholder="...">
+                <input required="true" type="text" name="cmnd" class="form-control" id="inden_card" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="email">Email:</label>
-                <input required="true" type="text" class="form-control" id="email" placeholder="...">
+                <input required="true" type="text" name="email" class="form-control" id="email" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="address">Address:</label>
-                <input required="true" type="text" class="form-control" id="address" placeholder="...">
+                <input required="true" type="text" name="address" class="form-control" id="address" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="number">Phone number:</label>
-                <input required="true" type="text" class="form-control" id="number" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="number">...</label>
-                <input required="true" type="text" class="form-control" id="number" placeholder="..."
+                <input required="true" type="text" name="phone" class="form-control" id="number" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="number">Birthday:</label>
-                <input required="true" type="date" class="form-control" id="birthday" placeholder="...">
+                <input required="true" type="date" name="birtday" class="form-control" id="birthday" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="join_at">Join at:</label>
-                <input required="true" type="date" class="form-control" id="join_at" placeholder="...">
+                <input required="true" type="date" name="join_day" class="form-control" id="join_at" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="salary_hour">Salary:</label>
-                <input required="true" type="number" class="form-control" id="salary_hour" placeholder="...">
+                <input required="true" type="number" name="salary" class="form-control" id="salary_hour" placeholder="...">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Type user id:</label>
                 <select class="form-control" id="type_usr_id">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option value="1">fulltime</option>
+                  <option value='2'>parttime</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Role:</label>
                 <select class="form-control" id="role">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option value="1">admin</option>
+                  <option value="2">Quan ly</option>
+                  <option value="3">nhan vien</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Password</label>
                 <div class="input-group" id="show_hide_password">
-                  <input class="form-control" type="password">
+                  <input class="form-control" name="password" type="password">
                   <div class="input-group-addon">
                     <a  class="eye-hover" href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                   </div>
@@ -261,4 +254,5 @@
       </div>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

@@ -11,7 +11,9 @@
                 <div class="header-wrap">
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dasboard</a></li>
+                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
+                    <li><a href="#"><i class="far fa-id-card"></i> Personnels</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
                         <div class="noti-wrap">
@@ -569,5 +571,4 @@
     <!-- END MAIN CONTENT-->
     <!-- END PAGE CONTAINER-->
 </div>
-<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

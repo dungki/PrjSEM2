@@ -19,8 +19,9 @@
                 <div class="header-wrap">
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
-                    <li><a href="#"><i class="far fa-id-card"></i> Personnels</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Add contact</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -183,43 +184,45 @@
         <h2 class="title-1 m-b-25" style="text-align:center;">Add contact</h2>
           <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
                               <div class="panel-body" style="color:white;">
-                                  <form class="" action="index.html" method="post">
+                                  <form class="" action="{{ route('postContact') }}" method="post">
+                                    {{ csrf_field() }}
                                       <div class="form-group">
-                                        <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
+                                        <input required="true" type="text"  class="form-control" id="usr" readonly placeholder="id">
                                       </div>
                                       <div class="form-group">
                                         <label for="usr_id">User id:</label>
-                                        <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
+                                      <input required="true" type="text" value="{{$user_id}}" name="user_id" class="form-control" id="usr_id" placeholder="...">
                                       </div>
                                       <div class="form-group">
                                         <label for="rela">Relationship:</label>
-                                        <input required="true" type="text" class="form-control" id="rela" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="relationship" id="rela" placeholder="...">
                                       </div>
                                       <div class="form-group">
                                         <label for="name">Name:</label>
-                                        <input required="true" type="text" class="form-control" id="name" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="name" id="name" placeholder="...">
                                       </div>
                                       <div class="form-group">
                                         <label for="address">Address:</label>
-                                        <input required="true" type="text" class="form-control" id="address" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="address" id="address" placeholder="...">
                                       </div>
                                       <div class="form-group">
                                         <label for="number">Phone number:</label>
-                                        <input required="true" type="text" class="form-control" id="number" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="phone" id="number" placeholder="...">
                                       </div>
                   <div class="form-group">
                                         <label for="email">Email:</label>
-                                        <input required="true" type="text" class="form-control" id="email" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="email" id="email" placeholder="...">
                                       </div>
                   <div class="form-group">
                                         <label for="inden_card">Indentity card:</label>
-                                        <input required="true" type="text" class="form-control" id="inden_card" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="cmnd" id="inden_card" placeholder="...">
                                       </div>
-                                      <button class="btn btn-secondary" style="margin-top:15px;">Save</button>
+                                      <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Save</button>
                                   </form>
                               </div>
                       </div>
 
     </div>
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

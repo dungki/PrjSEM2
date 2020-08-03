@@ -1,8 +1,12 @@
 @extends('layout.main')
 @section('css')
-<style>
-    .navbar-sidebar .navbar__list li.active > a {
-      color: #555;
+<style type="text/css">
+    /* force class color to override the bootstrap base rule
+       NOTE: adding 'url: #' to calendar makes this unneeded
+     */
+    .fc-event, .fc-event:hover {
+          color: #fff !important;
+          text-decoration: none;
     }
     </style>
 @endsection
@@ -16,8 +20,8 @@
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Department</a></li>
-                    <li><a href="#"><i class="fas fa-eye"></i> Show department</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Add contact</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -177,46 +181,46 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Manage</h2>
-      <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
-        <div class="panel-body">
-          <div style="padding:60px;">
-            <form style="margin-bottom:25px;">
-              <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-            </form>
-              <div class="table-responsive table--no-card m-b-40">
-                  <table class="table table-borderless table-striped table-earning">
-                    <thead>
-                      <tr style="text-align:center">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                          @foreach ($list as $item)
-                          <tr>
-                        <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
-                          <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
-                        </tr>
-                          @endforeach
-                        
-                    </tbody>
-                  </table>
-              </div>
-              <form action="{{ route('addDepartment') }}" method="post">
-                  {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
-                </div>
-                <button type="submit" class="btn btn-dark">Save</button>
-              </form>
-          </div>
-      </div>
-</div>
+        <h2 class="title-1 m-b-25" style="text-align:center;">Add contact</h2>
+          <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
+                              <div class="panel-body" style="color:white;">
+                                  <form class="" action="index.html" method="post">
+                                      <div class="form-group">
+                                        <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="usr_id">User id:</label>
+                                        <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="rela">Relationship:</label>
+                                        <input required="true" type="text" class="form-control" id="rela" placeholder="...">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input required="true" type="text" class="form-control" id="name" placeholder="...">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="address">Address:</label>
+                                        <input required="true" type="text" class="form-control" id="address" placeholder="...">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="number">Phone number:</label>
+                                        <input required="true" type="text" class="form-control" id="number" placeholder="...">
+                                      </div>
+                  <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input required="true" type="text" class="form-control" id="email" placeholder="...">
+                                      </div>
+                  <div class="form-group">
+                                        <label for="inden_card">Indentity card:</label>
+                                        <input required="true" type="text" class="form-control" id="inden_card" placeholder="...">
+                                      </div>
+                                      <button class="btn btn-secondary" style="margin-top:15px;">Save</button>
+                                  </form>
+                              </div>
+                      </div>
+
     </div>
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>

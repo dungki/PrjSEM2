@@ -10,22 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Timesheet</title>
-     <style>
-    #clock {
-
-        font-weight: bold;
-        color: #fff;
-        font-size: 30px;
-    }
-
-    #start,
-    #finish {
-        color: black;
-        font-size: 25px;
-        font-weight: bold;
-    }
-    </style>
+    <title>Profile</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{ asset('user/css/font-face.css') }}" rel="stylesheet" media="all">
@@ -55,6 +40,19 @@
 
 <body class="animsition">
 
+  <style media="screen">
+    .styling100{
+      margin-left: 10px;
+      line-height: 35px;
+    }
+
+    .info-1{
+      padding: 20px;
+    }
+    
+
+  </style>
+
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
@@ -62,7 +60,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="{{ asset('user/images/icon/logo1.png')}}" alt="Aptech" />
+                            <img src="images/icon/logo1.png" alt="Aptech" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -76,7 +74,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="profile.html">
                                 <i class="fas fa-tachometer-alt"></i>Profile</a>
                         </li>
                         <li>
@@ -163,14 +161,14 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="{{ asset('user/images/icon/logo1.png')}}" alt="Aptech Fpt" />
+                    <img src="images/icon/logo1.png" alt="Aptech Fpt" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="profile.html">
+                            <a class="js-arrow" href="#">
                                 <i class="fa fa-user" aria-hidden="true"></i>profile</a>
                         </li>
                         <li>
@@ -239,10 +237,6 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
@@ -255,7 +249,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="{{ asset('user/images/icon/avatar-06.jpg')}}" alt="Michelle Moreno" />
+                                                    <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Michelle Moreno</h6>
@@ -265,7 +259,7 @@
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="{{ asset('user/images/icon/avatar-04.jpg')}}" alt="Diane Myers" />
+                                                    <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
                                                 </div>
                                                 <div class="content">
                                                     <h6>Diane Myers</h6>
@@ -287,7 +281,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="{{ asset('user/images/icon/avatar-06.jpg')}}" alt="Cynthia Harvey" />
+                                                    <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -296,7 +290,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="{{ asset('user/images/icon/avatar-05.jpg')}}" alt="Cynthia Harvey" />
+                                                    <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -305,7 +299,7 @@
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
-                                                    <img src="{{ asset('user/images/icon/avatar-04.jpg')}}" alt="Cynthia Harvey" />
+                                                    <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
                                                     <p>Meeting about new dashboard...</p>
@@ -360,7 +354,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt="Duong Thanh Binh" />
+                                            <img src="images/icon/userlogo.jpg" alt="" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Duong Thanh Binh</a>
@@ -369,7 +363,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt="Duong Thanh Binh" />
+                                                        <img src="images/icon/userlogo.jpg" alt="" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -404,101 +398,73 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <style>
-                table, th, td{
-                    border-collapse: collapse;
-                }    
-            </style>
-              <div class="main-content">
-              <h2 class="title-1 m-b-25" style="text-align:center">TimeSheet</h2>
-              <div class="main-container100">
-                <div class="panel-body">
-                  <div class="panel-body text-center">
-            <table class="table table-bordered">
-                <thead>
-                    <tr style="background: teal;">
-                        <th colspan="5">
-                            <div id="clock"></div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No</th>
-                        <th>Check In</th>
-                        <th>Check Out</th>
-                        <th colspan="2">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td></td>
-                    <td>
-                        <input type="text" id="start" value="" name="start" readonly>
-                    </td>
-                    <td>
-                        <input type="text" id="finish" value="" name="finish" readonly>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-info" style="margin-left: 12px;" id="start1"  onclick="start()">Start</button>
-                        <button type="button" class="btn btn-info" style="visibility: hidden; margin-left: -78px;" id="finish1" onclick="post()">Finish</button>
-                    </td>
- 
-                </tbody>
-            </table>
-        
-        </div>
+            <div class="main-content" style="line-height: 25px;">
+
+          <div class="container-fluid" style="font-size:18px;">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="images/trantiger.jpg" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+                    <div class="main-info" style="margin-top: 40px; padding: 10px; ">
+                        <div class="info-1" style="margin-bottom: 25px ;">
+                        <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Introduce</h3>
+                        <li class="styling100">Gender: Male</li>
+                        <li class="styling100">Birthday: 30-4-1975</li>
+                        <li class="styling100">Status: Homeless</li>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Hobbies</h3>
+                            <li class="styling100">Hát</li>
+                            <li class="styling100">live stream dọa bắn súng</li>
+                            <li class="styling100">tấu hài</li>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Contact</h3>
+                            <li class="styling100">Address: cali</li>
+                            <li class="styling100">Phone number: 19023234</li>
+                            <li class="styling100">Email: trantiger@gmail.com</li>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-top: 20px;margin-bottom: 20px"></div>
-                <div class="panel-body">
-                    <div class="panel-body text-center">
-              <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Ngày làm</th>
-                          <th>Checkin</th>
-                          <th>Checkout</th>
-                          <th>resttime</th>
-                          <th>Số giờ làm</th>
-                          <th>Lương</th>
-                          <th>Hệ số lương</th>
-                          <th>Nhân viên</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                  @foreach ($timesheets as $item)
-                      <tr>
-                        <td>{{$index++}}</td>
-                      <td>{{$item->work_date}}</td>
-                        <td>{{$item->checkin}}</td>
-                        <td>{{$item->checkout}}</td>
-                        <td>{{$item->resttime}}</td>
-                        <td>{{$item->working_time}}</td>
-                        <td>{{$item->amount}}</td>
-                        <td>{{$data->salary}} vnd/giờ</td>
-                        <td>{{$data->name}}</td>
-                      </tr>
-                  @endforeach
-                  <tr>
-                    <td>-</td>
-                  <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>Tổng : </td>
-                    <td>{{$total_salary}}</td>
-                    <td>VND</td>
-                    <td>-</td>
-                  </tr>
-                  </tbody>
-              </table>
-          
-          </div>
-                  </div>
+                <div class="col-sm-7">
+                    <div class="main-infor2">
+                        <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
+                    <h2>Tran Tiger</h2>
+                    <span>Supreme adviser to President Donald Trump</span>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px ;">
+                            <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Department</h3>
+                            <li class="styling100">Adviser</li>
+                            </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3><i class="fas fa-university"></i> Education</h3>
+                            <li class="styling100">Graduated from shooting department</li>
+                            <li class="styling100">Graduated from Harvard University</li>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> Skills</h3>
+                            <li class="styling100">High shooting level</li>
+                            <li class="styling100">Swearing</li>
+                            <li class="styling100">Martial arts</li>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Specialize</h3>
+                            <li class="styling100">Fortune telling</li>
+                        </div>
+                        <div class="info-1" style="margin-bottom: 25px;">
+                            <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Experience</h3>
+                            <li class="styling100">Used to be Obama president's supreme adviser</li>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
+
     <!-- Jquery JS-->
     <script src="{{ asset('user/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->
@@ -522,71 +488,8 @@
 
     <!-- Main JS-->
     <script src="{{ asset('user/js/main.js') }}"></script>
-<script>
-    let clock = document.getElementById('clock');
-    let timer = null;
-    var ds = new Date();
-        var hs ;
-        var ms ;
-        var ss ;
-        var hf ;
-        var mf ;
-        var sf ;
-    function start() {
-        var d = new Date();
-         hs = d.getHours();
-         ms = d.getMinutes();
-         ss = d.getSeconds();
-        document.getElementById("start").value = (hs < 10 ? "0" : "") + hs + ":" + (ms < 10 ? "0" : "") + ms + ":" + (ss <
-            10 ? "0" : "") + ss;
-        timer = setInterval(runClock, 1000);
-        console.log(d);
-        document.getElementById("start1").style.visibility="hidden";
-        document.getElementById('finish1').style.visibility="visible";
-    }
+    <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 
-    function finish() { 
-        var d = new Date();
-         hf = d.getHours();
-         mf = d.getMinutes();
-         sf = d.getSeconds();      
-        document.getElementById("finish").value = (hf < 10 ? "0" : "") + hf + ":" + (mf < 10 ? "0" : "") + mf + ":" + (
-            sf < 10 ? "0" : "") + sf;
-        timer = setInterval(runClock, 1000);
-        console.log(d);
-
-    }
-function post() {
-    finish()
-     var checkout = (((sf)/60)+mf)/60+hf
-     var checkin = (((ss)/60)+ms)/60+hs
-     var resttime;
-     if (checkin < 12 && checkout > 13.5) {
-        resttime = 1.5
-     }else{
-        resttime = 0
-     }
-     var timeWorking = checkout - checkin - resttime;
-     
-     
-     $.post('{{ route('addTimesheet') }}', {
-        '_token': '{{ csrf_token() }}',
-			'checkin': checkin,
-			'checkout': checkout,
-			'timeWorking': timeWorking,
-            'resttime' : resttime
-		}, function(data) {
-            location.reload();
-		});
-    
-}
-    timer = setInterval(runClock, 1000);
-
-    function runClock() {
-
-        clock.textContent = new Date().toLocaleTimeString();
-    }
-    </script>
 </body>
 
 </html>

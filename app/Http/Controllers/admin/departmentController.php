@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\department;
 use App\group;
+use App\user;
 class departmentController extends Controller
 {
     //
@@ -45,17 +46,45 @@ class departmentController extends Controller
     {
         $departmentId = $request->department_id;
         $userId = $request->user_id;
-
-        group::insert([
-             'department_id' => $departmentId,
-             'user_id' => $userId
-        ]);
-        return redirect()->route('listUser');
+        $groups = group::where('user_id',$userId)->get();
+        $isCheck =false;
+        foreach ($groups as $value) {
+            if ($value->department_id == $departmentId) {
+                $isCheck = true;
+            break;
+            }
+        }
+        if (!$isCheck) {
+            group::insert([
+                'department_id' => $departmentId,
+                'user_id' => $userId
+           ]);
+        }
+        $user = user::where('id',$userId)->first();
+        $departments = user::join('groups','users.id','=','groups.user_id')
+        ->join('departments','departments.id','=','groups.department_id')
+        ->where('users.id',$userId)
+        ->select('departments.name','groups.id')
+        ->get();
+        return view('admin.user.profile')->with([
+            'departments' => $departments,
+            'user' => $user
+         ]);
     }
     function deleteGroup(Request $request)
     {
+        $userId = $request->userid;
         $id = $request->grid;
         group::where('id',$id)->delete();
-        return redirect()->route('listUser');
+        $user = user::where('id',$userId)->first();
+        $departments = user::join('groups','users.id','=','groups.user_id')
+        ->join('departments','departments.id','=','groups.department_id')
+        ->where('users.id',$userId)
+        ->select('departments.name','groups.id')
+        ->get();
+        return view('admin.user.profile')->with([
+            'departments' => $departments,
+            'user' => $user
+         ]);
     }
 }

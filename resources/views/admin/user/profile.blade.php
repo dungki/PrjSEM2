@@ -11,15 +11,19 @@
     }
 
     .btn-styling{
-        font-size: 16px;
-        color: #4f4f4f;
-        margin-left: 8px;
+        font-size: 18px;
+        color: #f54242;
+        border: 2px solid;
+        padding: 4px;   
+        border-radius: 5px;
+        line-height: 7px;
+        font-weight: 600;
+        float: right; 
+        
     }
 
     .btn-styling:hover{
-        color: #737373;
-        font-size:20px;   
-        transition: 0.6s;   
+        color: #f54242;    
     }
 
   </style>
@@ -31,6 +35,13 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                        <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                        <li><a href="#"><i class="far fa-id-card"></i> Detail</a></li>
+                        <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
+                    </ul>
                     <form class="form-header" action="" method="POST">
                     </form>
                     <div class="header-button">
@@ -149,33 +160,29 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    <img src="images/icon/userlogo.jpg" alt="" />
+                                    <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Duong Thanh Binh</a>
+                                    <a class="js-acc-btn" href="#">Admin</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
                                             <a href="#">
-                                                <img src="images/icon/userlogo.jpg" alt="" />
+                                                <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
                                             </a>
                                         </div>
                                         <div class="content">
                                             <h5 class="name">
-                                                <a href="#">Duong Thanh Binh</a>
+                                                <a href="#">Admin</a>
                                             </h5>
-                                            <span class="email">dbinh7766@gmail.com</span>
+                                            <span class="email">admin@gmail.com</span>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-account"></i>Account</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
@@ -217,6 +224,7 @@
                     <li class="styling100">Address: {{$user->address}}</li>
                     <li class="styling100">Phone number: {{$user->phone}}</li>
                     <li class="styling100">Email: {{$user->email}}</li>
+                <li  class="styling100"><a href="{{ route('showContact') }}?userid={{$user->id}}">Liên hệ</a></li>
                 </div>
             </div>
         </div>
@@ -226,10 +234,10 @@
             <h2>{{$user->name}}</h2>
             <span>Supreme adviser to President Donald Trump</span>
                 </div>
-                <div class="info-1" style="margin-bottom: 25px ;">
+                <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
                     <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Department</h3>
                     @foreach ($departments  as $item)
-                    <li class="styling100">{{$item->name}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}">x</a></li> 
+                    <li class="styling100">{{$item->name}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}&userid={{$user->id}}">&times</a></li> 
                     @endforeach
                     <li class="styling100"><a class="btn btn-light" href="{{ route('showGroup') }}?userid={{$user->id}}">+</a></li>
                     </div>

@@ -414,6 +414,7 @@
               <div class="main-container100">
                 <div class="panel-body">
                   <div class="panel-body text-center">
+                  <p>{{$data->id}} {{$data->salary}} {{$data->total_salary}}</p>
             <table class="table table-bordered">
                 <thead>
                     <tr style="background: teal;">
@@ -437,62 +438,16 @@
                         <input type="text" id="finish" value="" name="finish" readonly>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info" style="margin-left: 12px;" id="start1"  onclick="start()">Start</button>
-                        <button type="button" class="btn btn-info" style="visibility: hidden; margin-left: -78px;" id="finish1" onclick="post()">Finish</button>
+                        <button type="button" class="btn btn-info" onclick="start()">Start</button>
                     </td>
- 
+                    <td>
+                        <button type="button" class="btn btn-info" onclick="post()">Finish</button>
+                    </td>
                 </tbody>
             </table>
         
         </div>
                 </div>
-                <div style="margin-top: 20px;margin-bottom: 20px"></div>
-                <div class="panel-body">
-                    <div class="panel-body text-center">
-              <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Ngày làm</th>
-                          <th>Checkin</th>
-                          <th>Checkout</th>
-                          <th>resttime</th>
-                          <th>Số giờ làm</th>
-                          <th>Lương</th>
-                          <th>Hệ số lương</th>
-                          <th>Nhân viên</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                  @foreach ($timesheets as $item)
-                      <tr>
-                        <td>{{$index++}}</td>
-                      <td>{{$item->work_date}}</td>
-                        <td>{{$item->checkin}}</td>
-                        <td>{{$item->checkout}}</td>
-                        <td>{{$item->resttime}}</td>
-                        <td>{{$item->working_time}}</td>
-                        <td>{{$item->amount}}</td>
-                        <td>{{$data->salary}} vnd/giờ</td>
-                        <td>{{$data->name}}</td>
-                      </tr>
-                  @endforeach
-                  <tr>
-                    <td>-</td>
-                  <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>Tổng : </td>
-                    <td>{{$total_salary}}</td>
-                    <td>VND</td>
-                    <td>-</td>
-                  </tr>
-                  </tbody>
-              </table>
-          
-          </div>
-                  </div>
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
@@ -541,8 +496,6 @@
             10 ? "0" : "") + ss;
         timer = setInterval(runClock, 1000);
         console.log(d);
-        document.getElementById("start1").style.visibility="hidden";
-        document.getElementById('finish1').style.visibility="visible";
     }
 
     function finish() { 
@@ -574,9 +527,14 @@ function post() {
 			'checkin': checkin,
 			'checkout': checkout,
 			'timeWorking': timeWorking,
-            'resttime' : resttime
+            "resttime" : resttime
 		}, function(data) {
+			// 
             location.reload();
+            console.log(checkin)
+     console.log(checkout)
+     console.log(timeWorking)
+     console.log(resttime)
 		});
     
 }

@@ -16,8 +16,8 @@
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Department</a></li>
-                    <li><a href="#"><i class="fas fa-eye"></i> Show department</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-id-card"></i> User contact</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -177,7 +177,7 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Manage</h2>
+      <h2 class="title-1 m-b-25" style="text-align:center">User contact</h2>
       <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
         <div class="panel-body">
           <div style="padding:60px;">
@@ -187,37 +187,38 @@
               <div class="table-responsive table--no-card m-b-40">
                   <table class="table table-borderless table-striped table-earning">
                     <thead>
-                      <tr style="text-align:center">
-                        <th>Id</th>
+                      <tr>
+                        <th>Index</th>
+                        <th>User id</th>
+                        <th>Relationship</th>
                         <th>Name</th>
-                        <th></th>
+                        <th>Address</th>
+                        <th>Phone numner</th>
+                        <th>Email</th>
+                        <th>Indentity card</th>
                       </tr>
                     </thead>
                     <tbody>
-                        
-                          @foreach ($list as $item)
-                          <tr>
-                        <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
-                          <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
                         </tr>
-                          @endforeach
-                        
                     </tbody>
                   </table>
               </div>
-              <form action="{{ route('addDepartment') }}" method="post">
-                  {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
-                </div>
-                <button type="submit" class="btn btn-dark">Save</button>
-              </form>
+            <a href="addcontact.html" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Add contact</a>
           </div>
       </div>
 </div>
+
     </div>
+    <!-- END MAIN CONTENT-->
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

@@ -16,8 +16,8 @@
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> Department</a></li>
-                    <li><a href="#"><i class="fas fa-eye"></i> Show department</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-bars"></i> User list</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -177,47 +177,49 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Manage</h2>
-      <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
-        <div class="panel-body">
-          <div style="padding:60px;">
-            <form style="margin-bottom:25px;">
-              <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-            </form>
-              <div class="table-responsive table--no-card m-b-40">
-                  <table class="table table-borderless table-striped table-earning">
-                    <thead>
-                      <tr style="text-align:center">
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        
-                          @foreach ($list as $item)
-                          <tr>
-                        <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
-                          <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Delete</a></td>
-                        </tr>
-                          @endforeach
-                        
-                    </tbody>
-                  </table>
-              </div>
-              <form action="{{ route('addDepartment') }}" method="post">
-                  {{ csrf_field() }}
-                <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
-                </div>
-                <button type="submit" class="btn btn-dark">Save</button>
-              </form>
-          </div>
-      </div>
-</div>
+                  <h2 class="title-1 m-b-25" style="text-align:center;">User</h2>
+                  <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
+                    <div class="panel-body">
+                      <div style="padding:60px;">
+                        <form method="GET"  action="#" style="margin-bottom:25px;">
+                          <input type="text" name="s"  class="form-control search-input" placeholder="Search here">
+                        </form>
+                          <div class="table-responsive table--no-card m-b-40">
+                              <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th></th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                   @foreach ($users as $item)
+                                   <tr>
+                                    <td><a href="{{ route('userDetail') }}?id={{$item->id}}">{{$item->id}}</a></td>
+                                       <td>{{$item->name}}</td>
+                                       <td>{{$item->status}}</td>
+                                       <td>{{$item->email}}</td>
+                                       <td>{{$item->password}}</td>
+                                    <td><a class="btn btn-primary" href="{{ route('userDetail') }}?id={{$item->id}}">Detail</a></td>
+                                    <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Bonus</a></td>
+                                </tr>
+                                   @endforeach
+                                   
+                                </tbody>
+                              </table>
+                          </div>
+                        <a href="adduser.html" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Add user</a>
+                      </div>
+                  </div>
+            </div>
     </div>
+    <!-- END MAIN CONTENT-->
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

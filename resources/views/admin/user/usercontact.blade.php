@@ -15,8 +15,9 @@
                 <div class="header-wrap">
                   <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="far fa-chart-bar"></i> Statistics</a></li>
-                    <li><a href="#"><i class="far fa-id-card"></i> Personnels</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> User</a></li>
+                    <li><a href="#"><i class="fas fa-id-card"></i> User contact</a></li>
                     <li><i class="fas fa-graduation-cap"></i> Aptech Computer Education</li>
                   </ul>
                     <div class="header-button">
@@ -198,20 +199,21 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @foreach ($user_contacts as $item)
                         <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                        <td>{{$index++}}</td>
+                        <td>{{$item->user_id}}</td>
+                            <td>{{$item->relationship}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->address}}</td>
+                            <td>{{$item->phone}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->identity_cart}}</td>
+                          </tr>
+                        @endforeach
                     </tbody>
                   </table>
               </div>
-            <a href="addcontact.html" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Add contact</a>
           </div>
       </div>
 </div>
@@ -219,4 +221,5 @@
     </div>
     <!-- END MAIN CONTENT-->
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

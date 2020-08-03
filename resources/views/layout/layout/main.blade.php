@@ -85,10 +85,13 @@
                                 <i class="fas fa-users"></i>User</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ route('listUser') }}"><i class="fas fa-info-circle"></i>Danh sách người dùng</a>
+                                        <a href=""><i class="fas fa-info-circle"></i>User info</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('reactivateUser') }}"><i class="fas fa-plus-circle"></i>tái kích hoạt</a>
+                                        <a href=""><i class="fas fa-address-card"></i>User contact</a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fas fa-plus-circle"></i>Add contact</a>
                                     </li>
                                 </ul>
                         </li>
@@ -270,21 +273,6 @@ $(function() {
     },
     events: events.concat(trivia_nights)
   });
-});
-
-$(document).ready(function() {
-    $("#show_hide_password a").on('click', function(event) {
-        event.preventDefault();
-        if($('#show_hide_password input').attr("type") == "text"){
-            $('#show_hide_password input').attr('type', 'password');
-            $('#show_hide_password i').addClass( "fa-eye-slash" );
-            $('#show_hide_password i').removeClass( "fa-eye" );
-        }else if($('#show_hide_password input').attr("type") == "password"){
-            $('#show_hide_password input').attr('type', 'text');
-            $('#show_hide_password i').removeClass( "fa-eye-slash" );
-            $('#show_hide_password i').addClass( "fa-eye" );
-        }
-    });
 });
     </script>
 
