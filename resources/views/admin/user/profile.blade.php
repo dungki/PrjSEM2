@@ -21,7 +21,10 @@
         float: right; 
         
     }
-
+#footer{
+    visibility: hidden;
+    display: none;
+}
     .btn-styling:hover{
         color: #f54242;    
     }
@@ -55,7 +58,7 @@
                                     </div>
                                     <div class="mess__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
+                                            <img src="{{ asset('user/images/icon/avatar-06.jpg') }}" alt="Michelle Moreno" />
                                         </div>
                                         <div class="content">
                                             <h6>Michelle Moreno</h6>
@@ -65,7 +68,7 @@
                                     </div>
                                     <div class="mess__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
+                                            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" alt="Diane Myers" />
                                         </div>
                                         <div class="content">
                                             <h6>Diane Myers</h6>
@@ -87,7 +90,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
+                                            <img src="{{ asset('user/images/icon/avatar-06.jpg') }}" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -96,7 +99,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
+                                            <img src="{{ asset('user/images/icon/avatar-05.jpg') }}" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -105,7 +108,7 @@
                                     </div>
                                     <div class="email__item">
                                         <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
+                                            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" alt="Cynthia Harvey" />
                                         </div>
                                         <div class="content">
                                             <p>Meeting about new dashboard...</p>
@@ -205,7 +208,7 @@
   <div class="container-fluid" style="font-size:18px;">
     <div class="row">
         <div class="col-sm-5">
-            <img src="images/trantiger.jpg" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
             <div class="main-info" style="margin-top: 40px; padding: 10px; ">
                 <div class="info-1" style="margin-bottom: 25px ;">
                 <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Introduce</h3>

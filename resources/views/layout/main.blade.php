@@ -82,7 +82,7 @@
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-users"></i>User</a>
+                                <i class="fas fa-users"></i>Quản lý nhân sự</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
                                         <a href="{{ route('listUser') }}"><i class="fas fa-info-circle"></i>Danh sách người dùng</a>
@@ -94,33 +94,33 @@
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-building"></i>Department</a>
+                                <i class="fas fa-building"></i>Quản lý phòng ban</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ route('showGroup') }}"><i class="fas fa-sliders-h"></i>Set department</a>
+                                        <a href="{{ route('showGroup') }}"><i class="fas fa-sliders-h"></i>Quản lý</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('setGroup') }}"><i class="fas fa-tasks"></i>Manage</a>
+                                        <a href="{{ route('showDepartment') }}"><i class="fas fa-tasks"></i>Thiết lập </a>
                                     </li>
                                 </ul>
                         </li>
                         <li>
                             <a href="salary.html">
-                                <i class="fas fa-yen-sign"></i>Salary</a>
+                                <i class="fas fa-yen-sign"></i>Lương</a>
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-gift"></i>Salary bonus</a>
+                                <i class="fas fa-gift"></i>Trợ cấp + Thưởng</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Bonus list</a>
+                                        <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="fas fa-history"></i>Bonus history</a>
+                                        <a href=""><i class="fas fa-history"></i>Lịch sử</a>
                                     </li>
                                 </ul>
                         </li>
-                        <li class="has-sub">
+                        {{-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="far fa-calendar"></i>Timesheet</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -131,7 +131,7 @@
                                         <a href=""><i class="fas fa-history"></i>History</a>
                                     </li>
                                 </ul>
-                        </li>
+                        </li> --}}
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
