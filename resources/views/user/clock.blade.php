@@ -10,20 +10,26 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Bảng chấm công</title>
+    <title>Timesheet</title>
      <style>
-    #clock {
-
+    #clock , #countdown{
+        text-align: center;
         font-weight: bold;
         color: #fff;
         font-size: 30px;
     }
-
+    span{
+        cursor:pointer;
+    }
     #start,
     #finish {
         color: black;
         font-size: 25px;
         font-weight: bold;
+    }
+
+    .clock-vs-countdown{
+        padding-bottom: 0;
     }
     </style>
 
@@ -171,20 +177,20 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="profile.html">
-                                <i class="fa fa-user" aria-hidden="true"></i>Thông tin</a>
+                                <i class="fa fa-user" aria-hidden="true"></i>profile</a>
                         </li>
                         <li>
                             <a href="salary.html">
-                               <i class="fa fa-usd" aria-hidden="true"></i>Tiền lương</a>
+                               <i class="fa fa-usd" aria-hidden="true"></i>Salary</a>
                         </li>
                         <li>
                             <a href="timesheet.html">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i>Bảng chấm công</a>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>Timesheet</a>
                         </li>
                         <li class="has-sub">
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Đăng nhập</a>
+                                    <a href="login.html">Login</a>
                                 </li>
                             </ul>
                         </li>
@@ -251,7 +257,7 @@
                                         <span class="quantity">1</span>
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
-                                                <p>Bạn có 2 tin nhắn mới</p>
+                                                <p>You have 2 news message</p>
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
@@ -259,8 +265,8 @@
                                                 </div>
                                                 <div class="content">
                                                     <h6>Michelle Moreno</h6>
-                                                    <p>Đã gửi 1 ảnh</p>
-                                                    <span class="time">3 phút trước</span>
+                                                    <p>Have sent a photo</p>
+                                                    <span class="time">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="mess__item">
@@ -269,12 +275,12 @@
                                                 </div>
                                                 <div class="content">
                                                     <h6>Diane Myers</h6>
-                                                    <p>Bạn đã kết nối bây giờ có thể nhắn tin</p>
-                                                    <span class="time">Hôm qua</span>
+                                                    <p>You are now connected on message</p>
+                                                    <span class="time">Yesterday</span>
                                                 </div>
                                             </div>
                                             <div class="mess__footer">
-                                                <a href="#">Xem tất cả tin nhắn</a>
+                                                <a href="#">View all messages</a>
                                             </div>
                                         </div>
                                     </div>
@@ -283,15 +289,15 @@
                                         <span class="quantity">1</span>
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
-                                                <p>Bạn có 3 tin nhắn mới</p>
+                                                <p>You have 3 New Emails</p>
                                             </div>
                                             <div class="email__item">
                                                 <div class="image img-cir img-40">
                                                     <img src="{{ asset('user/images/icon/avatar-06.jpg')}}" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
-                                                    <p>Thông báo về cuộc họp...</p>
-                                                    <span>Cynthia Harvey, 3 phút trước</span>
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, 3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="email__item">
@@ -299,8 +305,8 @@
                                                     <img src="{{ asset('user/images/icon/avatar-05.jpg')}}" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
-                                                    <p>Thông báo về cuộc họp...</p>
-                                                    <span>Cynthia Harvey, hôm qua</span>
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, Yesterday</span>
                                                 </div>
                                             </div>
                                             <div class="email__item">
@@ -308,12 +314,12 @@
                                                     <img src="{{ asset('user/images/icon/avatar-04.jpg')}}" alt="Cynthia Harvey" />
                                                 </div>
                                                 <div class="content">
-                                                    <p>Thông báo về cuộc họp...</p>
-                                                    <span>Cynthia Harvey, 20/12/2018</span>
+                                                    <p>Meeting about new dashboard...</p>
+                                                    <span>Cynthia Harvey, April 12,,2018</span>
                                                 </div>
                                             </div>
                                             <div class="email__footer">
-                                                <a href="#">Xem tất cả tin nhắn</a>
+                                                <a href="#">See all emails</a>
                                             </div>
                                         </div>
                                     </div>
@@ -322,34 +328,37 @@
                                         <span class="quantity">3</span>
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
-                                                <p>Bạn có 3 tin nhắn</p>
+                                                <p>You have 3 Notifications</p>
                                             </div>
                                             <div class="notifi__item">
                                                 <div class="bg-c1 img-cir img-40">
                                                     <i class="zmdi zmdi-email-open"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <p>Bạn có thông báo mới</p>
-                                                    <span class="date">20/12/2018 06:50</span>
+                                                    <p>You got a email notification</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
                                                 </div>
                                             </div>
                                             <div class="notifi__item">
                                                 <div class="bg-c2 img-cir img-40">
                                                     <i class="zmdi zmdi-account-box"></i>
                                                 </div>
-                                               
+                                                <div class="content">
+                                                    <p>Your account has been blocked</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
                                             </div>
                                             <div class="notifi__item">
                                                 <div class="bg-c3 img-cir img-40">
                                                     <i class="zmdi zmdi-file-text"></i>
                                                 </div>
                                                 <div class="content">
-                                                    <p>Bạn có 1 tệp tin mới</p>
-                                                    <span class="date">20/12/2018 06:50</span>
+                                                    <p>You got a new file</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
                                                 </div>
                                             </div>
                                             <div class="notifi__footer">
-                                                <a href="#">Tất cả thông báo</a>
+                                                <a href="#">All notifications</a>
                                             </div>
                                         </div>
                                     </div>
@@ -379,16 +388,16 @@
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Tài khoản</a>
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Cài đặt</a>
+                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Đăng xuất</a>
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -407,7 +416,7 @@
                 }    
             </style>
               <div class="main-content">
-              <h2 class="title-1 m-b-25" style="text-align:center">Bảng chấm công</h2>
+              <h2 class="title-1 m-b-25" style="text-align:center">TimeSheet</h2>
               <div class="main-container100">
                 <div class="panel-body">
                   <div class="panel-body text-center">
@@ -418,11 +427,17 @@
                             <div id="clock"></div>
                         </th>
                     </tr>
+                    <tr style="background: teal;">
+                        <th colspan="5">
+                            <div id="countdown" style="position: relative;top: 9px;">Stopwatch</div>
+                            <p id="tips100" style="color: #292929;margin-top: 5px;font-style: italic;">(click " <span id="span">Start</span> " to begin)</p>
+                        </th>
+                    </tr>
                     <tr>
-                        <th>STT</th>
-                        <th>Bắt đầu lúc</th>
-                        <th>Kết thúc lúc</th>
-                        <th colspan="2">Lựa chọn</th>
+                        <th>No</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -434,8 +449,8 @@
                         <input type="text" id="finish" value="" name="finish" readonly>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info" style="margin-left: 12px;" id="start1"  onclick="start()">Bắt đầu</button>
-                        <button type="button" class="btn btn-info" style="visibility: hidden; margin-left: -78px;" id="finish1" onclick="post()">Kết thúc</button>
+                        <button type="button" class="btn btn-info" style="margin-left: 12px;" id="start1"  onclick="starts()">Start</button>
+                        <button type="button" class="btn btn-info" style="visibility: hidden; margin-left: -78px;" id="finish1" onclick="post()">Finish</button>
                     </td>
  
                 </tbody>
@@ -449,11 +464,11 @@
               <table class="table table-bordered">
                   <thead>
                       <tr>
-                          <th>STT</th>
+                          <th>No</th>
                           <th>Ngày làm</th>
-                          <th>Bắt đầu lúc</th>
-                          <th>Kết thúc lúc</th>
-                          <th>Nghỉ</th>
+                          <th>Checkin</th>
+                          <th>Checkout</th>
+                          <th>resttime</th>
                           <th>Số giờ làm</th>
                           <th>Lương</th>
                           <th>Hệ số lương</th>
@@ -519,7 +534,7 @@
 
     <!-- Main JS-->
     <script src="{{ asset('user/js/main.js') }}"></script>
-<script>
+<script type="text/javascript">
     let clock = document.getElementById('clock');
     let timer = null;
     var ds = new Date();
@@ -529,7 +544,12 @@
         var hf ;
         var mf ;
         var sf ;
-    function start() {
+        var msec=0
+        var sec=0
+        var min=0
+        var hour=0
+        document.getElementById('span').onclick=function() {starts()};
+    function starts() {
         var d = new Date();
          hs = d.getHours();
          ms = d.getMinutes();
@@ -540,8 +560,31 @@
         console.log(d);
         document.getElementById("start1").style.visibility="hidden";
         document.getElementById('finish1').style.visibility="visible";
-    }
+        document.getElementById("tips100").style.visibility="hidden";
+        start();
+        
 
+    }
+function start() {
+    go=setTimeout("start()",9);
+    document.getElementById('countdown').textContent=hour+":"+min+":"+sec;
+                msec++
+                if(msec==100)
+                {
+                msec=0
+                sec++
+                }
+                if(sec==60)
+                {
+                sec=0  
+                min++
+                }
+                if(min==60)
+                {
+                    min=0
+                hour++
+                }
+}
     function finish() { 
         var d = new Date();
          hf = d.getHours();
@@ -559,22 +602,22 @@ function post() {
      var checkin = (((ss)/60)+ms)/60+hs
      var resttime;
      if (checkin < 12 && checkout > 13.5) {
-        resttime = 1.5
+        resttime = 1.5;
      }else{
-        resttime = 0
+        resttime = 0;
      }
      var timeWorking = checkout - checkin - resttime;
      
      
      $.post('{{ route('addTimesheet') }}', {
-        '_token': '{{ csrf_token() }}',
-			'checkin': checkin,
-			'checkout': checkout,
-			'timeWorking': timeWorking,
+            '_token': '{{ csrf_token() }}',
+            'checkin': checkin,
+            'checkout': checkout,
+            'timeWorking': timeWorking,
             'resttime' : resttime
-		}, function(data) {
+        }, function(data) {
             location.reload();
-		});
+        });
     
 }
     timer = setInterval(runClock, 1000);
@@ -585,6 +628,5 @@ function post() {
     }
     </script>
 </body>
-
-</html>
 <!-- end document-->
+</html>

@@ -39,9 +39,6 @@ class timesheetController extends Controller
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary')
         ->first();
-        $timesheets = timesheet::where('salary_id',$data->id)->get();
-        $total_salary = 0;
-        
         $amount =$request->timeWorking * $data->salary;
     timesheet::insert([
         "salary_id" => $data->id,
@@ -54,13 +51,6 @@ class timesheetController extends Controller
         "updated_at"    => $currentTime,
         "resttime" => $request->resttime
    ]);
-   foreach ($timesheets as $item) {
-    $total_salary +=$item->amount;
-}
 
-        return view('user.clock')->with([
-            'timesheets' => $timesheets,
-            'total_salary' =>$total_salary
-        ]);   
     }
 }
