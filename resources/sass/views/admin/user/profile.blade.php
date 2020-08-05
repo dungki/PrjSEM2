@@ -1,14 +1,35 @@
 @extends('layout.main')
 @section('css')
-<style type="text/css">
-    /* force class color to override the bootstrap base rule
-       NOTE: adding 'url: #' to calendar makes this unneeded
-     */
-    .fc-event, .fc-event:hover {
-          color: #fff !important;
-          text-decoration: none;
+<style media="screen">
+    .styling100{
+      margin-left: 10px;
+      line-height: 35px;
     }
-    </style>
+
+    .info-1{
+      padding: 20px;
+    }
+
+    .btn-styling{
+        font-size: 18px;
+        color: #f54242;
+        border: 2px solid;
+        padding: 4px;   
+        border-radius: 5px;
+        line-height: 7px;
+        font-weight: 600;
+        float: right; 
+        
+    }
+#footer{
+    visibility: hidden;
+    display: none;
+}
+    .btn-styling:hover{
+        color: #f54242;    
+    }
+
+  </style>
 @endsection
 @section('container')
 <div class="page-container">
@@ -17,52 +38,21 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="header-wrap">
-                  <ul class="breadcrumb">
+                    <ul class="breadcrumb">
                     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
                     <li><a href="#"><i class="fas fa-gift"></i> Tiền thưởng</a></li>
                     <li><a href="#"><i class="fas fa-plus-circle"></i> Thêm tiền thưởng</a></li>
-        
-                  </ul>
+                    </ul>
+                    <form class="form-header" action="" method="POST">
+                    </form>
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">
                                 <i class="zmdi zmdi-comment-more"></i>
                                 <span class="quantity">1</span>
                                 <div class="mess-dropdown js-dropdown">
-                                    <div class="mess__title">
-                                        <p>Bạn có 2 tin nhắn</p>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Michelle Moreno</h6>
-                                            <p>Đã gửi 1 ảnh</p>
-                                            <span class="time">3 phút trước</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Diane Myers</h6>
-                                            <p>Đã kết nối, bây giờ có thể nhắn tin</p>
-                                            <span class="time">Hôm qua</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__footer">
-                                        <a href="#">Xem tất cả tin nhắn</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-email"></i>
-                                <span class="quantity">1</span>
-                                <div class="email-dropdown js-dropdown">
-                                    <div class="email__title">
+                                <div class="email__title">
                                         <p>Bạn có 3 tin nhắn mới</p>
                                     </div>
                                     <div class="email__item">
@@ -177,40 +167,68 @@
             </div>
         </div>
     </header>
-    <!-- END HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Thêm lịch sử tiền thưởng</h2>
-        <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
-            <div class="panel-body" style="color:white;">
-              <form class="" action="index.html" method="post">
-                <div class="form-group">
-                  <label for="id">Id:</label>
-                  <input required="true" type="text" class="form-control" id="id" placeholder="...">
+    <div class="main-content" style="line-height: 25px;">
+
+  <div class="container-fluid" style="font-size:18px;">
+    <div class="row">
+        <div class="col-sm-5">
+            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+            <div class="main-info" style="margin-top: 40px; padding: 10px; ">
+                <div class="info-1" style="margin-bottom: 25px ;">
+                <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Giới thiệu</h3>
+                <li class="styling100">Giới thiệu: Nam</li>
+                <li class="styling100">Ngày sinh: {{$user->birthday}}</li>
+                <li class="styling100">Tình trạng: {{($user->status == 1)?'active':'false'}}</li>
                 </div>
-                <div class="form-group">
-                  <label for="title">Tiêu đề:</label>
-                  <input required="true" type="text" class="form-control" id="title" placeholder="...">
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Sở thích</h3>
+                    <li class="styling100">Hát</li>
+                    <li class="styling100">live stream dọa bắn súng</li>
+                    <li class="styling100">tấu hài</li>
                 </div>
-                <div class="form-group">
-                  <label for="amount">Số lượng:</label>
-                  <input required="true" type="text" class="form-control" id="amount" placeholder="...">
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Liên hệ</h3>
+                    <li class="styling100">Địa chỉ: {{$user->address}}</li>
+                    <li class="styling100">Số điện thoại: {{$user->phone}}</li>
+                    <li class="styling100">Email: {{$user->email}}</li>
+                <li  class="styling100"><a href="{{ route('showContact') }}?userid={{$user->id}}">Liên hệ</a></li>
                 </div>
-                <div class="form-group">
-                  <label for="num">Số:</label>
-                  <input required="true" type="text" class="form-control" id="num" placeholder="...">
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="main-infor2">
+                <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
+            <h2>{{$user->name}}</h2>
+            <span>Supreme adviser to President Donald Trump</span>
                 </div>
-                <div class="form-group">
-                  <label for="usr_id">Mã người dùng:</label>
-                  <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
+                <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>
+                    @foreach ($departments  as $item)
+                    <li class="styling100">{{$item->name}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}&userid={{$user->id}}">&times</a></li> 
+                    @endforeach
+                    <li class="styling100"><a class="btn btn-light" href="{{ route('showGroup') }}?userid={{$user->id}}">+</a></li>
+                    </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3><i class="fas fa-university"></i> Giáo dục</h3>
+                    <li class="styling100">Tốt nghiệp khoa bắn súng</li>
+                    <li class="styling100">Tốt nghiệp Đại học Harvard</li>
                 </div>
-                <div class="form-group">
-                  <label for="usr_id">Mã tiền thưởng:</label>
-                  <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> Kĩ năng</h3>
+                    <li class="styling100">Trình độ bắn súng cao</li>
+                    <li class="styling100">VÕ thuật</li>
                 </div>
-                <button class="btn btn-secondary" style="margin-top:15px;">Lưu</button>
-              </form>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Chuyên môn</h3>
+                    <li class="styling100">Xem bói</li>
+                </div>
+                <div class="info-1" style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
+                    <li class="styling100">Từng là cố vấn cho cựu tổng thống Obama</li>
+                </div>
             </div>
         </div>
     </div>

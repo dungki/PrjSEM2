@@ -1,12 +1,8 @@
 @extends('layout.main')
 @section('css')
-<style type="text/css">
-    /* force class color to override the bootstrap base rule
-       NOTE: adding 'url: #' to calendar makes this unneeded
-     */
-    .fc-event, .fc-event:hover {
-          color: #fff !important;
-          text-decoration: none;
+<style>
+    .navbar-sidebar .navbar__list li.active > a {
+      color: #555;
     }
     </style>
 @endsection
@@ -22,7 +18,6 @@
                     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
                     <li><a href="#"><i class="fas fa-gift"></i> Tiền thưởng</a></li>
                     <li><a href="#"><i class="fas fa-plus-circle"></i> Thêm tiền thưởng</a></li>
-        
                   </ul>
                     <div class="header-button">
                         <div class="noti-wrap">
@@ -30,39 +25,7 @@
                                 <i class="zmdi zmdi-comment-more"></i>
                                 <span class="quantity">1</span>
                                 <div class="mess-dropdown js-dropdown">
-                                    <div class="mess__title">
-                                        <p>Bạn có 2 tin nhắn</p>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-06.jpg" alt="Michelle Moreno" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Michelle Moreno</h6>
-                                            <p>Đã gửi 1 ảnh</p>
-                                            <span class="time">3 phút trước</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__item">
-                                        <div class="image img-cir img-40">
-                                            <img src="images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                        </div>
-                                        <div class="content">
-                                            <h6>Diane Myers</h6>
-                                            <p>Đã kết nối, bây giờ có thể nhắn tin</p>
-                                            <span class="time">Hôm qua</span>
-                                        </div>
-                                    </div>
-                                    <div class="mess__footer">
-                                        <a href="#">Xem tất cả tin nhắn</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="noti__item js-item-menu">
-                                <i class="zmdi zmdi-email"></i>
-                                <span class="quantity">1</span>
-                                <div class="email-dropdown js-dropdown">
-                                    <div class="email__title">
+                                <div class="email__title">
                                         <p>Bạn có 3 tin nhắn mới</p>
                                     </div>
                                     <div class="email__item">
@@ -181,39 +144,59 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Thêm lịch sử tiền thưởng</h2>
-        <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
-            <div class="panel-body" style="color:white;">
-              <form class="" action="index.html" method="post">
-                <div class="form-group">
-                  <label for="id">Id:</label>
-                  <input required="true" type="text" class="form-control" id="id" placeholder="...">
-                </div>
-                <div class="form-group">
-                  <label for="title">Tiêu đề:</label>
-                  <input required="true" type="text" class="form-control" id="title" placeholder="...">
-                </div>
-                <div class="form-group">
-                  <label for="amount">Số lượng:</label>
-                  <input required="true" type="text" class="form-control" id="amount" placeholder="...">
-                </div>
-                <div class="form-group">
-                  <label for="num">Số:</label>
-                  <input required="true" type="text" class="form-control" id="num" placeholder="...">
-                </div>
-                <div class="form-group">
-                  <label for="usr_id">Mã người dùng:</label>
-                  <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
-                </div>
-                <div class="form-group">
-                  <label for="usr_id">Mã tiền thưởng:</label>
-                  <input required="true" type="text" class="form-control" id="usr_id" placeholder="...">
-                </div>
-                <button class="btn btn-secondary" style="margin-top:15px;">Lưu</button>
-              </form>
+             <h2 class="title-1 m-b-25" style="text-align:center;">Nhân viên</h2>
+                  <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
+                    <div class="panel-body">
+                      <div style="padding:60px;">
+                        <form method="GET" action="#" style="margin-bottom:25px;">
+                          <input type="text" name="s"  class="form-control search-input" placeholder="Search here">
+                          
+                        </form>
+                        
+                          <div class="table-responsive table--no-card m-b-40">
+                              <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Tên</th>
+                                    <th>Tình trạng</th>
+                                    <th>Email</th>
+                                    <th>Mật khẩu</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                   @foreach ($users as $item)
+                                   <tr>
+                                    <td><a  href="{{ route('userDetail') }}?id={{$item->id}}"  style="color: gray" >--Emp00{{$item->id}}--</a></td>
+                                       <td>{{$item->name}}</td>
+                                       <td>{{$item->status}}</td>
+                                       <td>{{$item->email}}</td>
+                                       <td>{{$item->password}}</td>
+                                    {{-- <td><a class="btn btn-primary" href="{{ route('userDetail') }}?id={{$item->id}}">Chi tiết</a></td> --}}
+                                    <td><a class="btn btn-success" href="{{ route('reactivate') }}?userid={{$item->id}}">Kích hoạt lại</a></td>
+                                </tr>
+                                   @endforeach
+                                   
+                                </tbody>
+                              </table>
+                          </div>
+                        <a href="{{ route('addUser') }}" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Thêm nhân vi</a>
+                      </div>
+                  </div>
             </div>
-        </div>
     </div>
+    <!-- END MAIN CONTENT-->
+    {{-- <script>
+        function detail(id) {
+            $.post('', {
+			'_token': '{{ csrf_token() }}',
+			'id': id
+			
+		}, function() {
+			console.log('success');
+		})
+        }
+    </script> --}}
 </div>
-<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection
