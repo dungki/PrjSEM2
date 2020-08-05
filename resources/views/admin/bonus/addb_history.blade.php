@@ -10,6 +10,9 @@
     }
     </style>
 @endsection
+@section('title')
+    Quản Lý trợ cấp + thưởng
+@endsection
 @section('container')
 <div class="page-container">
     <!-- HEADER DESKTOP-->

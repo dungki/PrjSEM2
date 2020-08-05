@@ -6,6 +6,9 @@
     }
     </style>
 @endsection
+@section('title')
+    Quản Lý nhân sự
+@endsection
 @section('container')
 <div class="page-container">
     <!-- HEADER DESKTOP-->

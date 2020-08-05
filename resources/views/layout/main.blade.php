@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Set department</title>
+    <title>@yield('title')</title>
     <!-- Fontfaces CSS-->
     <link href="{{ asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
     <link href="{{ asset('admin/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">

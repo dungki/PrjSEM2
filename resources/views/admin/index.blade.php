@@ -2,6 +2,9 @@
 @section('css')
     
 @endsection
+@section('title')
+    Admin
+@endsection
 @section('container')
 <div class="page-container">
     <!-- HEADER DESKTOP-->
