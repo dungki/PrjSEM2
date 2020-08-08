@@ -15,7 +15,7 @@ class userDetailController extends Controller
         $departments = user::join('groups','users.id','=','groups.user_id')
         ->join('departments','departments.id','=','groups.department_id')
         ->where('users.id',$request->id)
-        ->select('departments.name','groups.id')
+        ->select('departments.department','groups.id')
         ->get();
         }
         return view('admin.user.profile')->with([

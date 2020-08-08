@@ -209,7 +209,7 @@
                 <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
                     <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>
                     @foreach ($departments  as $item)
-                    <li class="styling100">{{$item->name}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}&userid={{$user->id}}">&times</a></li> 
+                    <li class="styling100">{{$item->department}}  <a class="btn-styling" href="{{ route('deleteGroup') }}?grid={{$item->id}}&userid={{$user->id}}">&times</a></li> 
                     @endforeach
                     <li class="styling100"><a class="btn btn-light" href="{{ route('showGroup') }}?userid={{$user->id}}">+</a></li>
                     </div>

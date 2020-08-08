@@ -168,7 +168,7 @@
                           @foreach ($list as $item)
                           <tr>
                         <td style="text-align:center">{{$item->id}}</td>
-                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->name}}</a></td>
+                          <td style="text-align:center"><a href="{{ route('listUser') }}?department={{$item->id}}" >{{$item->department}}</a></td>
                           <td><a href="{{ route('deleteDepartment') }}?id={{$item->id}}" class="btn btn-danger">Xóa</a></td>
                         </tr>
                           @endforeach

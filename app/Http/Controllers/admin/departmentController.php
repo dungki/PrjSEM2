@@ -20,7 +20,7 @@ class departmentController extends Controller
     {
         $department = $request->department;
         department::insert([
-             'name' => $department 
+             'department' => $department 
         ]);
         return redirect()->route('showDepartment');
     }
@@ -31,6 +31,15 @@ class departmentController extends Controller
         return redirect()->route('showDepartment');
     }
     function showGroup(Request $request){
+        $department_id ='';
+        if (isset($request->department_id)) {
+            $department_id = $request->department_id;
+        }
+        $data = user::join('groups','groups.user_id','=','users.id')
+                ->join('departments','departments.id','=','groups.department_id')
+                ->where('departments.id',$department_id)
+                ->select('users.name','departments.department','users.id')
+                ->get();      
         $departments = department::get();
         $userid ='';
         if (isset($request->userid)) {
@@ -39,13 +48,15 @@ class departmentController extends Controller
         }
         return view('admin.department.group')->with([
             'departments' => $departments,
-            'userid' => $userid
+            'userid' => $userid,
+            'data' => $data,
+            'department_id'=>$department_id
         ]);
     }
     function setGroup(Request $request)
     {
         $departmentId = $request->department_id;
-        $userId = $request->user_id;
+        $userId = $request->userid;
         $groups = group::where('user_id',$userId)->get();
         $isCheck =false;
         foreach ($groups as $value) {
@@ -64,7 +75,7 @@ class departmentController extends Controller
         $departments = user::join('groups','users.id','=','groups.user_id')
         ->join('departments','departments.id','=','groups.department_id')
         ->where('users.id',$userId)
-        ->select('departments.name','groups.id')
+        ->select('departments.department','groups.id')
         ->get();
         return view('admin.user.profile')->with([
             'departments' => $departments,
