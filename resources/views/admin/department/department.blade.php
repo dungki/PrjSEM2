@@ -152,7 +152,8 @@
         <div class="panel-body">
           <div style="padding:60px;">
             <form style="margin-bottom:25px;">
-              <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
+                <label for="search">Tìm Kiếm:</label>
+              <input type="text" name="" value="" class="form-control search-input" placeholder="">
             </form>
               <div class="table-responsive table--no-card m-b-40">
                   <table class="table table-borderless table-striped table-earning">

@@ -18,12 +18,12 @@ class CreateTimeSheetsTable extends Migration
             $table->unsignedInteger('salary_id');
             $table->date('work_date');
             $table->float('checkin');
-            $table->float('checkout');
-            $table->float('working_time');
-            $table->integer('amount');
+            $table->float('checkout')->nullable();
+            $table->float('working_time')->nullable();
+            $table->integer('amount')->nullable();
             $table->date('created_at');
             $table->date('updated_at');
-            $table->float('resttime');
+            $table->float('resttime')->nullable();
         });
     }
 

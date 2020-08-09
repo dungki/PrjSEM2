@@ -14,7 +14,7 @@ class timesheetController extends Controller
         $timesheets = new timeSheet;
         $total_salary=0;
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',5)
+        ->where('users.id',1)
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary','users.name')
         ->first();
@@ -35,7 +35,7 @@ class timesheetController extends Controller
         $currentDate = $mydate->format('Y-m-d');
 		$currentTime = $mydate->format('Y-m-d H:i:s');
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',5)
+        ->where('users.id',1)
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary')
         ->first();
@@ -53,4 +53,17 @@ class timesheetController extends Controller
    ]);
 
     }
+  function profile(Request $request){
+        $user = user::where('id',1)->first();
+    $departments = user::join('groups','users.id','=','groups.user_id')
+    ->join('departments','departments.id','=','groups.department_id')
+    ->where('users.id',1)
+    ->select('departments.department','groups.id')
+    ->get();
+    
+    return view('user.profile')->with([
+       'departments' => $departments,
+       'user' => $user
+    ]);
+  }
 }

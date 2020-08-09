@@ -16,13 +16,13 @@ class AddVotesToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('gender',20)->nullable();
             $table->string('identity_cart',20)->nullable();
-            $table->string('phone', 20)->nullable();;
-            $table->date('birthday')->nullable();;
-            $table->date('joined_at')->nullable();;
-            $table->string('address')->nullable();;
-            $table->integer('salary')->nullable();;
-            $table->unsignedInteger('type_user_id')->nullable();;
-            $table->unsignedInteger('role_id')->nullable();;
+            $table->string('phone', 20)->nullable();
+            $table->date('birthday')->nullable();
+            $table->date('joined_at')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('salary')->nullable();
+            $table->unsignedInteger('type_user_id')->nullable();
+            $table->unsignedInteger('role_id')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->foreign('type_user_id')->references('id')->on('type_users');
             $table->foreign('role_id')->references('id')->on('roles');

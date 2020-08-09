@@ -155,70 +155,78 @@
     <!-- MAIN CONTENT-->
     <div class="main-content">
       <h2 class="title-1 m-b-25" style="text-align:center;">Thêm nhân viên</h2>
-      <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
-          <div class="panel-body" style="color:white;">
+      <div class="container" style="border-radius: 10px;">
+          <div class="panel-body" style="color:black;">
             <form class="" action="{{ route('postUser') }}" method="POST">
                 {{ csrf_field() }}
-              <div class="form-group">
-                <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
-              </div>
-              <div class="form-group">
-                <label for="name">Tên:</label>
-                <input required="true" type="text" name="name" class="form-control" id="name" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="personId">CMND:</label>
-                <input required="true" type="text" name="cmnd" class="form-control" id="inden_card" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input required="true" type="text" name="email" class="form-control" id="email" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="address">Địa chỉ:</label>
-                <input required="true" type="text" name="address" class="form-control" id="address" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="number">Số điện thoại:</label>
-                <input required="true" type="text" name="phone" class="form-control" id="number" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="number">Ngày sinh:</label>
-                <input required="true" type="date" name="birtday" class="form-control" id="birthday" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="join_at">Tham gia tại:</label>
-                <input required="true" type="date" name="join_day" class="form-control" id="join_at" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="salary_hour">Tiền lương:</label>
-                <input required="true" type="number" name="salary" class="form-control" id="salary_hour" placeholder="...">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Nhập mã nhân viên:</label>
-                <select class="form-control" id="type_usr_id">
-                  <option value="1">Toàn thời gian</option>
-                  <option value='2'>Bán thời gian</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Vai trò:</label>
-                <select class="form-control" id="role">
-                  <option value="1">admin</option>
-                  <option value="2">Quản lí</option>
-                  <option value="3">NHân viên</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <div class="input-group" id="show_hide_password">
-                  <input class="form-control" name="password" type="password">
-                  <div class="input-group-addon">
-                    <a  class="eye-hover" href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <label for="name">Mã nhân sự:</label>
+                      <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
                   </div>
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input required="true" type="text" name="email" class="form-control" id="email" placeholder="...">
                 </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <div class="input-group" id="show_hide_password">
+                      <input class="form-control" name="password" type="password">
+                      <div class="input-group-addon">
+                          <a class="eye-hover" href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                      </div>
+                  </div>
               </div>
-              <button class="btn btn-secondary" style="margin-top:15px;">Lưu</button>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="form-group">
+                      <label for="name">Tên:</label>
+                      <input required="true" type="text" name="name" class="form-control" id="name" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="personId">CMND:</label>
+                      <input required="true" type="text" name="cmnd" class="form-control" id="inden_card" placeholder="...">
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="address">Địa chỉ:</label>
+                      <input required="true" type="text" name="address" class="form-control" id="address" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="number">Số điện thoại:</label>
+                      <input required="true" type="text" name="phone" class="form-control" id="number" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="number">Ngày sinh:</label>
+                      <input required="true" type="date" name="birtday" class="form-control" id="birthday" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="join_at">Tham gia tại:</label>
+                      <input required="true" type="date" name="join_day" class="form-control" id="join_at" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="salary_hour">Tiền lương:</label>
+                      <input required="true" type="number" name="salary" class="form-control" id="salary_hour" placeholder="...">
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleFormControlSelect1">Nhập mã nhân viên:</label>
+                      <select class="form-control" id="type_usr_id">
+                          <option value="1">Toàn thời gian</option>
+                          <option value='2'>Bán thời gian</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleFormControlSelect1">Vai trò:</label>
+                      <select class="form-control" id="role">
+                          <option value="1">admin</option>
+                          <option value="2">Quản lí</option>
+                          <option value="3">NHân viên</option>
+                      </select>
+                  </div>
+                  
+                  <button class="btn btn-secondary" style="margin-top:15px;">Lưu</button>
+              </div>
             </form>
           </div>
       </div>

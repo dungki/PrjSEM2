@@ -74,27 +74,27 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="profile.html">
+                            <a class="js-arrow" href="{{ route('profile') }}">
                                 <i class="fas fa-tachometer-alt"></i>Profile</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="#">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="#">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="#">
                                 <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a href="#">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
                         <li class="has-sub">
@@ -172,11 +172,11 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>Thông tin</a>
                         </li>
                         <li>
-                            <a href="salary.html">
+                            <a href="#">
                                <i class="fa fa-usd" aria-hidden="true"></i>Tiền lương</a>
                         </li>
                         <li>
-                            <a href="timesheet.html">
+                            <a href="{{ route('clock') }}">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i>Bảng chấm công</a>
                         </li>
                         <li class="has-sub">
@@ -397,67 +397,70 @@
             <!-- MAIN CONTENT-->
             <div class="main-content" style="line-height: 25px;">
 
-          <div class="container-fluid" style="font-size:18px;">
-            <div class="row">
-                <div class="col-sm-5">
-                    <img src="images/trantiger.jpg" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
-                    <div class="main-info" style="margin-top: 40px; padding: 10px; ">
-                        <div class="info-1" style="margin-bottom: 25px ;">
-                        <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Giới thiệu</h3>
-                        <li class="styling100">Giới tính: Nam</li>
-                        <li class="styling100">Ngày sinh: 30-4-1975</li>
-                        <li class="styling100">Tình trạng: Độc thân</li>
-                        </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Hobbies</h3>
-                            <li class="styling100">Hát</li>
-                            <li class="styling100">live stream dọa bắn súng</li>
-                            <li class="styling100">tấu hài</li>
-                        </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Contact</h3>
-                            <li class="styling100">Địa chỉ: california</li>
-                            <li class="styling100">Số điện thoại: 19023234</li>
-                            <li class="styling100">Email: trantiger@gmail.com</li>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="main-infor2">
-                        <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
-                    <h2>Tran Tiger</h2>
-                    <span>Cố vấn tối cao của tổng thống DonalTrump</span>
-                        </div>
-                        <div class="info-1" style="margin-bottom: 25px ;">
-                            <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>
-                            <li class="styling100">Cố vấn</li>
+                <div class="container-fluid" style="font-size:18px;">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+                            <div class="main-info" style="margin-top: 40px; padding: 10px; ">
+                                <div class="info-1" style="margin-bottom: 25px ;">
+                                <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Giới thiệu</h3>
+                                <li class="styling100">Giới thiệu: Nam</li>
+                                <li class="styling100">Ngày sinh: {{$user->birthday}}</li>
+                                <li class="styling100">Tình trạng: {{($user->status == 1)?'active':'false'}}</li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Sở thích</h3>
+                                    <li class="styling100">Hát</li>
+                                    <li class="styling100">live stream dọa bắn súng</li>
+                                    <li class="styling100">tấu hài</li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Liên hệ</h3>
+                                    <li class="styling100">Địa chỉ: {{$user->address}}</li>
+                                    <li class="styling100">Số điện thoại: {{$user->phone}}</li>
+                                    <li class="styling100">Email: {{$user->email}}</li>
+                                <li  class="styling100"><a href="{{ route('showContact') }}?userid={{$user->id}}">Liên hệ</a></li>
+                                </div>
                             </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3><i class="fas fa-university"></i> Giáo dục</h3>
-                            <li class="styling100">Tốt nghiệp khoa bắn súng</li>
-                            <li class="styling100">Tốt nghiệp Đại học Harvard</li>
                         </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> kĩ năng</h3>
-                            <li class="styling100">Bắn súng</li>
-                            <li class="styling100">Võ thuật</li>
-                        </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Chuyên môn</h3>
-                            <li class="styling100">Xem bói</li>
-                        </div>
-                        <div class="info-1" style="margin-bottom: 25px;">
-                            <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
-                            <li class="styling100">Từng là cố vấn tối cao của tổng thống Obama</li>
+                        <div class="col-sm-7">
+                            <div class="main-infor2">
+                                <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
+                            <h2>{{$user->name}}</h2>
+                            <span>Supreme adviser to President Donald Trump</span>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
+                                    <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>
+                                    @foreach ($departments  as $item)
+                                    <li class="styling100">{{$item->department}}</li> 
+                                    @endforeach
+                                    </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3><i class="fas fa-university"></i> Giáo dục</h3>
+                                    <li class="styling100">Tốt nghiệp khoa bắn súng</li>
+                                    <li class="styling100">Tốt nghiệp Đại học Harvard</li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> Kĩ năng</h3>
+                                    <li class="styling100">Trình độ bắn súng cao</li>
+                                    <li class="styling100">VÕ thuật</li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Chuyên môn</h3>
+                                    <li class="styling100">Xem bói</li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
+                                    <li class="styling100">Từng là cố vấn cho cựu tổng thống Obama</li>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
         </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
-        </div>`
+        </div>
 
     </div>
 

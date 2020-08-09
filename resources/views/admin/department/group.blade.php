@@ -154,13 +154,14 @@
 
     <!-- MAIN CONTENT-->
     <div class="main-content">
-      <h2 class="title-1 m-b-25" style="text-align:center;">Quản lý Phòng ban</h2>
-        <div class="container" style="background:#333;padding: 35px;border-radius: 10px;">
-            <div class="panel-body" style="color:white;">
+      <h2 class="title-1 m-b-25 pt-5" style="text-align:center;">Quản lý Phòng ban</h2>
+        <div class="container" style="padding:20px;border-radius: 10px;">
+            <div class="panel-body">
                 <div class="form-group">
                   <form action="" method="GET" id="myform">
                     <label for="exampleFormControlSelect1">Mã phòng ban:</label>
                     <select class="form-control" name="department_id" id="depa_id" onchange="$('#myform').submit()">
+                        <option value="">--Phòng ban--</option>
                       @foreach ($departments as $item)
                     @if ($item->id == $department_id)
                     <option value="{{$item->id}}" selected='true'>{{$item->department}}</option> 
@@ -170,9 +171,9 @@
                       @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="display: none;visibility: hidden;">
                   <label for="name">Mã nhân sự:</label>
-                <input required="true" type="text" name="userid" class="form-control" value="{{$userid}}" id="usr_id" placeholder="...">
+                <input required="true" type="text" name="userid" class="form-control" value="{{$userid}}" id="usr_id" placeholder="">
                 </div>
             </form>
                 <form class="" action="{{ route('setGroup') }}"  method="post">
@@ -189,7 +190,7 @@
                           @endforeach
                         </select>
                     </div>
-                    <div class="form-group" style="display: none;visibility: hidden;">
+                    <div class="form-group" >
                       <label for="name">Mã nhân sự:</label>
                     <input required="true" type="text" name="userid" class="form-control" value="{{$userid}}" id="usr_id" placeholder="...">
                     </div>
