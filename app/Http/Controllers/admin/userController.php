@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\user;
 use App\group;
 use Carbon\Carbon;
+use App\salary;
 use Illuminate\Support\Str;
 class userController extends Controller
 {
     function addUser(Request $request){
-        return view('admin.user.adduser');
+        return view('admin.user.adduser')->with([
+            'message' =>''
+        ]);
     }
     //
     function listUser(Request $request){
@@ -54,10 +57,27 @@ class userController extends Controller
     function postUser(Request $request){
         $mydate = new \DateTime();
 		$mydate->modify('+7 hours');
-
+        $currentDate = $mydate->format('Y-m-d');
         $currentTime = $mydate->format('Y-m-d H:i:s');
         $birthday = $request->birthday;
         $joinDay =   $request->join_day;
+        $cmnd=user::select('identity_cart','email')->get();
+        foreach ($cmnd as $value) {
+            if ($value->identity_cart == $request->cmnd ) {
+                
+                    return view('admin.user.adduser')->with([
+                        'message'=>'Số chứng minh đã tồn tại'
+                    ]);
+
+            }
+            if ($value->email == $request->email ) {
+                
+                return view('admin.user.adduser')->with([
+                    'message'=>'Email đã tồn tại'
+                ]);
+
+             }
+        }
         user::insert([
             'name' =>  $request->name,
             'email'=>  $request->email,
@@ -74,6 +94,16 @@ class userController extends Controller
             'role_id'=>  $request->role_id,
             'status'=>  1
         ]);
+        $id = user::where('identity_cart',$request->cmnd)->select('id') ->first();
+        // salary::insert([
+        //     'user_id' => $id,
+        //      'started_at' => $currentDate,
+        //      'total_date' =>0,
+        //      'total_salary'=>0,
+        //      'status' => 1,
+        //      'created_at' => $currentTime,
+        //      'updated_day' =>$currentTime
+        // ]);
         return redirect()->route('listUser');
     }
     function deleteUser(Request $request){

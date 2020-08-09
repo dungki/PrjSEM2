@@ -519,10 +519,8 @@
             10 ? "0" : "") + ss;
         timer = setInterval(runClock, 1000);
         console.log(d);
-        document.getElementById("start1").style.visibility="hidden";
-        document.getElementById('finish1').style.visibility="visible";
-        document.getElementById("tips100").style.visibility="hidden";
-        start();
+       
+        
         
 
     }
@@ -578,6 +576,10 @@ function post() {
             'resttime' : resttime
         }, function(data) {
             location.reload();
+            document.getElementById("start1").style.visibility="hidden";
+        document.getElementById('finish1').style.visibility="visible";
+        document.getElementById("tips100").style.visibility="hidden";
+            start();
         });
     
 }

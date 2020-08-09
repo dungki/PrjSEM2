@@ -230,6 +230,11 @@
             </form>
           </div>
       </div>
+      <script>
+          if ({{$message}}!= '') {
+            window.alert({{$message}});
+          }
+      </script>
     </div>
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>

@@ -15,7 +15,7 @@ class AddVotesToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('gender',20)->nullable();
-            $table->string('identity_cart',20)->nullable();
+            $table->string('identity_cart',20)->unique()->nullable();
             $table->string('phone', 20)->nullable();
             $table->date('birthday')->nullable();
             $table->date('joined_at')->nullable();
