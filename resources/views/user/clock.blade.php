@@ -177,7 +177,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="profile.html">
-                                <i class="fa fa-user" aria-hidden="true"></i>profile</a>
+                                <i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                         </li>
                         <li>
                             <a href="salary.html">
@@ -186,6 +186,18 @@
                         <li>
                             <a href="timesheet.html">
                                 <i class="fa fa-clock-o" aria-hidden="true"></i>Timesheet</a>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-gift"></i>Trợ cấp + Thưởng</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Danh sách</a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fas fa-history"></i>Lịch sử</a>
+                                    </li>
+                                </ul>
                         </li>
                         <li class="has-sub">
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -392,8 +404,8 @@
                     </tr>
                     <tr style="background: teal;">
                         <th colspan="5">
-                            <div id="countdown" style="position: relative;top: 9px;">Stopwatch</div>
-                            <p id="tips100" style="color: #292929;margin-top: 5px;font-style: italic;">(Click " <span id="span">Start</span> " to begin)</p>
+                            <div id="countdown" style="position: relative;top: 9px;">Clock</div>
+                            <p id="tips100" style="color: #292929;margin-top: 5px;font-style: italic;">(Click " Start " to begin)</p>
                         </th>
                     </tr>
                     <tr>
@@ -402,19 +414,37 @@
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
+                @if ($checkTimesheet == null)
+               <tbody>
+                <td>
+                    <input class="text-center" type="text" id="start" value="" name="start" readonly>
+                </td>
+                <td>
+                    <input class="text-center"type="text" id="finish" value="" name="finish" readonly>
+                </td>
+                <td>
+                  
+                   <button type="button" class="btn btn-info" style="margin-left: 12px;"   onclick="starts()">Start</button>
+                    
+                </td>
+
+            </tbody>
+                @else   
                 <tbody>
                     <td>
-                        <input class="text-center" type="text" id="start" value="" name="start" readonly>
+                        <input class="text-center" type="text" id="start" value="{{$checkTimesheet->checkin}} (h)" on name="start" readonly>
                     </td>
                     <td>
                         <input class="text-center"type="text" id="finish" value="" name="finish" readonly>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-info" style="margin-left: 12px;" id="start1"  onclick="starts()">Start</button>
-                        <button type="button" class="btn btn-info" style="visibility: hidden; margin-left: -78px;" id="finish1" onclick="post()">Finish</button>
+                      
+                       <button type="button" class="btn btn-info" style=" margin-left: 12px;"  onclick="postCheckout({{$checkTimesheet->checkin}},{{$checkTimesheet->id}})">Finish</button>
+                        
                     </td>
- 
+    
                 </tbody>
+               @endif
             </table>
         
         </div>
@@ -422,7 +452,7 @@
                 <div style="margin-top: 20px;margin-bottom: 20px"></div>
                 <div class="panel-body">
                     <div class="panel-body text-center">
-              <table class="table table-bordered">
+              <table style="margin-bottom: 100px;" class="table table-bordered">
                   <thead>
                       <tr>
                           <th>No</th>
@@ -439,8 +469,8 @@
                   <tbody>
                   @foreach ($timesheets as $item)
                       <tr>
-                        <td>{{$index++}}</td>
-                      <td>{{$item->work_date}}</td>
+                      <td>{{$index++}}----{{$item->id}}</td>
+                        <td>{{$item->work_date}}</td>
                         <td>{{$item->checkin}}</td>
                         <td>{{$item->checkout}}</td>
                         <td>{{$item->resttime}}</td>
@@ -456,10 +486,21 @@
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                    <td>-</td>
+                  <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
                     <td>Tổng : </td>
                     <td>{{$total_salary}}</td>
                     <td>VND</td>
-                    <td>-</td>
+                  <td>-</td>
                   </tr>
                   </tbody>
               </table>
@@ -509,7 +550,6 @@
         var sec=0
         var min=0
         var hour=0
-        document.getElementById('span').onclick=function() {starts()};
     function starts() {
         var d = new Date();
          hs = d.getHours();
@@ -519,31 +559,11 @@
             10 ? "0" : "") + ss;
         timer = setInterval(runClock, 1000);
         console.log(d);
-       
+        postCheckin();
         
         
 
     }
-function start() {
-    go=setTimeout("start()",9);
-    document.getElementById('countdown').textContent=hour+":"+min+":"+sec;
-                msec++
-                if(msec==100)
-                {
-                msec=0
-                sec++
-                }
-                if(sec==60)
-                {
-                sec=0  
-                min++
-                }
-                if(min==60)
-                {
-                    min=0
-                hour++
-                }
-}
     function finish() { 
         var d = new Date();
          hf = d.getHours();
@@ -555,10 +575,9 @@ function start() {
         console.log(d);
 
     }
-function post() {
+function postCheckout(checkin,id) {
     finish()
      var checkout = (((sf)/60)+mf)/60+hf
-     var checkin = (((ss)/60)+ms)/60+hs
      var resttime;
      if (checkin < 12 && checkout > 13.5) {
         resttime = 1.5;
@@ -568,20 +587,26 @@ function post() {
      var timeWorking = checkout - checkin - resttime;
      
      
-     $.post('{{ route('addTimesheet') }}', {
+     $.post('{{ route('addcheckout') }}', {
             '_token': '{{ csrf_token() }}',
-            'checkin': checkin,
+            'id':id,
             'checkout': checkout,
             'timeWorking': timeWorking,
             'resttime' : resttime
         }, function(data) {
             location.reload();
-            document.getElementById("start1").style.visibility="hidden";
-        document.getElementById('finish1').style.visibility="visible";
-        document.getElementById("tips100").style.visibility="hidden";
-            start();
         });
     
+}
+function postCheckin() {
+    var checkin = (((ss)/60)+ms)/60+hs
+
+    $.post('{{ route('addcheckin') }}', {
+            '_token': '{{ csrf_token() }}',
+            'checkin': checkin,
+        }, function(data) {
+            location.reload();
+        });
 }
     timer = setInterval(runClock, 1000);
 
@@ -593,4 +618,9 @@ function post() {
     <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 </body>
 <!-- end document-->
+<footer>
+    <div id="footer" class="copyright" style="background:#d2d2d2;">
+      <p style="margin-top: 25px;">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+    </div>
+  </footer>
 </html>

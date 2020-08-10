@@ -307,7 +307,7 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
-    background: #e5e5e5;
+    background: white!important;
 }
 
 @media (max-width: 991px) {
@@ -349,7 +349,6 @@ section {
 .main-content {
     padding-top: 116px;
     min-height: 100vh;
-    margin-bottom: 100px;
 }
 
 @media (max-width: 991px) {
@@ -4287,7 +4286,7 @@ section {
 
 .table-earning tbody td {
     color: #808080;
-    padding: 12px 40px;
+    padding: 12px 35px;
     white-space: nowrap;
 }
 

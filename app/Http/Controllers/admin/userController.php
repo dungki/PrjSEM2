@@ -94,7 +94,7 @@ class userController extends Controller
             'role_id'=>  $request->role_id,
             'status'=>  1
         ]);
-        $id = user::where('identity_cart',$request->cmnd)->select('id') ->first();
+        // $id = user::where('identity_cart',$request->cmnd)->select('id') ->first();
         // salary::insert([
         //     'user_id' => $id,
         //      'started_at' => $currentDate,
