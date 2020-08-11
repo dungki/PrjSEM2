@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\user;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\user;
@@ -17,17 +17,20 @@ class timesheetController extends Controller
         $timesheets = new timeSheet;
         // $checkTimesheet= new timeSheet;
         $timestamp = time();
+        $id = Auth::id();
         $timenow = (date("s",$timestamp)/60+date("i",$timestamp))/60+date("h",$timestamp)+7;
+
        $checkTimesheet =  timeSheet::join('salaries','salaries.id','=','time_sheets.salary_id')
-        ->where('salaries.user_id',2)
+        ->where('salaries.user_id',$id)
         ->where('time_sheets.status',0)
         ->where('work_date',$currentDate)
         ->where('checkin','<',$timenow)
         ->select('time_sheets.*')
         ->first();
         $total_salary=0;
+        
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',2)
+        ->where('users.id',$id)
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary','users.name')
         ->first();
@@ -41,7 +44,6 @@ class timesheetController extends Controller
             'total_salary'=>$total_salary,
             'index' =>1,
             'checkTimesheet' =>$checkTimesheet,
-            'timenow' => $timenow
         ]);
         }
     function addCheckin(Request $request){
@@ -50,7 +52,7 @@ class timesheetController extends Controller
         $currentDate = $mydate->format('Y-m-d');
 		$currentTime = $mydate->format('Y-m-d H:i:s');
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',2)
+        ->where('users.id',Auth::id())
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary')
         ->first();
@@ -71,7 +73,7 @@ class timesheetController extends Controller
         $currentDate = $mydate->format('Y-m-d');
 		$currentTime = $mydate->format('Y-m-d H:i:s');
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',2)
+        ->where('users.id',Auth::id())
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary')
         ->first();
@@ -90,10 +92,10 @@ class timesheetController extends Controller
            return redirect()->route('clock');
     }
   function profile(Request $request){
-        $user = user::where('id',2)->first();
+        $user = user::where('id',$request->id)->first();
     $departments = user::join('groups','users.id','=','groups.user_id')
     ->join('departments','departments.id','=','groups.department_id')
-    ->where('users.id',2)
+    ->where('users.id',$request->id)
     ->select('departments.department','groups.id')
     ->get();
     

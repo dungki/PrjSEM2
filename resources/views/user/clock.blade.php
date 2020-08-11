@@ -176,16 +176,16 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="profile.html">
-                                <i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+                            <a class="js-arrow" href="{{ route('profile') }}?id={{ Auth::user()->id }}">
+                                <i class="fa fa-user" aria-hidden="true"></i>Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="salary.html">
+                            <a href="#">
                                <i class="fa fa-usd" aria-hidden="true"></i>Salary</a>
                         </li>
                         <li>
-                            <a href="timesheet.html">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i>Timesheet</a>
+                            <a href="{{ route('clock', ['id'=>1]) }}">
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>Quản lý công nhật</a>
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
@@ -345,34 +345,40 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
+                                            <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt=" {{ Auth::user()->name }}" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Admin</a>
+                                            <a class="js-acc-btn" href="#"> {{ Auth::user()->name }}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" />
+                                                        <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt=" {{ Auth::user()->name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Admin</a>
+                                                        <a href="#"> {{ Auth::user()->name }}</a>
                                                     </h5>
-                                                    <span class="email">admin@gmail.com</span>
+                                                    <span class="email"> {{ Auth::user()->email }}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="{{ route('profile') }}?id={{ Auth::user()->id }}">
                                                         <i class="zmdi zmdi-account"></i>Tài khoản</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Đăng xuất</a>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                              document.getElementById('logout-form').submit();">
+                                                 <i class="zmdi zmdi-power"></i>Đăng xuất
+                                             </a>
+                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
                                             </div>
                                         </div>
                                     </div>
@@ -469,7 +475,7 @@
                   <tbody>
                   @foreach ($timesheets as $item)
                       <tr>
-                      <td>{{$index++}}----{{$item->id}}</td>
+                      <td>{{$index++}}</td>
                         <td>{{$item->work_date}}</td>
                         <td>{{$item->checkin}}</td>
                         <td>{{$item->checkout}}</td>
@@ -481,7 +487,7 @@
                       </tr>
                   @endforeach
                   <tr>
-                    <td>-</td>
+                  <td>-</td>
                   <td>-</td>
                     <td>-</td>
                     <td>-</td>
@@ -499,7 +505,7 @@
                     <td>-</td>
                     <td>Tổng : </td>
                     <td>{{$total_salary}}</td>
-                    <td>VND</td>
+                    <td>( VND )</td>
                   <td>-</td>
                   </tr>
                   </tbody>
@@ -550,7 +556,7 @@
         var sec=0
         var min=0
         var hour=0
-    function starts() {
+    function starts(userid) {
         var d = new Date();
          hs = d.getHours();
          ms = d.getMinutes();
@@ -603,6 +609,7 @@ function postCheckin() {
 
     $.post('{{ route('addcheckin') }}', {
             '_token': '{{ csrf_token() }}',
+            // 'userid' : userid,
             'checkin': checkin,
         }, function(data) {
             location.reload();
