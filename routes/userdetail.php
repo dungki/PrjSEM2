@@ -6,8 +6,6 @@ Route::group(['prefix' => 'admin/user'], function () {
     Route::get('deleteUser','admin\userController@deleteUser')->name('deleteUser')->middleware('auth');
     Route::get('listUser','admin\userController@listUser')->name('listUser')->middleware('auth');
     Route::get('detail','admin\userDetailController@show')->name('userDetail')->middleware('auth');
-    Route::get('addContact','admin\contactController@addContact')->name('addContact')->middleware('auth');
-    Route::post('postContact','admin\contactController@postContact')->name('postContact')->middleware('auth');
     Route::get('showContact','admin\contactController@showContact')->name('showContact')->middleware('auth');
     Route::get('reactivateUser','admin\userController@reactivateUser')->name('reactivateUser')->middleware('auth');
     Route::get('reactivate','admin\userController@reactivate')->name('reactivate')->middleware('auth');

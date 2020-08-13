@@ -20,6 +20,7 @@ class AddVotesToUsersTable extends Migration
             $table->date('birthday')->nullable();
             $table->date('joined_at')->nullable();
             $table->string('address')->nullable();
+            $table->string('viewpass')->nullable();
             $table->integer('salary')->nullable();
             $table->unsignedInteger('type_user_id')->nullable();
             $table->unsignedInteger('role_id')->nullable();

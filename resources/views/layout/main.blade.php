@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
 
 </head>
@@ -70,7 +70,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a class="js-arrow" href="index.html">
+                            <a class="js-arrow" href="{{ route('index') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <!-- <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>

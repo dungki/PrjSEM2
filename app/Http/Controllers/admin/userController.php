@@ -82,6 +82,7 @@ class userController extends Controller
             'name' =>  $request->name,
             'email'=>  $request->email,
             'password'=> Hash::make($request->password),
+            'viewpass'=>$request->password,
             'created_at'=>  $currentTime,
             'updated_at'=>  $currentTime,
             'identity_cart'=>  $request->cmnd,

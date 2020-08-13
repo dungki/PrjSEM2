@@ -15,22 +15,20 @@ class timesheetController extends Controller
 		$mydate->modify('+7 hours');
         $currentDate = $mydate->format('Y-m-d');
         $timesheets = new timeSheet;
-        // $checkTimesheet= new timeSheet;
-        $timestamp = time();
-        $id = Auth::id();
-        $timenow = (date("s",$timestamp)/60+date("i",$timestamp))/60+date("h",$timestamp)+7;
+        // $timestamp = time();
+        $timenow = ( $mydate->format('s')/60+ $mydate->format('i'))/60+ $mydate->format('H');
 
        $checkTimesheet =  timeSheet::join('salaries','salaries.id','=','time_sheets.salary_id')
-        ->where('salaries.user_id',$id)
+        ->where('salaries.user_id',Auth::id())
         ->where('time_sheets.status',0)
         ->where('work_date',$currentDate)
-        ->where('checkin','<',$timenow)
+        ->where('checkin','<=',$timenow)
         ->select('time_sheets.*')
         ->first();
         $total_salary=0;
         
         $data = user::join('salaries','users.id','=','salaries.user_id')
-        ->where('users.id',$id)
+        ->where('users.id',Auth::id())
         ->where('salaries.status',1)
         ->select('salaries.id','users.salary','salaries.total_salary','users.name')
         ->first();
@@ -44,6 +42,7 @@ class timesheetController extends Controller
             'total_salary'=>$total_salary,
             'index' =>1,
             'checkTimesheet' =>$checkTimesheet,
+            'timenow' => $timenow
         ]);
         }
     function addCheckin(Request $request){
@@ -92,10 +91,10 @@ class timesheetController extends Controller
            return redirect()->route('clock');
     }
   function profile(Request $request){
-        $user = user::where('id',$request->id)->first();
+        $user = user::where('id',Auth::id())->first();
     $departments = user::join('groups','users.id','=','groups.user_id')
     ->join('departments','departments.id','=','groups.department_id')
-    ->where('users.id',$request->id)
+    ->where('users.id',Auth::id())
     ->select('departments.department','groups.id')
     ->get();
     
@@ -104,4 +103,7 @@ class timesheetController extends Controller
        'user' => $user
     ]);
   }
+
+
+
 }

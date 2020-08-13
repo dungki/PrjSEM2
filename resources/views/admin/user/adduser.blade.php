@@ -88,7 +88,7 @@
                       <input required="true" type="number" name="salary" class="form-control" id="salary_hour" placeholder="...">
                   </div>
                   <div class="form-group">
-                      <label for="exampleFormControlSelect1">Nhập mã nhân viên:</label>
+                      <label for="exampleFormControlSelect1">Loại nhân viên:</label>
                       <select class="form-control" id="type_usr_id">
                           <option value="1">Toàn thời gian</option>
                           <option value='2'>Bán thời gian</option>

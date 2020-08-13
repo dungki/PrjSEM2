@@ -107,9 +107,9 @@
                     <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
                     <li class="styling100">Từng là cố vấn cho cựu tổng thống Obama</li>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

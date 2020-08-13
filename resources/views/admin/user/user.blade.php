@@ -44,7 +44,6 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    <th></th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -55,11 +54,10 @@
                                        <td>{{$item->name}}</td>
                                        <td>{{($item->status==1)?"Hoạt động":"Đã nghỉ"}}</td>
                                        <td>{{$item->email}}</td>
-                                       <td>{{$item->password}}</td>
+                                       <td>{{$item->viewpass}}</td>
                                     <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Thưởng</a></td>
                                     <td><a class="btn btn-primary" href="{{ route('showContact') }}?userid={{$item->id}}">Liên hệ</a></td>
 
-                                    <td><a class="btn btn-primary" href="{{ route('addContact') }}?userid={{$item->id}}">+ Liên hệ</a></td>
                                     <td><a class="btn btn-danger" href="{{ route('deleteUser') }}?userid={{$item->id}}">Xóa</a></td>
 
                                 </tr>

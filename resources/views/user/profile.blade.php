@@ -184,7 +184,7 @@
                             <i class="fas fa-gift"></i>Trợ cấp + Thưởng</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Danh sách</a>
+                                    <a href="{{ route('userBonusList') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                 </li>
                                 <li>
                                     <a href=""><i class="fas fa-history"></i>Lịch sử</a>
@@ -433,7 +433,11 @@
                                     <li class="styling100">Địa chỉ: {{$user->address}}</li>
                                     <li class="styling100">Số điện thoại: {{$user->phone}}</li>
                                     <li class="styling100">Email: {{$user->email}}</li>
-                                <li  class="styling100"><a href="{{ route('showContact') }}?userid={{$user->id}}">Liên hệ</a></li>
+                                <li  class="styling100"><a href="{{ route('userShowContact') }}">Liên hệ</a></li>
+                                </div>
+                                <div class="info-1" style="margin-bottom: 25px;">
+                                    <a href="{{ route('editProfile') }} " class="btn btn-primary">Sửa thông tin</a>
+
                                 </div>
                             </div>
                         </div>
@@ -467,6 +471,7 @@
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
                                     <li class="styling100">Từng là cố vấn cho cựu tổng thống Obama</li>
                                 </div>
+
                             </div>
                         </div>
                     </div>

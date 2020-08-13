@@ -21,8 +21,10 @@ class CreateUserContactsTable extends Migration
             $table->string('identity_cart',20);
             $table->string('address');
             $table->string('phone', 20);
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->date('birthday');
+            $table->datetime('created_at')->nullable();
+            $table->datetime('updated_at')->nullable();
         });
     }
 

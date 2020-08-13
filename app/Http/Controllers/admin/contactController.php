@@ -20,28 +20,4 @@ class contactController extends Controller
             'index' => 1
         ]);
     }
-    function addContact(Request $request){
-        $user_id = '';
-        if (isset( $request->userid)) {
-            # code...
-            $user_id =  $request->userid;
-        }
-        return view('admin.user.addcontact')->with([
-            'user_id' =>$user_id
-        ]);
-    }
-    function postContact(Request $request){
-        $birtday = $request->birthday;
-        user_contact::insert([
-            'user_id' => $request->user_id,
-            'relationship' => $request->relationship,
-            'name' => $request->name,
-            'identity_cart' => $request->cmnd,
-            'address' =>$request->address,
-            'phone'=> $request->phone,
-            'email' => $request->email,
-            'birthday' => Carbon::parse($birtday)->format('Y-m-d')
-        ]);
-        return redirect()->route('showContact');
-    }
 }

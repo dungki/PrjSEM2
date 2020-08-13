@@ -43,8 +43,16 @@
                                       </div>
                                       <div class="form-group">
                                         <label for="rela">Mối quan hệ:</label>
-                                        <input required="true" type="text" class="form-control" name="relationship" id="rela" placeholder="...">
-                                      </div>
+                                        <select name="relationship" id="" class="form-control">
+                                          <option value="người thân">--Chọn--</option>
+                                          <option value="Bố">Bố</option>
+                                          <option value="Mẹ">Mẹ</option>
+                                          <option value="Anh/em trai">Anh/em trai</option>
+                                          <option value="Chị gái">Chị gái</option>
+                                          <option value="em gái">Em gái</option>
+                                          <option value="Ông">Ông</option>
+                                          <option value="Bà">Bà</option>
+                                      </select>                                      </div>
                                       <div class="form-group">
                                         <label for="name">Tên:</label>
                                         <input required="true" type="text" class="form-control" name="name" id="name" placeholder="...">

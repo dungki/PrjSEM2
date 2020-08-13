@@ -192,7 +192,7 @@
                                 <i class="fas fa-gift"></i>Trợ cấp + Thưởng</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Danh sách</a>
+                                        <a href="{{ route('userBonusList') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                     </li>
                                     <li>
                                         <a href=""><i class="fas fa-history"></i>Lịch sử</a>
@@ -420,22 +420,7 @@
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
-                @if ($checkTimesheet == null)
-               <tbody>
-                <td>
-                    <input class="text-center" type="text" id="start" value="" name="start" readonly>
-                </td>
-                <td>
-                    <input class="text-center"type="text" id="finish" value="" name="finish" readonly>
-                </td>
-                <td>
-                  
-                   <button type="button" class="btn btn-info" style="margin-left: 12px;"   onclick="starts()">Start</button>
-                    
-                </td>
-
-            </tbody>
-                @else   
+                @if ($checkTimesheet != null)
                 <tbody>
                     <td>
                         <input class="text-center" type="text" id="start" value="{{$checkTimesheet->checkin}} (h)" on name="start" readonly>
@@ -446,6 +431,22 @@
                     <td>
                       
                        <button type="button" class="btn btn-info" style=" margin-left: 12px;"  onclick="postCheckout({{$checkTimesheet->checkin}},{{$checkTimesheet->id}})">Finish</button>
+                        
+                    </td>
+    
+                </tbody>
+              
+                @else   
+                <tbody>
+                    <td>
+                        <input class="text-center" type="text" id="start" value="" name="start" readonly>
+                    </td>
+                    <td>
+                        <input class="text-center"type="text" id="finish" value="" name="finish" readonly>
+                    </td>
+                    <td>
+                      
+                       <button type="button" class="btn btn-info" style="margin-left: 12px;"   onclick="starts()">Start</button>
                         
                     </td>
     
@@ -487,7 +488,7 @@
                       </tr>
                   @endforeach
                   <tr>
-                  <td>-</td>
+                  <td>-{{$timenow}}</td>
                   <td>-</td>
                     <td>-</td>
                     <td>-</td>
