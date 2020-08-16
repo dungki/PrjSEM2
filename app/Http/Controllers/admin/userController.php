@@ -8,6 +8,7 @@ use App\user;
 use App\group;
 use Carbon\Carbon;
 use App\salary;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 class userController extends Controller
 {
@@ -22,13 +23,13 @@ class userController extends Controller
         if (isset($request->department)) {
             # code...
             $users = user::join('groups','users.id','=','groups.user_id')
-                      ->join('departments','groups.department_id','=','departments.id')
-                      ->where('departments.id',$request->department)
-                      ->select('users.*')
-                      ->get();
+            ->join('departments','groups.department_id','=','departments.id')
+            ->where('departments.id',$request->department)
+            ->select('users.*')
+            ->get();
         }elseif(isset($request->s)){
 
-                $users = user::where('name','like','%'.$request->s.'%')->get();
+            $users = user::where('name','like','%'.$request->s.'%')->get();
             
         }elseif (isset($request->filter)) {
             if ($request->filter == 2) {
@@ -47,7 +48,7 @@ class userController extends Controller
             $users = user::where('status',1)->get();
             
         }
-    
+
         return view('admin.user.user')->with([
             'users' => $users,
             'index' => 1,
@@ -56,7 +57,7 @@ class userController extends Controller
     }
     function postUser(Request $request){
         $mydate = new \DateTime();
-		$mydate->modify('+7 hours');
+        $mydate->modify('+7 hours');
         $currentDate = $mydate->format('Y-m-d');
         $currentTime = $mydate->format('Y-m-d H:i:s');
         $birthday = $request->birthday;
@@ -64,19 +65,19 @@ class userController extends Controller
         $cmnd=user::select('identity_cart','email')->get();
         foreach ($cmnd as $value) {
             if ($value->identity_cart == $request->cmnd ) {
-                
-                    return view('admin.user.adduser')->with([
-                        'message'=>'Số chứng minh đã tồn tại'
-                    ]);
+
+                return view('admin.user.adduser')->with([
+                    'message'=>'Số chứng minh đã tồn tại'
+                ]);
 
             }
             if ($value->email == $request->email ) {
-                
+
                 return view('admin.user.adduser')->with([
                     'message'=>'Email đã tồn tại'
                 ]);
 
-             }
+            }
         }
         user::insert([
             'name' =>  $request->name,
@@ -95,52 +96,59 @@ class userController extends Controller
             'role_id'=>  $request->role_id,
             'status'=>  1
         ]);
-        // $id = user::where('identity_cart',$request->cmnd)->select('id') ->first();
-        // salary::insert([
-        //     'user_id' => $id,
-        //      'started_at' => $currentDate,
-        //      'total_date' =>0,
-        //      'total_salary'=>0,
-        //      'status' => 1,
-        //      'created_at' => $currentTime,
-        //      'updated_day' =>$currentTime
-        // ]);
-        return redirect()->route('listUser');
+        return redirect()->route('addSalary');
+    }
+
+    public function addSalary(Request $request)
+    {
+        $users= DB::table('users')
+                ->orderBy('id', 'desc')
+                ->first();
+        DB::table('salaries')
+            ->insert([
+                "user_id" => $users->id,
+                "status" => 1,
+                "started_at" => Carbon::now(),
+                "total_salary" => 0,
+                "created_at" => Carbon::now() 
+            ]);
+            return redirect()->route('listUser');
+
     }
     function deleteUser(Request $request){
-             if (isset($request->userid)) {
-                 user::where('id',$request->userid)
-                 ->update([
-                       'status' =>0,
-                       'password'=>Str::random()
-                 ]);
-                 group::insert([
-                    'department_id' => 4,
-                    'user_id' =>$request->userid
-               ]);
-               return redirect()->route('listUser');
-             }
+       if (isset($request->userid)) {
+           user::where('id',$request->userid)
+           ->update([
+             'status' =>0,
+             'password'=>Str::random()
+         ]);
+           group::insert([
+            'department_id' => 4,
+            'user_id' =>$request->userid
+        ]);
+           return redirect()->route('listUser');
+       }
+   }
+   function reactivateUser(Request $request){
+    if (isset($request->s)) {
+        $users = user::where('name','like','%'.$request->s.'%')->where('status','=',0)->get();
+    }else {
+        $users = user::where('status','=',0)->get();
     }
-    function reactivateUser(Request $request){
-        if (isset($request->s)) {
-            $users = user::where('name','like','%'.$request->s.'%')->where('status','=',0)->get();
-        }else {
-            $users = user::where('status','=',0)->get();
-        }
-        return view('admin.user.reactivate')->with([
-            'users' => $users
+    return view('admin.user.reactivate')->with([
+        'users' => $users
+    ]);
+}
+function reactivate(Request $request){
+
+    if (isset($request->userid)) {
+        group::where('user_id',$request->userid)
+        ->where('department_id',4)->delete();
+        user::where('id',$request->userid)->update([
+            'status' => 1,
+            'password' => Hash::make('12345678')
         ]);
     }
-    function reactivate(Request $request){
-
-        if (isset($request->userid)) {
-            group::where('user_id',$request->userid)
-            ->where('department_id',4)->delete();
-            user::where('id',$request->userid)->update([
-                'status' => 1,
-                'password' => Hash::make('12345678')
-            ]);
-        }
-        return redirect()->route('listUser');
-    }
+    return redirect()->route('listUser');
+}
 }

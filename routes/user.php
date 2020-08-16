@@ -10,7 +10,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('editcontact', 'user\contactController@editContact')->name('editContact')->middleware('auth');
     Route::get('deletecontact', 'user\contactController@deleteContact')->name('deleteContact')->middleware('auth');
     Route::get('editProfile', 'user\contactController@editProfile')->name('editProfile')->middleware('auth');
-    Route::post('saveProfile', 'user\contactController@saveProfile')->name('saveProfile');
+    Route::post('saveProfile', 'user\contactController@saveProfile')->name('saveProfile')->middleware('auth');
 });
 
 ?>

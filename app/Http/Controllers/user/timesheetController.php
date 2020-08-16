@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\user;
+use Illuminate\Support\Facades\DB;
 use App\timeSheet;
+
 use App\salary;
 class timesheetController extends Controller
 {
@@ -14,6 +16,8 @@ class timesheetController extends Controller
         $mydate = new \DateTime();
 		$mydate->modify('+7 hours');
         $currentDate = $mydate->format('Y-m-d');
+                $currentTime = $mydate->format('Y-m-d H:i:s');
+
         $timesheets = new timeSheet;
         // $timestamp = time();
         $timenow = ( $mydate->format('s')/60+ $mydate->format('i'))/60+ $mydate->format('H');
@@ -22,7 +26,7 @@ class timesheetController extends Controller
         ->where('salaries.user_id',Auth::id())
         ->where('time_sheets.status',0)
         ->where('work_date',$currentDate)
-        ->where('checkin','<=',$timenow)
+        ->where('checkin','<',$timenow)
         ->select('time_sheets.*')
         ->first();
         $total_salary=0;
@@ -34,8 +38,25 @@ class timesheetController extends Controller
         ->first();
         $timesheets = timesheet::where('salary_id',$data->id)->get();
         foreach ($timesheets as $item) {
-            $total_salary +=$item->amount;
+            $total_salary += $item->amount;
         }
+        // $salary_more = DB::table('salary_more')
+        // ->join('salaries', 'salaries.user_id','=', 'salary_more.user_id')
+        // ->where('user_id',Auth::id())->get();
+
+        //Bac
+        // $sum = 0;
+        // $sum = $total_salary + $salary_more->amount;
+
+        // DB::table('salaries')
+        // ->where('user_id',Auth::id())
+        // ->where('salaries.status',1)
+        // ->update([
+        //     "total_salary" => $total_salary,
+        //     "updated_day" => $currentTime
+        // ]);
+        //endbac
+
         return view('user.clock')->with([
             'data' => $data,
             'timesheets' =>$timesheets,
@@ -88,6 +109,18 @@ class timesheetController extends Controller
             "updated_at"    => $currentTime,
             "status" => 1
        ]);
+        $salary = DB::table('salaries')
+        ->where('user_id',Auth::id())
+        ->where('salaries.status',1)
+        ->first();
+        $total_salary = $salary->total_salary + $amount;
+        DB::table('salaries')
+        ->where('user_id',Auth::id())
+        ->where('salaries.status',1)
+        ->update([
+            "total_salary" => $total_salary,
+            "updated_day" => $currentTime
+        ]);
            return redirect()->route('clock');
     }
   function profile(Request $request){

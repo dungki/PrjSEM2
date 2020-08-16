@@ -488,7 +488,7 @@
                       </tr>
                   @endforeach
                   <tr>
-                  <td>-{{$timenow}}</td>
+                  <td>-</td>
                   <td>-</td>
                     <td>-</td>
                     <td>-</td>

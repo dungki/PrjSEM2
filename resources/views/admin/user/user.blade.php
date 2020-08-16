@@ -51,7 +51,7 @@
                                    @foreach ($users as $item)
                                    <tr>
                                     <td><a href="{{ route('userDetail') }}?id={{$item->id}}">{{$item->id}}</a></td>
-                                       <td>{{$item->name}}</td>
+                                       <td><a href="{{ route('userDetail') }}?id={{$item->id}}">{{$item->name}}</a></td>
                                        <td>{{($item->status==1)?"Hoạt động":"Đã nghỉ"}}</td>
                                        <td>{{$item->email}}</td>
                                        <td>{{$item->viewpass}}</td>

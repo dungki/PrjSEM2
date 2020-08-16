@@ -4,6 +4,8 @@
 	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="{{ asset('lg/images/icons/favicon.ico') }}"/>
 <!--===============================================================================================-->
@@ -29,11 +31,24 @@
 {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
 <!-- Fonts -->
+
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<style>
+	.form-control{
+		border: none;
+	}
+</style>
 </head>
 <body>
-	
+	{{-- <div class="w3-top">
+		<div class="w3-bar w3-card"  style="background-color:#f8f9fa!important; color:#333;">
+		  <a href="{{ route('HRMWelcome') }}" class="w3-bar-item w3-button w3-padding-large"><i class="fas fa-home"></i>  HRM</a>
+		  <a href="{{ route('listUser') }}" class="w3-right w3-button w3-padding-large"><i class="fas fa-sign-in-alt"></i> Admin</a>
+		  <a href="{{ route('profile') }}" class="w3-right w3-button w3-padding-large"><i class="fas fa-sign-in-alt"></i> Nhân viên</a>
+	 
+		</div>
+	  </div> --}}
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -79,9 +94,9 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							{{-- <a href="#" class="txt1">
 								Forgot Password?
-							</a>
+							</a> --}}
 						</div>
 					</div>
 

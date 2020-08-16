@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('lg.welcome');
+});
+Route::get('/', function () {
+    return redirect()->route('HRMWelcome');
 });
 Route::get('admin/index', function () {
     return view('admin.index');

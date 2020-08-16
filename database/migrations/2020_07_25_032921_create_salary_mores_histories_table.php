@@ -20,6 +20,9 @@ class CreateSalaryMoresHistoriesTable extends Migration
             $table->string('title');
             $table->integer('amount');
             $table->integer('num');
+            $table->integer('status');
+            $table->datetime('updated_at');
+            $table->bigInteger('bonus_by_id'); 
           
 
         });

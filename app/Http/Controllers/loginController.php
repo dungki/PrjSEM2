@@ -11,4 +11,8 @@ class loginController extends Controller
 
         return view('lg.login');
     }
+    function welcome(Request $request){
+
+        return view('lg.welcome');
+    }
 }

@@ -112,8 +112,16 @@
                                 </ul>
                         </li>
                         <li>
-                            <a href="salary.html">
-                                <i class="fas fa-yen-sign"></i>Lương</a>
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-gift"></i>Lương</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="{{ route('listSalary') }}"><i class="fas fa-bars"></i>Danh sách</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('listSalaryHistory')}}"><i class="fas fa-history"></i>Lịch sử</a>
+                                    </li>
+                                </ul>
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
@@ -123,7 +131,7 @@
                                         <a href="{{ route('show') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="fas fa-history"></i>Lịch sử</a>
+                                        <a href="{{ route('bonusHistory') }}"><i class="fas fa-history"></i>Lịch sử</a>
                                     </li>
                                 </ul>
                         </li>

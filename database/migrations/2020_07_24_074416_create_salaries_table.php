@@ -16,14 +16,14 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('user_id');
+            $table->BigInteger('payBy_id')->nullable();
             $table->date('started_at');
             $table->date('finished_at')->nullable();
-            $table->integer('total_date');
             $table->integer('total_salary');
             $table->date('pay_day')->nullable();
             $table->tinyInteger('status');
             $table->datetime('created_at');
-            $table->datetime('updated_day');
+            $table->datetime('updated_day')->nullable();
         });
     }
 
