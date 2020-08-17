@@ -10,6 +10,11 @@ use App\salary;
 use Carbon\Carbon;
 class bonusController extends Controller
 {
+  public function __construct()
+  {
+  $this->middleware('auth');
+  $this->middleware('checkAdmin');
+  }
   function show(Request $request){
 
     $salary_mores=salary_more::join('users','users.id','=','salary_more.user_id')

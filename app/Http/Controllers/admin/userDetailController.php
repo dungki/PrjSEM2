@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\user;
 class userDetailController extends Controller
 {
+    public function __construct()
+    {
+		$this->middleware('auth');
+		$this->middleware('checkAdmin');
+    }
     //
     function show(Request $request){
         $user = $departments = '';

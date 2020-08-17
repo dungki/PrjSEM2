@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>Welcom</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
@@ -62,6 +64,17 @@ body, html {
   <div class="w3-top">
     <div class="w3-bar w3-card"  style="background-color:#f8f9fa!important; color:#333;">
       <a href="{{ route('HRMWelcome') }}" class="w3-bar-item w3-button w3-padding-large"><i class="fas fa-home"></i> HRM</a>
+
+
+
+      @if (Auth::user() !=null)
+ <a href="{{ route('logout') }}"
+ onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="w3-right w3-button w3-padding-large"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+  @endif
+
       <a href="{{ route('listUser') }}" class="w3-right w3-button w3-padding-large"><i class="fas fa-sign-in-alt"></i> Admin</a>
       <a href="{{ route('profile') }}" class="w3-right w3-button w3-padding-large"><i class="fas fa-sign-in-alt"></i> Nhân viên</a>
  
@@ -143,10 +156,12 @@ data-aos-duration="3000">
 </footer>
 <script>
 </script>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 </body>

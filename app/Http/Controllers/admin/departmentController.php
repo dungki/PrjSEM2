@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\department;
@@ -9,6 +9,11 @@ use App\group;
 use App\user;
 class departmentController extends Controller
 {
+    public function __construct()
+    {
+		$this->middleware('auth');
+		$this->middleware('checkAdmin');
+    }
     //
     function show(Request $request){
         $list = department::get();

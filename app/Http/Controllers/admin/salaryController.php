@@ -10,6 +10,17 @@ use App\salary_mores_history;
 class salaryController extends Controller
 {
 	
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+		$this->middleware('auth');
+		$this->middleware('checkAdmin');
+    }
+	
 	function listSalary(Request $request){
 		$salaries = DB::table('salaries')
 		->join('users', 'salaries.user_id', '=', 'users.id')

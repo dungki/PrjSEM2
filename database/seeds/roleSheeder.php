@@ -15,10 +15,7 @@ class roleSheeder extends Seeder
             'name' => 'admin'
         ]);
         DB::table('roles')->insert([
-            'name' => 'Quản lý'
-        ]);
-        DB::table('roles')->insert([
-            'name' => 'Nhân viên'
+            'name' => 'Staff'
         ]);
         DB::table('type_users')->insert([
             'name' => 'Toàn thời gian'

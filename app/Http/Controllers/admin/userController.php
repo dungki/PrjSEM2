@@ -10,11 +10,21 @@ use Carbon\Carbon;
 use App\salary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use App\role;
+use App\type_user;
 class userController extends Controller
 {
+    public function __construct()
+    {
+		$this->middleware('checkAdmin');
+    }
     function addUser(Request $request){
+        $roles = role::get();
+        $type_users = type_user::get();
         return view('admin.user.adduser')->with([
-            'message' =>''
+            'roles'=>$roles,
+            'type_users'=>$type_users
         ]);
     }
     //
@@ -73,9 +83,7 @@ class userController extends Controller
             }
             if ($value->email == $request->email ) {
 
-                return view('admin.user.adduser')->with([
-                    'message'=>'Email đã tồn tại'
-                ]);
+                return view('admin.user.adduser');
 
             }
         }

@@ -39,7 +39,7 @@
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="col-sm-5">
-                    <div class="form-group" style="display;">
+                    <div class="form-group" style="display:none;">
                       <label for="name">Mã nhân sự:</label>
                       <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
                   </div>
@@ -90,16 +90,17 @@
                   <div class="form-group">
                       <label for="exampleFormControlSelect1">Loại nhân viên:</label>
                       <select class="form-control" id="type_usr_id">
-                          <option value="1">Toàn thời gian</option>
-                          <option value='2'>Bán thời gian</option>
+                          @foreach ($type_users as $item)
+                          <option value="{{$item->id}}">{{$item->name}}</option>
+                          @endforeach
                       </select>
                   </div>
                   <div class="form-group">
                       <label for="exampleFormControlSelect1">Vai trò:</label>
                       <select class="form-control" id="role">
-                          <option value="1">admin</option>
-                          <option value="2">Quản lí</option>
-                          <option value="3">NHân viên</option>
+                         @foreach ($roles as $item)
+                      <option value="{{$item->id}}">{{$item->name}}</option>
+                         @endforeach
                       </select>
                   </div>
                   
@@ -108,11 +109,6 @@
             </form>
           </div>
       </div>
-      <script>
-          if ({{$message}}!= '') {
-            window.alert({{$message}});
-          }
-      </script>
     </div>
 </div>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>

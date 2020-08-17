@@ -511,9 +511,12 @@ class ComposerStaticInitecaaca1eec6fa8f7d19714e1e495c1d7
         'App\\Http\\Controllers\\loginController' => __DIR__ . '/../..' . '/app/Http/Controllers/loginController.php',
         'App\\Http\\Controllers\\user\\bonusController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/bonusController.php',
         'App\\Http\\Controllers\\user\\contactController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/contactController.php',
+        'App\\Http\\Controllers\\user\\salaryController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/salaryController.php',
         'App\\Http\\Controllers\\user\\timesheetController' => __DIR__ . '/../..' . '/app/Http/Controllers/user/timesheetController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAdmin.php',
+        'App\\Http\\Middleware\\CheckAge' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAge.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\CheckPhone' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckPhone.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -4944,6 +4947,7 @@ class ComposerStaticInitecaaca1eec6fa8f7d19714e1e495c1d7
         'phpDocumentor\\Reflection\\Types\\True_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/True_.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
         'roleSheeder' => __DIR__ . '/../..' . '/database/seeds/roleSheeder.php',
+        'userSheeder' => __DIR__ . '/../..' . '/database/seeds/userSheeder.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 
