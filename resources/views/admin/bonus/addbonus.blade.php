@@ -41,11 +41,11 @@
                   <input required="true" type="text" class="form-control" name="title" value=" {{$data->title}} "id="title" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="amount">Số lượng:</label>
+                  <label for="amount">Tiền thưởng + trợ cấp:</label>
                   <input required="true" type="text" class="form-control" name="amount" value="{{$data->amount}}"  id="amount" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="num">Số:</label>
+                  <label for="num">Số lần:</label>
                   <input required="true" type="text" value="{{$data->num}}" class="form-control" name="num" id="num" placeholder="">
                 </div>
                 <div class="form-group">
