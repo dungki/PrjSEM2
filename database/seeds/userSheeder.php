@@ -35,6 +35,16 @@ class userSheeder extends Seeder
             'role_id'=>  1,
             'status'=>  1
         ]);
-        return redirect()->route('addSalary');
+        $users= DB::table('users')
+                ->orderBy('id', 'desc')
+                ->first();
+        DB::table('salaries')
+            ->insert([
+                "user_id" => $users->id,
+                "status" => 1,
+                "started_at" => $currentTime,
+                "total_salary" => 0,
+                "created_at" => $currentTime 
+            ]);
     }
 }

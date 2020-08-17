@@ -3,7 +3,7 @@
 Route::group(['prefix' => 'admin/user'], function () {
     Route::get('addUser','admin\userController@addUser')->name('addUser')->middleware('auth');
     Route::post('postUser','admin\userController@postUser')->name('postUser')->middleware('auth');
-    Route::get('addSalary','admin\userController@addSalary')->name('addSalary');
+    Route::get('addSalary','admin\userController@addSalary')->name('addSalary')->middleware('auth');
     Route::get('deleteUser','admin\userController@deleteUser')->name('deleteUser')->middleware('auth');
     Route::get('listUser','admin\userController@listUser')->name('listUser')->middleware('auth');
     Route::get('detail','admin\userDetailController@show')->name('userDetail')->middleware('auth');

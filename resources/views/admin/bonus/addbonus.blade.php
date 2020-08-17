@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="usr_id">Nhân viên:</label>
-                  <select class="form-control" style="width:25%" id="role">
+                  <select class="form-control" style="width:25%" id="role" name="usr_id">
                     @foreach ($users as $item)
                         <option  {{($userid==$item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}} ( ID : {{$item->id}} )</option>
                     @endforeach
