@@ -26,11 +26,7 @@
       <h2 class="title-1 m-b-25" style="text-align:center;">Quản lý</h2>
       <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
         <div class="panel-body">
-          <div style="padding:60px;">
-            <form style="margin-bottom:25px;">
-                <label for="search">Tìm Kiếm:</label>
-              <input type="text" name="" value="" class="form-control search-input" placeholder="">
-            </form>
+          <div style="padding:30px;">
               <div class="table-responsive table--no-card m-b-40">
                   <table class="table table-borderless table-striped table-earning">
                     <thead>
@@ -57,7 +53,7 @@
                   {{ csrf_field() }}
                 <div class="form-group">
                   <label for="name">Tên:</label>
-                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Enter new department">
+                  <input required="true" type="text" class="form-control" name="department" id="name" placeholder="Thêm phòng ban mới">
                 </div>
                 <button type="submit" class="btn btn-dark">Lưu</button>
               </form>

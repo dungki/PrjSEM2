@@ -30,8 +30,8 @@
                     <tr>
                       <th>Tên</th> 
                       <th>Tổng lương</th>
-                      <th>Bắt đầu ngày</th>
-                      <th>Hoàn thành ngày</th>
+                      <th>Ngày bắt đầu</th>
+                      <th>Ngày hoàn thành</th>
                       <th>Trạng thái</th>
                       <th></th>
                     </tr>

@@ -39,7 +39,7 @@
                 {{ csrf_field() }}
                 <div class="row">
                   <div class="col-sm-5">
-                    <div class="form-group">
+                    <div class="form-group" style="display;">
                       <label for="name">Mã nhân sự:</label>
                       <input required="true" type="text" class="form-control" id="usr" readonly placeholder="id">
                   </div>

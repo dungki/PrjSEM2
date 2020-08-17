@@ -35,9 +35,9 @@
             <div class="panel-body">
                 <div class="form-group">
                   <form action="" method="GET" id="myform">
-                    <label for="exampleFormControlSelect1">Mã phòng ban:</label>
-                    <select class="form-control" name="department_id" id="depa_id" onchange="$('#myform').submit()">
-                        <option value="">--Phòng ban--</option>
+                    <label for="exampleFormControlSelect1"> Chọn mã phòng ban:</label>
+                    <select class="form-control" style="width:15%" name="department_id" id="depa_id" onchange="$('#myform').submit()">
+                        <option value="">--- Phòng ban ---</option>
                       @foreach ($departments as $item)
                     @if ($item->id == $department_id)
                     <option value="{{$item->id}}" selected='true'>{{$item->department}}</option> 
@@ -68,9 +68,9 @@
                     </div>
                     <div class="form-group" >
                       <label for="name">Mã nhân sự:</label>
-                    <input required="true" type="text" name="userid" class="form-control" value="{{$userid}}" id="usr_id" placeholder="...">
+                    <input required="true" type="text" name="userid" class="form-control" value="{{$userid}}" id="usr_id" placeholder="">
                     </div>
-                    <button class="btn btn-secondary" type="submit"  style="margin-top:15px;">Lưu</button>
+                    <button class="btn btn-dark" type="submit"  style="margin-top:15px;">Lưu</button>
                   </form>
             </div>
         </div>

@@ -14,13 +14,17 @@ class bonusController extends Controller
 
     $salary_mores=salary_more::join('users','users.id','=','salary_more.user_id')
     ->where('num','>',0)->select('users.name','salary_more.*')->get();
+    
     return view('admin.bonus.bonuslist')->with([
       "index" =>1,
+      
       "salary_mores" => $salary_mores
     ]);
+
   }
   function showForm(Request $request){
    $userid= '';
+   $users = DB::table('users')->where('status','1')->get();
    if (isset($request->userid)) {
              # code...
      $userid = $request->userid;
@@ -28,6 +32,7 @@ class bonusController extends Controller
    $data= new salary_more;
    return view('admin.bonus.addbonus')->with([
     'userid' => $userid,
+    "users" => $users,
     'data' =>$data
   ]);
  }

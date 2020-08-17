@@ -14,8 +14,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i>Nhân sự</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i>Tái kích hoạt</a></li>
+    <li><a href="#"><i class="fas fa-gift"></i> Nhân sự</a></li>
+    <li><a href="#"><i class="fas fa-plus-circle"></i> Tái kích hoạt</a></li>
   </ul>
   @endsection
 
@@ -26,9 +26,9 @@
              <h2 class="title-1 m-b-25" style="text-align:center;">Nhân viên</h2>
                   <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
                     <div class="panel-body">
-                      <div style="padding:60px;">
+                      <div style="padding:30px;">
                         <form method="GET" action="#" style="margin-bottom:25px;">
-                          <input type="text" name="s"  class="form-control search-input" placeholder="Search here">
+                          <input type="text" name="s"  class="form-control search-input" placeholder="Tìm kiếm nhân viên">
                           
                         </form>
                         
@@ -59,7 +59,7 @@
                                 </tbody>
                               </table>
                           </div>
-                        <a href="{{ route('addUser') }}" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Thêm nhân vi</a>
+                        <a href="{{ route('addUser') }}" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Thêm nhân viên</a>
                       </div>
                   </div>
             </div>
@@ -77,4 +77,5 @@
         }
     </script> --}}
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

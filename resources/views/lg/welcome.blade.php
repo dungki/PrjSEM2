@@ -30,7 +30,7 @@ body, html {
 
 .parallax {
   background-image: url("https://www.videogame2000.com/wp-content/uploads/2019/01/Thi%E1%BA%BFt-k%E1%BA%BF-n%E1%BB%99i-th%E1%BA%A5t-v%C4%83n-ph%C3%B2ng-%C4%91%E1%BA%B9p-mang-%C4%91%E1%BA%BFn-nh%E1%BB%AFng-l%E1%BB%A3i-%C3%ADch-g%C3%AC-cho-doanh-nghi%E1%BB%87p1.jpg");
-  height: 720px;
+  height: 100%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,7 +43,9 @@ body, html {
   font-weight: 100;
   letter-spacing: 10px;
   text-align: center;
-  padding-top: 300px;
+  position: relative;
+  top:40%;
+  bottom: 60%;
   color: black;
   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
@@ -79,7 +81,7 @@ body, html {
   <!-- Section -->
 
   <!-- Introduce -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="height: 800px;width: 100%;border:1px solid #e3e3e3;border-radius: 5px;-webkit-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
+  <div class="w3-container w3-content w3-center w3-padding-64" style="margin-top:200px;margin-bottom:200px;height: 800px;width: 100%;border:1px solid #e3e3e3;border-radius: 5px;-webkit-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
 -moz-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
 box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);" data-aos="fade-up"
 data-aos-duration="3000">
@@ -131,12 +133,12 @@ data-aos-duration="3000">
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <i class="fa fa-facebook-official w3-hover-opacity" style="padding-right:20px;font-size:70px"></i>
+  <i class="fa fa-instagram w3-hover-opacity"style="padding-right:20px;font-size:70px"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"style="padding-right:20px;font-size:70px"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"style="padding-right:20px;font-size:70px"></i>
+  <i class="fa fa-twitter w3-hover-opacity"style="padding-right:20px;font-size:70px"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"style="padding-right:20px;font-size:70px"></i>
   <!-- <p class="w3-medium">Powered by <a href="#" target="_blank">Me</a></p> -->
 </footer>
 <script>

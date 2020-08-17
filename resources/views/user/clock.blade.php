@@ -180,7 +180,7 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>Thông tin cá nhân</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('userListSalary') }}">
                                <i class="fa fa-usd" aria-hidden="true"></i>Salary</a>
                         </li>
                         <li>
@@ -411,7 +411,7 @@
                     <tr style="background: teal;">
                         <th colspan="5">
                             <div id="countdown" style="position: relative;top: 9px;">Clock</div>
-                            <p id="tips100" style="color: #292929;margin-top: 5px;font-style: italic;">(Click " Start " to begin)</p>
+                            <p id="tips100" style="color: #292929;margin-top: 5px;font-style: italic;"></p>
                         </th>
                     </tr>
                     <tr>
@@ -423,7 +423,7 @@
                 @if ($checkTimesheet != null)
                 <tbody>
                     <td>
-                        <input class="text-center" type="text" id="start" value="{{$checkTimesheet->checkin}} (h)" on name="start" readonly>
+                        <input class="text-center" type="text" id="start" value="{{((int)$checkTimesheet->checkin<10)?'0':''}}{{(int)$checkTimesheet->checkin}} : {{((int)(($checkTimesheet->checkin - (int)$checkTimesheet->checkin)*60)<10)?'0':''}}{{(int)(($checkTimesheet->checkin - (int)$checkTimesheet->checkin)*60)}}" on name="start" readonly>
                     </td>
                     <td>
                         <input class="text-center"type="text" id="finish" value="" name="finish" readonly>
@@ -464,9 +464,9 @@
                       <tr>
                           <th>No</th>
                           <th>Ngày làm</th>
-                          <th>Checkin</th>
-                          <th>Checkout</th>
-                          <th>resttime</th>
+                          <th>Bắt đầu</th>
+                          <th>Kết thúc</th>
+                          <th>thời gian nghỉ</th>
                           <th>Số giờ làm</th>
                           <th>Lương</th>
                           <th>Hệ số lương</th>
@@ -476,13 +476,13 @@
                   <tbody>
                   @foreach ($timesheets as $item)
                       <tr>
-                      <td>{{$index++}}</td>
+                        <td>{{$index++}}</td>
                         <td>{{$item->work_date}}</td>
-                        <td>{{$item->checkin}}</td>
-                        <td>{{$item->checkout}}</td>
-                        <td>{{$item->resttime}}</td>
-                        <td>{{$item->working_time}}</td>
-                        <td>{{$item->amount}}</td>
+                        <td>{{((int)$item->checkin<10)?'0':''}}{{(int)$item->checkin}} : {{(ROUND(($item->checkin - (int)$item->checkin)*60)<10)?'0':''}}{{ROUND(($item->checkin - (int)$item->checkin)*60)}}</td>
+                        <td>{{((int)$item->checkout<10)?'0':''}}{{(int)$item->checkout}} : {{(ROUND(($item->checkout - (int)$item->checkout)*60)<10)?'0':''}}{{ROUND(($item->checkout - (int)$item->checkout)*60)}}</td>
+                        <td>{{$item->resttime}}  (Giờ)</td>
+                        <td>{{$item->working_time}}  (Giờ)</td>
+                        <td>{{number_format($item->amount)}}  (vnd)</td>
                         <td>{{$data->salary}} vnd/giờ</td>
                         <td>{{$data->name}}</td>
                       </tr>

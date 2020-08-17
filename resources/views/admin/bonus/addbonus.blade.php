@@ -28,31 +28,36 @@
     <!-- MAIN CONTENT-->
     <div class="main-content">
       <h2 class="title-1 m-b-25" style="text-align:center;">Thêm tiền thưởng</h2>
-        <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
-            <div class="panel-body" style="color:white;">
+        <div class="container" style="padding: 60px;border-radius: 10px;">
+            <div class="panel-body" style="color:black;">
               <form class="" action="{{ route('insertBonus') }}" method="post">
                 {{ csrf_field() }}
-                <div class="form-group">
+                <div class="form-group" style="visibility: hidden;display:none">
                   <label for="id">Id:</label>
-                  <input required="true" type="text" class="form-control" value="{{$data->id}}" name="id" id="id" placeholder="..." readonly>
+                  <input required="true" type="text" class="form-control" value="{{$data->id}}" name="id" id="id" placeholder="" readonly>
                 </div>
                 <div class="form-group">
                   <label for="title">Tiêu đề:</label>
-                  <input required="true" type="text" class="form-control" name="title" value=" {{$data->title}} "id="title" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="title" value=" {{$data->title}} "id="title" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="amount">Số lượng:</label>
-                  <input required="true" type="text" class="form-control" name="amount" value="{{$data->amount}}"  id="amount" placeholder="...">
+                  <input required="true" type="text" class="form-control" name="amount" value="{{$data->amount}}"  id="amount" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="num">Số:</label>
-                  <input required="true" type="text" value="{{$data->num}}" class="form-control" name="num" id="num" placeholder="...">
+                  <input required="true" type="text" value="{{$data->num}}" class="form-control" name="num" id="num" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="usr_id">Mã nhân viên:</label>
-                <input required="true" type="text" class="form-control"  name="usr_id" value="{{$userid}}" id="usr_id" placeholder="...">
-                </div>
-                <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Lưu</button>
+                  <label for="usr_id">Nhân viên:</label>
+                  <select class="form-control" style="width:25%" id="role">
+                    @foreach ($users as $item)
+                        <option  {{($userid==$item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}} ( ID : {{$item->id}} )</option>
+                    @endforeach
+                      
+                  </select>
+              </div>
+                <button class="btn btn-dark" type="submit" style="margin-top:15px;">Lưu</button>
               </form>
             </div>
         </div>

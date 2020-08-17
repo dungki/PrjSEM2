@@ -11,7 +11,7 @@
 
     <!-- Title Page-->
     
-    <title>Thêm liên hệ</title>
+    <title>Lịch sử lương</title>
      <style>
     #clock , #countdown{
         text-align: center;
@@ -391,59 +391,54 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <h2 class="title-1 m-b-25" style="text-align:center;">Thêm liên lạc</h2>
-                  <div class="container" style="background:#333;padding: 60px;border-radius: 10px;">
-                                      <div class="panel-body" style="color:white;">
-                                          <form class="" action="{{ route('postContact') }}" method="post">
-                                            {{ csrf_field() }}
-                                              <div class="form-group">
-                                              <input required="true" type="text" name="id"  class="form-control" value="{{$contact->id}}" id="usr" readonly placeholder="id">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="usr_id">Mã nhân viên:</label>
-                                              <input required="true" type="text" value="{{Auth::id()}}" name="user_id" value="{{$contact->user_id}}" class="form-control" id="usr_id" readonly>
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="rela">Mối quan hệ:</label>
-                                                <select name="relationship" id="" class="form-control">
-                                                    <option value="người thân" >--Chọn--</option>
-                                                    <option value="Bố">Bố</option>
-                                                    <option value="Mẹ">Mẹ</option>
-                                                    <option value="Anh/em trai">Anh/em trai</option>
-                                                    <option value="Chị gái">Chị gái</option>
-                                                    <option value="em gái">Em gái</option>
-                                                    <option value="Ông">Ông</option>
-                                                    <option value="Bà">Bà</option>
-                                                </select>
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="name">Tên:</label>
-                                                <input required="true" type="text" value="{{$contact->name}}" class="form-control" name="name" id="name" placeholder="...">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="address">Địa chỉ:</label>
-                                                <input required="true" type="text" class="form-control" value="{{$contact->address}}" name="address" id="address" placeholder="...">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="number">Số điện thoại:</label>
-                                                <input required="true" type="text" class="form-control" name="phone" id="number" value="{{$contact->phone}}" placeholder="...">
-                                              </div>
-                          <div class="form-group">
-                                                <label for="email">Email:</label>
-                                                <input required="true" type="text" class="form-control" value="{{$contact->email}}" name="email" id="email" placeholder="...">
-                                              </div>
-                          <div class="form-group">
-                                                <label for="inden_card">CMND:</label>
-                                                <input required="true" type="text" class="form-control" value="{{$contact->identity_cart}}" name="cmnd" id="inden_card" placeholder="...">
-                                              </div>
-                                              <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Lưu</button>
-                                          </form>
-                                      </div>
-                              </div>
-        
-            </div>
-        </div>
+          
+            <style>
+                table, th, td{
+                    border-collapse: collapse;
+                }    
+            </style>
+              <div class="main-content">
+              <h2 class="title-1 m-b-25" style="text-align:center;">Chi tiết bảng lương</h2>
+          <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
+            <div class="panel-body">
+              <div style="padding:60px;">
+                <!-- <form style="margin-bottom:25px;">
+                  <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
+                </form> -->
+                  <div class="table-responsive table--no-card m-b-40">
+                      <table class="table table-borderless table-striped table-earning">
+                        <thead>
+                          <tr> 
+                            <th>Ngày làm</th>
+                            <th>Giờ bắt đầu</th>
+                            <th>Giờ kết thúc</th>
+                            <th>Thời gian nghỉ</th>
+                            <th>Số giờ làm</th>
+                            <th>Hệ số lương</th>
+                            <th>Lương</th>
+                            <th>Nhân viên</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         
+                     @foreach ($timeSheets as $item)
+                        <tr>
+                                  <td>{{$item->work_date}}</td>
+                                  <td>{{((int)$item->checkin<10)?'0':''}}{{(int)$item->checkin}} : {{(ROUND(($item->checkin - (int)$item->checkin)*60)<10)?'0':''}}{{ROUND(($item->checkin - (int)$item->checkin)*60)}}</td>
+                                  <td>{{((int)$item->checkout<10)?'0':''}}{{(int)$item->checkout}} : {{(ROUND(($item->checkout - (int)$item->checkout)*60)<10)?'0':''}}{{ROUND(($item->checkout - (int)$item->checkout)*60)}}</td>
+                                  <td>{{$item->resttime}}</td>
+                                  <td>{{$item->working_time}}</td>
+                                  <td>{{$item->salary}}</td>
+                                  <td>{{number_format($item->amount)}}</td>
+                                  <td>{{$item->name}}</td>
+                         </tr>
+                     @endforeach
+                        </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+    </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>

@@ -172,7 +172,7 @@
                             <i class="fa fa-user" aria-hidden="true"></i>Thông tin cá nhân</a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('userListSalary') }}">
                            <i class="fa fa-usd" aria-hidden="true"></i>Salary</a>
                     </li>
                     <li>

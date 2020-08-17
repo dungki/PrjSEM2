@@ -71,7 +71,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li>
                             <a class="js-arrow" href="{{ route('index') }}">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Thống kê</a>
                             <!-- <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">Dashboard 1</a>
@@ -95,7 +95,7 @@
                                         <a href="{{ route('listUser') }}"><i class="fas fa-info-circle"></i>Danh sách người dùng</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('reactivateUser') }}"><i class="fas fa-plus-circle"></i>tái kích hoạt</a>
+                                        <a href="{{ route('reactivateUser') }}"><i class="fas fa-plus-circle"></i>Tái kích hoạt</a>
                                     </li>
                                 </ul>
                         </li>
@@ -113,7 +113,7 @@
                         </li>
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-gift"></i>Lương</a>
+                                <i class="fas fa-dollar-sign"></i>Lương</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
                                         <a href="{{ route('listSalary') }}"><i class="fas fa-bars"></i>Danh sách</a>
@@ -199,6 +199,11 @@
             <div class="container-fluid">
                 <div class="header-wrap">
                   @yield('index')
+                    <ul class="breadcrumb" style="visibility: hidden;">
+                        <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                        <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
+                        <li><a href="#"><i class="fas fa-gift"></i> Nhân sự</a></li>
+                    </ul>
                     <div class="header-button">
                         <div class="noti-wrap">
                             <div class="noti__item js-item-menu">

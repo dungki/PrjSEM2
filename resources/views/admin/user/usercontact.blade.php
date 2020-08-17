@@ -33,10 +33,9 @@
                   <table class="table table-borderless table-striped table-earning">
                     <thead>
                       <tr>
-                        <th>Mục lục</th>
-                        <th>Mã người dùng</th>
-                        <th>Mối quan hệ</th>
+                        <th>STT</th>]
                         <th>Tên</th>
+                        <th>Mối quan hệ</th>
                         <th>Địa chỉ</th>
                         <th>SĐT</th>
                         <th>Email</th>
@@ -46,10 +45,9 @@
                     <tbody>
                         @foreach ($user_contacts as $item)
                         <tr>
-                        <td>{{$index++}}</td>
-                        <td>{{$item->user_id}}</td>
-                            <td>{{$item->relationship}}</td>
+                            <td>{{$index++}}</td>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->relationship}}</td>
                             <td>{{$item->address}}</td>
                             <td>{{$item->phone}}</td>
                             <td>{{$item->email}}</td>

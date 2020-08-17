@@ -119,6 +119,7 @@ class timesheetController extends Controller
         ->where('salaries.status',1)
         ->update([
             "total_salary" => $total_salary,
+            "finished_at" => $currentTime,
             "updated_day" => $currentTime
         ]);
            return redirect()->route('clock');

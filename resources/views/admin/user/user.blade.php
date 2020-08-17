@@ -40,7 +40,6 @@
                                     <th>Tên</th>
                                     <th>Trạng thái</th>
                                     <th>Email</th>
-                                    <th>Mật khẩu</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -54,7 +53,6 @@
                                        <td><a href="{{ route('userDetail') }}?id={{$item->id}}">{{$item->name}}</a></td>
                                        <td>{{($item->status==1)?"Hoạt động":"Đã nghỉ"}}</td>
                                        <td>{{$item->email}}</td>
-                                       <td>{{$item->viewpass}}</td>
                                     <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Thưởng</a></td>
                                     <td><a class="btn btn-primary" href="{{ route('showContact') }}?userid={{$item->id}}">Liên hệ</a></td>
 
