@@ -51,7 +51,7 @@ Quản Lý trợ cấp + thưởng
                   <td><a  href="{{ route('userDetail') }}?id={{$item->user_id}}">
                    {{$item->name}}
                  </a></td>
-                 <td>{{($item->status==0)?"Thêm":(($item->status==1)?"Sửa":(($item->status==2)?"Xóa":""))}}</td>
+                 <td>{{($item->status==0)?"Thêm":(($item->status==1)?"Sửa":(($item->status==2)?"Xóa":""))}}{{($item->status==9)?"Đã trả":""}}</td>
                  <td><a href="{{ route('userDetail') }}?id={{$item->bonus_by_id}}">
                   @foreach ($users as $b)
                   {{($b->id == $item->bonus_by_id)?$b->name:""}}

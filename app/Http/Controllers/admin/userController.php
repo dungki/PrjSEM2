@@ -96,6 +96,7 @@ class userController extends Controller
             'updated_at'=>  $currentTime,
             'identity_cart'=>  $request->cmnd,
             'phone'=>  $request->phone,
+            'gender' => $request->gender,
             'birthday'=>Carbon::parse($birthday)->format('Y-m-d'),
             'joined_at'=>  Carbon::parse($joinDay)->format('Y-m-d'),
             'address'=>  $request->address,

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\user;
 use Illuminate\Support\Facades\DB;
 use App\timeSheet;
-
+use App\role;
 use App\salary;
 class timesheetController extends Controller
 {
@@ -126,6 +126,7 @@ class timesheetController extends Controller
     }
   function profile(Request $request){
         $user = user::where('id',Auth::id())->first();
+        $roles = role::get();
     $departments = user::join('groups','users.id','=','groups.user_id')
     ->join('departments','departments.id','=','groups.department_id')
     ->where('users.id',Auth::id())
@@ -134,7 +135,8 @@ class timesheetController extends Controller
     
     return view('user.profile')->with([
        'departments' => $departments,
-       'user' => $user
+       'user' => $user,
+       'roles'=>$roles
     ]);
   }
 

@@ -195,7 +195,7 @@
                                         <a href="{{ route('userBonusList') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="fas fa-history"></i>Lịch sử</a>
+                                        <a href="{{ route('userbonusHistory') }}"><i class="fas fa-history"></i>Lịch sử</a>
                                     </li>
                                 </ul>
                         </li>
@@ -467,7 +467,7 @@
 </body>
 <!-- end document-->
 <footer>
-    <div id="footer" class="copyright" style="background:#d2d2d2;">
+    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;">
       <p style="margin-top: 25px;">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
     </div>
   </footer>

@@ -11,9 +11,27 @@
 
     <!-- Title Page-->
     
-    <title>Thông tin liên hệ</title>
+    <title>Lịch sử lương</title>
      <style>
-    
+    #clock , #countdown{
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+        font-size: 30px;
+    }
+    span{
+        cursor:pointer;
+    }
+    #start,
+    #finish {
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .clock-vs-countdown{
+        padding-bottom: 0;
+    }
     </style>
 <link href="{{ asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
 
@@ -373,62 +391,55 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
+          
             <div class="main-content">
-                <h2 class="title-1 m-b-25" style="text-align:center">Liên hệ nhân viên</h2>
+                <h2 class="title-1 m-b-25" style="text-align:center;">Lịch sử thưởng</h2>
                 <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
                   <div class="panel-body">
                     <div style="padding:60px;">
-                      <form style="margin-bottom:25px;">
+                      {{-- <form style="margin-bottom:25px;">
                         <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-                      </form>
-                        <div class="table-responsive table--no-card m-b-40">
-                            <table class="table table-borderless table-striped" style="background-color: #17a2b8;">
-                                <style>
-                                    td{
-                                        color: #000;
-                                    }
-                                    th{
-                                        color: #fff;
-                                    }
-                                </style>
-                              <thead>
-                                <tr>
-                                  <th>Mã người dùng</th>
-                                  <th>Mối quan hệ</th>
-                                  <th>Tên</th>
-                                  <th>Địa chỉ</th>
-                                  <th>SĐT</th>
-                                  <th>Email</th>
-                                  <th>CMND</th>
-                                  <th></th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  @foreach ($user_contacts as $item)
-                                  <tr>
-                                  <td>{{$item->user_id}}</td>
-                                      <td>{{$item->relationship}}</td>
-                                      <td>{{$item->name}}</td>
-                                      <td>{{$item->address}}</td>
-                                      <td>{{$item->phone}}</td>
-                                      <td>{{$item->email}}</td>
-                                      <td>{{$item->identity_cart}}</td>
-                                  <td> <a href="{{ route('editContact') }}?id={{$item->id}}" class="btn btn-warning">Sửa</a> </td>
-                                  <td> <a href="{{ route('deleteContact') }}?id={{$item->id}}" class="btn btn-danger">Xóa</a> </td>
-
-                                    </tr>
-                                  @endforeach
-                              </tbody>
-                            </table>
-                        </div>
-                        <td> <a href="{{ route('userAddContact') }}" class="btn btn-primary">Thêm</a> </td>
-
+                      </form> --}}
+                      <div class="table-responsive table--no-card m-b-40">
+                        <table class="table table-borderless table-striped table-earning">
+                          <thead>
+                            <tr>
+                              <th>Thêm vào bảng lương</th>
+                              <th>Tiêu đề</th>
+                              <th>Số tiền</th>
+                              <th>Thưởng nhân viên</th>
+                              <th>Trạng thái</th>
+                              <th>Người thực hiện</th>
+                              <th>Thời gian trả</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($salary_mores_histories as $item)
+                            <tr>
+                                <td><a href="{{ route('userListSalary') }}?id={{$item->salary_id}}">{{$item->salary_id}}</a></td>
+                              <td>{{$item->title}}</td>
+                              <td>{{$item->amount}}</td>
+                              <td>
+                               {{$item->name}}
+                          </td>
+                             <td>{{($item->status==9)?"Đã trả":""}}</td>
+                             <td>
+                              @foreach ($users as $b)
+                              {{($b->id == $item->bonus_by_id)?$b->name:""}}
+                              @endforeach
+            
+</td>
+                            <td>{{$item->updated_at}}</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
                     </div>
+                  </div>
                 </div>
-          </div>
-          
               </div>
+            </div>
+            </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>

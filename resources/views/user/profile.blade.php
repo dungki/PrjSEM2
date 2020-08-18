@@ -161,7 +161,7 @@
        <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
             <a href="#">
-                <img src="{{ asset('user/images/icon/logo1.png')}}" alt="Aptech Fpt" />
+                <img style="height: 75px;margin-left: 20px;" src="{{ asset('user/images/icon/logo1.png')}}" alt="Aptech Fpt" />
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -173,7 +173,7 @@
                     </li>
                     <li>
                         <a href="{{ route('userListSalary') }}">
-                           <i class="fa fa-usd" aria-hidden="true"></i>Salary</a>
+                           <i class="fa fa-usd" aria-hidden="true"></i>Lương</a>
                     </li>
                     <li>
                         <a href="{{ route('clock', ['id'=>1]) }}">
@@ -187,7 +187,7 @@
                                     <a href="{{ route('userBonusList') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                 </li>
                                 <li>
-                                    <a href=""><i class="fas fa-history"></i>Lịch sử</a>
+                                    <a href="{{ route('userbonusHistory') }}"><i class="fas fa-history"></i>Lịch sử</a>
                                 </li>
                             </ul>
                     </li>
@@ -363,7 +363,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt=" {{ Auth::user()->name }}" />
+                                            <img src="{{ asset('user/images/icon/avatar67.webp')}}" alt=" {{ Auth::user()->name }}" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"> {{ Auth::user()->name }}</a>
@@ -372,7 +372,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{ asset('user/images/icon/userlogo.jpg')}}" alt=" {{ Auth::user()->name }}" />
+                                                        <img src="{{ asset('user/images/icon/avatar67.webp')}}" alt=" {{ Auth::user()->name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -414,19 +414,19 @@
                 <div class="container-fluid" style="font-size:18px;">
                     <div class="row">
                         <div class="col-sm-5">
-                            <img src="{{ asset('user/images/icon/avatar-04.jpg') }}" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
+                            <img src="{{ asset('user/images/icon/avatar67.webp') }}" class="rounded-circle" style="margin-left: auto; margin-right: auto; display: block;" alt="Cinque Terre" width="200" height="100">
                             <div class="main-info" style="margin-top: 40px; padding: 10px; ">
                                 <div class="info-1" style="margin-bottom: 25px ;">
                                 <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Giới thiệu</h3>
-                                <li class="styling100">Giới thiệu: Nam</li>
+                                <li class="styling100">Giới tính: {{$user->gender}}</li>
                                 <li class="styling100">Ngày sinh: {{$user->birthday}}</li>
                                 <li class="styling100">Tình trạng: {{($user->status == 1)?'active':'false'}}</li>
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
                                     <h3 style="margin-bottom:15px;"><i class="far fa-thumbs-up"></i> Sở thích</h3>
                                     <li class="styling100">Hát</li>
-                                    <li class="styling100">live stream dọa bắn súng</li>
-                                    <li class="styling100">tấu hài</li>
+                                    <li class="styling100">Chơi thể thao</li>
+                                    <li class="styling100">Chơi game</li>
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-map-marker-alt"></i> Liên hệ</h3>
@@ -445,7 +445,11 @@
                             <div class="main-infor2">
                                 <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
                             <h2>{{$user->name}}</h2>
-                            <span>Supreme adviser to President Donald Trump</span>
+                            @foreach ($roles  as $item)
+                                @if ($user->role_id == $item->id)
+                                              <span>Chức vụ: {{$item->name}}</span>
+                                @endif                       
+                            @endforeach
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>
@@ -454,22 +458,21 @@
                                     @endforeach
                                     </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
-                                    <h3><i class="fas fa-university"></i> Giáo dục</h3>
-                                    <li class="styling100">Tốt nghiệp khoa bắn súng</li>
+                                    <h3><i class="fas fa-university"></i> Giáo dục</h3>                 
                                     <li class="styling100">Tốt nghiệp Đại học Harvard</li>
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-running"></i> Kĩ năng</h3>
-                                    <li class="styling100">Trình độ bắn súng cao</li>
-                                    <li class="styling100">VÕ thuật</li>
+                                    <li class="styling100">Bóng rổ</li>
+                                    <li class="styling100">Võ thuật</li>
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-chalkboard-teacher"></i> Chuyên môn</h3>
-                                    <li class="styling100">Xem bói</li>
+                                    <li class="styling100">Lập trình web</li>
                                 </div>
                                 <div class="info-1" style="margin-bottom: 25px;">
                                     <h3 style="margin-bottom:15px;"><i class="fas fa-graduation-cap"></i> Kinh nghiệm</h3>
-                                    <li class="styling100">Từng là cố vấn cho cựu tổng thống Obama</li>
+                                    <li class="styling100">2 năm đại học ngoại ngữ</li>
                                 </div>
 
                             </div>

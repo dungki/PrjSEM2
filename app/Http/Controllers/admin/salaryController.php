@@ -44,11 +44,13 @@ class salaryController extends Controller
 			->where('num','>',0)
 			->get();
 			$bo = 0;
+			$t = '';
 			foreach ($bonus as $item) {
 				$bo+=$item->amount;
 				DB::table('salary_more')->where('id',$item->id)->update([
 					'num' => $item->num - 1
 				]);
+				$t .='+'.$item->title ;
 				// salary_mores_history::insert([
 				// 	'salary_id' => $salary->id,
 				// 	'user_id' => $salary->user_id,
@@ -59,7 +61,16 @@ class salaryController extends Controller
 				// 	'status' => 1
 				// ]);
 			}
-			
+			salary_mores_history::insert([
+				'user_id' => $salary->user_id,
+				'salary_id' =>  $salary->id,
+				'title' => $t,
+					'num' => 1,
+					'amount' => $bo,
+					'updated_at' => Carbon::now(),
+					'status' => 9,
+					'bonus_by_id' => Auth::id() 
+			]);
 			
 			DB::table('salaries')->where('id',$request->id)
 			->update([

@@ -57,7 +57,7 @@
             <div class="main-info" style="margin-top: 40px; padding: 10px; ">
                 <div class="info-1" style="margin-bottom: 25px ;">
                 <h3 style="margin-bottom:15px;"><i class="far fa-grin-beam"></i> Giới thiệu</h3>
-                <li class="styling100">Giới thiệu: Nam</li>
+                <li class="styling100">Giới tính: {{$user->gender}}</li>
                 <li class="styling100">Ngày sinh: {{$user->birthday}}</li>
                 <li class="styling100">Tình trạng: {{($user->status == 1)?'active':'false'}}</li>
                 </div>
@@ -80,7 +80,11 @@
             <div class="main-infor2">
                 <div class="name-info" style="margin-bottom: 90px; margin-top: 80px;">
             <h2>{{$user->name}}</h2>
-            <span>Supreme adviser to President Donald Trump</span>
+            @foreach ($roles  as $item)
+                                @if ($user->role_id == $item->id)
+                                              <span>Chức vụ: {{$item->name}}</span>
+                                @endif                       
+                            @endforeach
                 </div>
                 <div class="info-1" style="margin-bottom: 25px; margin-right: 500px;">
                     <h3 style="margin-bottom:15px;"><i class="fas fa-book"></i> Phòng ban</h3>

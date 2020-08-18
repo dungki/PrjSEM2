@@ -63,6 +63,14 @@
                       <input required="true" type="text" name="name" class="form-control" id="name" placeholder="...">
                   </div>
                   <div class="form-group">
+                      <label for="personId">Giới tính:</label>
+                      <select name="gender"> 
+                         <option value="Nam">Nam</option>
+                         <option value="Nữ">Nữ</option>
+                      </select>
+                  </div>
+                  
+                  <div class="form-group">
                       <label for="personId">CMND:</label>
                       <input required="true" type="text" name="cmnd" class="form-control" id="inden_card" placeholder="...">
                   </div>

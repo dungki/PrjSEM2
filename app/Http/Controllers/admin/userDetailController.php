@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\user;
+use App\role;
 class userDetailController extends Controller
 {
     public function __construct()
@@ -15,6 +16,7 @@ class userDetailController extends Controller
     //
     function show(Request $request){
         $user = $departments = '';
+$roles = role::get();
         if (isset($request->id)) {
             $user = user::where('id',$request->id)->first();
         $departments = user::join('groups','users.id','=','groups.user_id')
@@ -25,7 +27,8 @@ class userDetailController extends Controller
         }
         return view('admin.user.profile')->with([
            'departments' => $departments,
-           'user' => $user
+           'user' => $user,
+           'roles' => $roles
         ]);
     } 
 }

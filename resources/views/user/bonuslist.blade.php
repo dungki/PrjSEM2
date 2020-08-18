@@ -195,7 +195,7 @@
                                         <a href="{{ route('userBonusList') }}"><i class="fas fa-bars"></i>Danh sách</a>
                                     </li>
                                     <li>
-                                        <a href=""><i class="fas fa-history"></i>Lịch sử</a>
+                                        <a href="{{ route('userbonusHistory') }}"><i class="fas fa-history"></i>Lịch sử</a>
                                     </li>
                                 </ul>
                         </li>
