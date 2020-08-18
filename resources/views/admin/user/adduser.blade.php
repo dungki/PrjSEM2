@@ -21,7 +21,7 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i>Nhân sự</a></li>
+    <li><a href="#"><i class="fas fa-user-tie"></i> Nhân sự</a></li>
     <li><a href="#"><i class="fas fa-plus-circle"></i> Thêm nhân sự</a></li>
   </ul>
   @endsection
@@ -104,7 +104,7 @@
                       </select>
                   </div>
                   
-                  <button class="btn btn-secondary" style="margin-top:15px;">Lưu</button>
+                  <button class="btn btn-secondary" style="margin-top:15px;margin-bottom: 40px;">Lưu</button>
               </div>
             </form>
           </div>

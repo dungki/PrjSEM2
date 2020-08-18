@@ -95,7 +95,7 @@
                                         <a href="{{ route('listUser') }}"><i class="fas fa-info-circle"></i>Danh sách người dùng</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('reactivateUser') }}"><i class="fas fa-plus-circle"></i>Tái kích hoạt</a>
+                                        <a href="{{ route('reactivateUser') }}"><i class="fab fa-creative-commons-sa"></i>Tái kích hoạt</a>
                                     </li>
                                 </ul>
                         </li>
@@ -104,10 +104,10 @@
                                 <i class="fas fa-building"></i>Quản lý phòng ban</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{ route('showGroup') }}"><i class="fas fa-sliders-h"></i>Quản lý</a>
+                                        <a href="{{ route('showGroup') }}"><i class="fas fa-tasks"></i>Quản lý</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('showDepartment') }}"><i class="fas fa-tasks"></i>Thiết lập </a>
+                                        <a href="{{ route('showDepartment') }}"><i class="fas fa-sliders-h"></i>Thiết lập </a>
                                     </li>
                                 </ul>
                         </li>
@@ -288,10 +288,10 @@
                         <div class="account-wrap">
                             <div class="account-item clearfix js-item-menu">
                                 <div class="image">
-                                    {{-- <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-9/95540311_238543303916983_8374609954258026496_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=TNk-atK6M9QAX-poT8t&_nc_ht=scontent.fhan3-2.fna&oh=7f420774a0311e552f6ed468e1c5efd8&oe=5F3B2BB3" alt="PlusThicc" /> --}}
+                                     {{-- <img src="{{ asset('img/Vinh.jpg') }}" alt="PlusThicc" />  --}}
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">Admin</a>
+                                    <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">

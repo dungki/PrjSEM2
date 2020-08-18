@@ -14,8 +14,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i>Nhân sự</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i>Danh sách</a></li>
+    <li><a href="#"><i class="fas fa-user-tie"></i> Nhân sự</a></li>
+    <li><a href="#"><i class="fas fa-bars"></i> Danh sách</a></li>
   </ul>
   @endsection
 
@@ -63,6 +63,7 @@
                                    
                                 </tbody>
                               </table>
+                              {!! $users->links() !!}
                           </div>
                         <a href="{{ route('addUser') }}" class="btn btn-dark" style="border-radius:20px"><i class="fas fa-plus"></i> Thêm nhân viên</a>
                       </div>

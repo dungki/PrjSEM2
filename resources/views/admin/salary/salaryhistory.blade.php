@@ -10,8 +10,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i>Lương</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i> Danh sách đã trả</a></li>
+    <li><a href="#"><i class="fas fa-dollar-sign"></i> Lương</a></li>
+    <li><a href="#"><i class="fas fa-bars"></i> Danh sách đã trả</a></li>
   </ul>
 @endsection
 @section('container')

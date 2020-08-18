@@ -90,11 +90,10 @@ body, html {
   <div class="parallax">
     <h5 class="hrm-font">GROUP:HRM</h5>
   </div>
-<!-- data-aos="zoom-in-down" -->
-  <!-- Section -->
+
 
   <!-- Introduce -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="margin-top:200px;margin-bottom:200px;height: 800px;width: 100%;border:1px solid #e3e3e3;border-radius: 5px;-webkit-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
+  <div class="w3-container w3-content w3-center w3-padding-64" style="margin-top:200px;margin-bottom:200px;height: 800px;width: 100%;border:1px solid #e3e3e3;border-radius: 2px;-webkit-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
 -moz-box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);
 box-shadow: -2px 2px 38px 10px rgba(0,0,0,0.35);" data-aos="fade-up"
 data-aos-duration="3000">

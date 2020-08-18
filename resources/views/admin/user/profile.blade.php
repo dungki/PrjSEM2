@@ -35,8 +35,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i>Nhân sự</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i> Thông tin chi tiết</a></li>
+    <li><a href="#"><i class="fas fa-user-tie"></i> Nhân sự</a></li>
+    <li><a href="#"><i class="fas fa-info"></i> Thông tin chi tiết</a></li>
   </ul>
   @endsection
 
@@ -112,4 +112,5 @@
         </div>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

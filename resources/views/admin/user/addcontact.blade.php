@@ -73,7 +73,7 @@
                                         <label for="inden_card">CMND:</label>
                                         <input required="true" type="text" class="form-control" name="cmnd" id="inden_card" placeholder="...">
                                       </div>
-                                      <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Lưu</button>
+                                      <button class="btn btn-secondary" type="submit" style="margin-top:15px;margin-bottom: 40px;">Lưu</button>
                                   </form>
                               </div>
                       </div>

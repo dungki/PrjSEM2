@@ -14,8 +14,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i> Nhân sự</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i> Tái kích hoạt</a></li>
+    <li><a href="#"><i class="fas fa-user-tie"></i> Nhân sự</a></li>
+    <li><a href="#"><i class="fab fa-creative-commons-sa"></i> Tái kích hoạt</a></li>
   </ul>
   @endsection
 

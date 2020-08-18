@@ -465,7 +465,7 @@
 </body>
 <!-- end document-->
 <footer>
-    <div id="footer" class="copyright" style="background:#d2d2d2;">
+    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;">
       <p style="margin-top: 25px;">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
     </div>
   </footer>

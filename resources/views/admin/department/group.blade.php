@@ -17,8 +17,8 @@
 <ul class="breadcrumb">
     <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
     <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
-    <li><a href="#"><i class="fas fa-gift"></i> Phòng ban</a></li>
-    <li><a href="#"><i class="fas fa-plus-circle"></i>Quản lý</a></li>
+    <li><a href="#"><i class="fas fa-building"></i> Phòng ban</a></li>
+    <li><a href="#"><i class="fas fa-tasks"></i> Quản lý</a></li>
   </ul>
 @endsection
 @section('title')

@@ -14,7 +14,7 @@ Quản Lý trợ cấp + thưởng
   <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
   <li><a href="#"><i class="fas fa-user-cog"></i> Admin</a></li>
   <li><a href="#"><i class="fas fa-gift"></i> Tiền thưởng  + Trợ cấp</a></li>
-  <li><a href="#"><i class="fas fa-plus-circle"></i> Danh sách </a></li>
+  <li><a href="#"><i class="fas fa-bars"></i>  Danh sách </a></li>
 </ul>
 @endsection
 @section('container')
@@ -27,9 +27,9 @@ Quản Lý trợ cấp + thưởng
     <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
       <div class="panel-body">
         <div style="padding:60px;">
-          <form style="margin-bottom:25px;">
+          {{-- <form style="margin-bottom:25px;">
             <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-          </form>
+          </form> --}}
           <div class="table-responsive table--no-card m-b-40">
             <table class="table table-borderless table-striped table-earning">
               <thead>

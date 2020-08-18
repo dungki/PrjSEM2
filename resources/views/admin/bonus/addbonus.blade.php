@@ -41,16 +41,16 @@
                   <input required="true" type="text" class="form-control" name="title" value=" {{$data->title}} "id="title" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="amount">Tiền thưởng + trợ cấp:</label>
+                  <label for="amount">Số lượng:</label>
                   <input required="true" type="text" class="form-control" name="amount" value="{{$data->amount}}"  id="amount" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="num">Số lần:</label>
+                  <label for="num">Số:</label>
                   <input required="true" type="text" value="{{$data->num}}" class="form-control" name="num" id="num" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="usr_id">Nhân viên:</label>
-                  <select class="form-control" style="width:25%" id="role" name="usr_id">
+                  <select class="form-control" style="width:25%" id="role">
                     @foreach ($users as $item)
                         <option  {{($userid==$item->id)?'selected':''}} value="{{$item->id}}">{{$item->name}} ( ID : {{$item->id}} )</option>
                     @endforeach

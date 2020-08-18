@@ -36,26 +36,26 @@ class userController extends Controller
             ->join('departments','groups.department_id','=','departments.id')
             ->where('departments.id',$request->department)
             ->select('users.*')
-            ->get();
+            ->paginate(10);
         }elseif(isset($request->s)){
 
-            $users = user::where('name','like','%'.$request->s.'%')->get();
+            $users = user::where('name','like','%'.$request->s.'%')->paginate(10);
             
         }elseif (isset($request->filter)) {
             if ($request->filter == 2) {
                 # code...
-                $users = user::where('status','=',0)->get();
+                $users = user::where('status','=',0)->paginate(10);
                 $selected=2;
             }elseif ($request->filter == 1) {
                 $users = user::get();
                 $selected=1;
             }elseif ($request->filter == 0) {
-                $users = user::where('status',1)->get();
+                $users = user::where('status',1)->paginate(10);
                 $selected=0;
             }
         } 
         else{
-            $users = user::where('status',1)->get();
+            $users = user::where('status',1)->paginate(10);
             
         }
 
