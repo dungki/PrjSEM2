@@ -36,6 +36,8 @@
 <link href="{{ asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
 
     <!-- Fontfaces CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link href="{{ asset('user/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('user/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('user/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
@@ -471,8 +473,14 @@
 </body>
 <!-- end document-->
 <footer>
-    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;">
-      <p style="margin-top: 25px;">Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;padding-top: 4%;">
+        <i class="fa fa-facebook-official w3-hover-opacity" style="padding-right:20px;font-size:30px"></i>
+        <i class="fa fa-instagram w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
+        <i class="fa fa-twitter w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
+        <p>Project : HRM</p>
     </div>
   </footer>
 </html>
