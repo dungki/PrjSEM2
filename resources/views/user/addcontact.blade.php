@@ -256,11 +256,10 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                          <ul class="breadcrumb">
-                            <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-                            <li><a href="#"><i class="fas fa-user-cog"></i> TimeSheet</a></li>
-                            <li><a href="#"><i class="fas fa-gift"></i> </a></li>
-                          </ul>
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                                <li><a href="#"><i class="fas fa-plus"></i> Thêm thông tin liên hệ</a></li>
+                              </ul>
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">

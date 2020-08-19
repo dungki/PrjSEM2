@@ -240,8 +240,7 @@
                         <div class="header-wrap">
                           <ul class="breadcrumb">
                             <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-                            <li><a href="#"><i class="fas fa-user-cog"></i> TimeSheet</a></li>
-                            <li><a href="#"><i class="fas fa-gift"></i> </a></li>
+                            <li><a href="#"><i class="fas fa-list"></i> Thông tin liên hệ</a></li>
                           </ul>
                             <div class="header-button">
                                 <div class="noti-wrap">

@@ -13,6 +13,7 @@
     <title>Thông tin</title>
 
     <!-- Fontfaces CSS-->
+    <link href="{{ asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
     <link href="{{ asset('user/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('user/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('user/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
@@ -248,6 +249,10 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
+                                <li><a href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
+                              </ul>
                             <form class="form-header" action="" method="POST">
                             </form>
                             <div class="header-button">
