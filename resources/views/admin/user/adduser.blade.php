@@ -45,7 +45,8 @@
                   </div>
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input required="true" type="email" name="email" class="form-control" id="email" placeholder="...">
+                    <input required="true" type="email" name="email" class="form-control" id="email" onkeyup="checkEmail()" placeholder="...">
+                    <span style="padding-left: 2%;color: red;display: none;" id="warnning-email"></span>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
@@ -87,14 +88,15 @@
                   </div>
                   <div class="form-group">
                       <label for="number">Ngày sinh:</label>
-                      <input required="true" type="date" name="birtday" class="form-control" id="birthday" placeholder="...">
+                      <input required="true" type="date" name="birtday" class="form-control" id="birthday" placeholder="..." onchange="checkBirthday()">
+                      <span style="padding-left: 2%;color: red;display: none;" id="warnning-birthday"></span>
                   </div>
                   <div class="form-group">
-                      <label for="join_at">Tham gia tại:</label>
-                      <input required="true" type="date" name="join_day" class="form-control" id="join_at" placeholder="...">
+                      <label for="join_at">Ngày vào làm:</label>
+                      <input required="true" type="date" name="join_day" class="form-control" id="joinDay" placeholder="...">
                   </div>
                   <div class="form-group">
-                      <label for="salary_hour">Tiền lương:</label>
+                      <label for="salary_hour">Tiền lương:(VNĐ/h)</label>
                       <input required="true" type="number" name="salary" class="form-control" id="salary_hour" placeholder="...">
                   </div>
                   <div class="form-group">
@@ -122,10 +124,47 @@
     </div>
 </div>
 <script>
+  var ischeck = false;
+  var isLength = false;
+  var birthday ;
+  function checkEmail() { 
+    var email = document.getElementById('email'); 
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+    var text;
+    if (!filter.test(email.value)) { 
+      document.getElementById("warnning-email").style.display="inline";
+        text = "Lỗi ! -> Email không hợp lệ";
+    }   else{
+      document.getElementById("warnning-email").style.display="none";
+    }
+    document.getElementById("warnning-email").innerHTML = text;
+} 
+  function checkBirthday() {
+    var today, inputday, text;
+    today = new Date();
+    var date =(today.getMonth()+1)+'/'+ today.getDate()+'/'+today.getFullYear();
+    birthday = (new Date($('#birthday').val()).getMonth() + 1)+'/'+new Date($('#birthday').val()).getDate()+'/'+new Date($('#birthday').val()).getFullYear();
+    console.log(date);
+    console.log(birthday);
+    
+        if (today.getFullYear() - new Date($('#birthday').val()).getFullYear() < 18) {
+          document.getElementById("warnning-birthday").style.display="inline";
+        text = "Lỗi ! -> Độ tuổi đang < 18 ";
+            if (new Date(date).valueOf() < new Date(birthday).valueOf()) {
+        
+              text = "Lỗi ! -> Ngày sinh phải nhỏ hơn ngày hiện tại";
+        }
+    }
+    
+    else{
+      document.getElementById("warnning-birthday").style.display="none";
+    }
+     document.getElementById("warnning-birthday").innerHTML = text;
+  }
   function checkPhone() {
     document.getElementById("warnning").style.display="inline";
     var x, text,a;
-    var ischeck = false;
+    
     // Get the value of the input field with id="numb"
     x = document.getElementById("phone").value;
     a = x.split("");
@@ -164,7 +203,6 @@
             break;
           } 
         }
-        var isLength = false;
         if(a.length !=9 && a.length !=12){
             document.getElementById("warnning-cmnd").style.display="inline";
             text = "Lỗi ! -> Độ dài chứng minh nhân dân là 9 hoặc 12 số ";

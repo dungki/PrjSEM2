@@ -399,7 +399,7 @@
                                               <div class="form-group" style="display: none;">
                                               <input required="true" type="text" name="id"  class="form-control" value="{{$contact->id}}" id="usr" readonly placeholder="id">
                                               </div>
-                                              <div class="form-group">
+                                              <div class="form-group" style="display: none;">
                                                 <label for="usr_id">Mã nhân viên:</label>
                                               <input required="true" type="text" value="{{Auth::id()}}" name="user_id" value="{{$contact->user_id}}" class="form-control" id="usr_id" readonly>
                                               </div>
@@ -431,14 +431,15 @@
                                               </div>
                           <div class="form-group">
                                                 <label for="email">Email:</label>
-                                                <input required="true" type="email" class="form-control" value="{{$contact->email}}" name="email" id="email" placeholder="...">
-                                              </div>
+                                                <input required="true" type="email" class="form-control" value="{{$contact->email}}" name="email" id="email" onkeyup="checkEmail()" placeholder="...">
+                                                <span style="padding-left: 2%;color: red;display: none;" id="warnning-email"></span>
+                                            </div>
                           <div class="form-group">
                                                 <label for="inden_card">CMND:</label>
                                                 <input required="true" type="text" class="form-control" value="{{$contact->identity_cart}}" name="cmnd" id="cmnd" placeholder="..." onkeyup="checkCMND()">
                                                 <span style="padding-left: 2%;color: red;display: none;" id="warnning-cmnd"></span>
                                               </div>
-                                              <button class="btn btn-secondary" type="submit" style="margin-top:15px;">Lưu</button>
+                                              <button class="btn btn-secondary"  style="margin-top:15px;">Lưu</button>
                                           </form>
                                       </div>
                               </div>
@@ -531,6 +532,18 @@
       
           document.getElementById("warnning-cmnd").innerHTML = text;
         }
+        function checkEmail() { 
+    var email = document.getElementById('email'); 
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+    var text;
+    if (!filter.test(email.value)) { 
+      document.getElementById("warnning-email").style.display="inline";
+        text = "Lỗi ! -> Email không hợp lệ";
+    }   else{
+      document.getElementById("warnning-email").style.display="none";
+    }
+    document.getElementById("warnning-email").innerHTML = text;
+} 
         </script>
 </body>
 <!-- end document-->
