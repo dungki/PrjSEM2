@@ -34,7 +34,7 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('admin/css/theme.css')}}" rel="stylesheet" media="all">
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

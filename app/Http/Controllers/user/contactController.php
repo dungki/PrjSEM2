@@ -68,6 +68,7 @@ class contactController extends Controller
             $id = $request->id;
         }
         user_contact::where('id',$id)->delete();
+        return redirect()->route('userShowContact');
     }
 
     function editProfile(Request $request){

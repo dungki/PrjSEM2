@@ -63,11 +63,12 @@
                                       </div>
                                       <div class="form-group">
                                         <label for="number">Số điện thoại:</label>
-                                        <input required="true" type="text" class="form-control" name="phone" id="number" placeholder="...">
+                                        <input required="true" type="text" class="form-control" name="phone" id="phone" placeholder="..." onkeyup="checkPhone">
+                                            <span id="warnning"></span>
                                       </div>
                   <div class="form-group">
                                         <label for="email">Email:</label>
-                                        <input required="true" type="text" class="form-control" name="email" id="email" placeholder="...">
+                                        <input required="true" type="email" class="form-control" name="email" id="email" placeholder="...">
                                       </div>
                   <div class="form-group">
                                         <label for="inden_card">CMND:</label>
@@ -80,5 +81,31 @@
 
     </div>
 </div>
+<script>
+  function checkPhone() {
+    var x, text,a;
+    var ischeck = false;
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("phone").value;
+    a = x.split("");
+    // If x is Not a Number or less than one or greater than 10
+  
+    for(var i = 0; i < a.length; i++) {
+       if (isNaN(a[i]) || a[i] < 0 || a[i] > 10) {
+      text = "nhập số hộ";
+      ischeck = true;
+      break;
+    } 
+  }
+  if(!ischeck){
+  text = "Input OK";
+  }
+  if(a.length !=10){
+      text = "Độ dài sdt = 10 ";
+    }
+   
+    document.getElementById("warnning").innerHTML = text;
+  }
+  </script>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection

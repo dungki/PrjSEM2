@@ -45,7 +45,7 @@
                   </div>
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input required="true" type="text" name="email" class="form-control" id="email" placeholder="...">
+                    <input required="true" type="email" name="email" class="form-control" id="email" placeholder="...">
                 </div>
                 <div class="form-group">
                   <label>Password</label>
@@ -63,8 +63,8 @@
                       <input required="true" type="text" name="name" class="form-control" id="name" placeholder="...">
                   </div>
                   <div class="form-group">
-                      <label for="personId">Giới tính:</label>
-                      <select name="gender"> 
+                      <label for="personId" >Giới tính:</label>
+                      <select name="gender"  class="form-control"> 
                          <option value="Nam">Nam</option>
                          <option value="Nữ">Nữ</option>
                       </select>
@@ -72,7 +72,8 @@
                   
                   <div class="form-group">
                       <label for="personId">CMND:</label>
-                      <input required="true" type="text" name="cmnd" class="form-control" id="inden_card" placeholder="...">
+                      <input required="true" type="text" name="cmnd" class="form-control" id="cmnd" onkeyup="checkCMND()" placeholder="...">
+                      <span style="padding-left: 2%;color: red;display: none;" id="warnning-cmnd"></span>
                   </div>
                   
                   <div class="form-group">
@@ -81,7 +82,8 @@
                   </div>
                   <div class="form-group">
                       <label for="number">Số điện thoại:</label>
-                      <input required="true" type="text" name="phone" class="form-control" id="number" placeholder="...">
+                      <input required="true" type="text" name="phone" class="form-control" id="phone" placeholder="..." onkeyup="checkPhone()">
+                      <span style="padding-left: 2%;color: red;display: none;" id="warnning"></span>
                   </div>
                   <div class="form-group">
                       <label for="number">Ngày sinh:</label>
@@ -119,5 +121,66 @@
       </div>
     </div>
 </div>
+<script>
+  function checkPhone() {
+    document.getElementById("warnning").style.display="inline";
+    var x, text,a;
+    var ischeck = false;
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("phone").value;
+    a = x.split("");
+    // If x is Not a Number or less than one or greater than 10
+  
+    for(var i = 0; i < a.length; i++) {
+       if (isNaN(a[i]) || a[i] < 0 || a[i] > 9) {
+        document.getElementById("warnning").style.display="inline";
+      text = "Lỗi ! -> Số điện thoại phải là số";
+      ischeck = true;
+      break;
+    } 
+  }
+  if(!ischeck){
+    document.getElementById("warnning").style.display="none";
+  }
+  if(a.length !=10){
+    document.getElementById("warnning").style.display="inline";
+      text = "Lỗi ! -> Độ dài số điện thoại bằng 10 ";
+    }
+   
+    document.getElementById("warnning").innerHTML = text;
+  }
+  function checkCMND() {
+          document.getElementById("warnning-cmnd").style.display="inline";
+          var x, text,a;
+          var ischeck = false;
+          x = document.getElementById("cmnd").value;
+          a = x.split("");
+
+          for(var i = 0; i < a.length; i++) {
+             if (isNaN(a[i]) || a[i] < 0 || a[i] > 9) {
+                document.getElementById("warnning-cmnd").style.display="inline";
+            text = "Lỗi ! -> Số chứng minh nhân dân phải là số và không chứa ký tự đặc biệt ";
+            ischeck = true;
+            break;
+          } 
+        }
+        var isLength = false;
+        if(a.length !=9 && a.length !=12){
+            document.getElementById("warnning-cmnd").style.display="inline";
+            text = "Lỗi ! -> Độ dài chứng minh nhân dân là 9 hoặc 12 số ";
+            isLength =true;
+          }
+          else if(a.length !=9 && a.length ==12){
+            var isLength = false;
+          }else if(a.length ==9 && a.length !=12){
+            var isLength = false;
+          }
+        if(!ischeck && !isLength){
+            document.getElementById("warnning-cmnd").style.display="none";
+        }
+      
+          document.getElementById("warnning-cmnd").innerHTML = text;
+        }
+  </script>
 <script src="https://kit.fontawesome.com/1d7a824463.js" crossorigin="anonymous"></script>
 @endsection
