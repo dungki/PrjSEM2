@@ -460,7 +460,7 @@
 </body>
 <!-- end document-->
 <footer>
-    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;padding-top: 4%;">
+    <div id="footer" class="copyright" style="background:#d2d2d2;position: relative;padding-top: 4%; margin-top: 3%">
         <i class="fa fa-facebook-official w3-hover-opacity" style="padding-right:20px;font-size:30px"></i>
         <i class="fa fa-instagram w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>
         <i class="fa fa-snapchat w3-hover-opacity"style="padding-right:20px;font-size:30px"></i>

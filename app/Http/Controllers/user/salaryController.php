@@ -40,6 +40,7 @@ class salaryController extends Controller
     $salary_mores_histories = DB::table('salary_mores_histories')
     ->join('users','users.id','=','salary_mores_histories.user_id')
     ->where('salary_mores_histories.status',9)
+    ->where('users.id',Auth::id())
     ->select('users.name','salary_mores_histories.*')
     ->orderBy('updated_at', 'asc')
     ->get();
