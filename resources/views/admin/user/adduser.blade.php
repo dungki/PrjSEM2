@@ -101,7 +101,7 @@
                   </div>
                   <div class="form-group">
                       <label for="exampleFormControlSelect1">Loại nhân viên:</label>
-                      <select class="form-control" id="type_usr_id">
+                      <select class="form-control" id="type_usr_id" name="type_user_id">
                           @foreach ($type_users as $item)
                           <option value="{{$item->id}}">{{$item->name}}</option>
                           @endforeach
@@ -109,7 +109,7 @@
                   </div>
                   <div class="form-group">
                       <label for="exampleFormControlSelect1">Vai trò:</label>
-                      <select class="form-control" id="role">
+                      <select class="form-control" id="role" name="role_id">
                          @foreach ($roles as $item)
                       <option value="{{$item->id}}">{{$item->name}}</option>
                          @endforeach
