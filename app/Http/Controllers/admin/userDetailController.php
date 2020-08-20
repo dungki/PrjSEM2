@@ -16,7 +16,7 @@ class userDetailController extends Controller
     //
     function show(Request $request){
         $user = $departments = '';
-$roles = role::get();
+        $roles = role::get();
         if (isset($request->id)) {
             $user = user::where('id',$request->id)->first();
         $departments = user::join('groups','users.id','=','groups.user_id')

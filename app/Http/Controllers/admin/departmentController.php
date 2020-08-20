@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\department;
 use App\group;
 use App\user;
+use App\role;
 class departmentController extends Controller
 {
     public function __construct()
@@ -76,6 +77,7 @@ class departmentController extends Controller
                 'user_id' => $userId
            ]);
         }
+        $roles = role::get();
         $user = user::where('id',$userId)->first();
         $departments = user::join('groups','users.id','=','groups.user_id')
         ->join('departments','departments.id','=','groups.department_id')
@@ -84,7 +86,8 @@ class departmentController extends Controller
         ->get();
         return view('admin.user.profile')->with([
             'departments' => $departments,
-            'user' => $user
+            'user' => $user,
+            'roles' => $roles
          ]);
     }
     function deleteGroup(Request $request)

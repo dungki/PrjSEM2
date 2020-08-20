@@ -373,13 +373,13 @@
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <h2 class="title-1 m-b-25" style="text-align:center">Liên hệ nhân viên</h2>
+                <h2 class="title-1 m-b-25" style="text-align:center">Thông tin liên hệ</h2>
                 <div class="main-container100" style="display: block;margin-left:auto;margin-right:auto">
                   <div class="panel-body">
                     <div style="padding:60px;">
-                      <form style="margin-bottom:25px;">
+                      {{-- <form style="margin-bottom:25px;">
                         <input type="text" name="" value="" class="form-control search-input" placeholder="Search here">
-                      </form>
+                      </form> --}}
                         <div class="table-responsive table--no-card m-b-40">
                             <table class="table table-borderless table-striped" style="background-color: #17a2b8;">
                                 <style>
