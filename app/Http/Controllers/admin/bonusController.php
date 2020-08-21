@@ -16,13 +16,13 @@ class bonusController extends Controller
   $this->middleware('checkAdmin');
   }
   function show(Request $request){
-
+    $users = DB::table('users')->where('status','1')->get();
     $salary_mores=salary_more::join('users','users.id','=','salary_more.user_id')
     ->where('num','>',0)->select('users.name','salary_more.*')->get();
     
     return view('admin.bonus.bonuslist')->with([
       "index" =>1,
-      
+      "users"=>$users,
       "salary_mores" => $salary_mores
     ]);
 
@@ -47,7 +47,8 @@ class bonusController extends Controller
 
   $currentTime = $mydate->format('Y-m-d H:i:s');
   $userid =$request->usr_id;
-  
+  $users = DB::table('users')->where('status','1')->get();
+
   if (isset($request->id)) {
     salary_more::where('id',$request->id)
     ->update([
@@ -133,7 +134,9 @@ function delete(Request $request){
 return redirect()->route('show');
 }
 function edit(Request $request){
+
   if (isset($request->id)){
+    $users = DB::table('users')->where('status','1')->get();
     $data = salary_more::where('id',$request->id)
     ->first();
     $userid = $data->user_id;
@@ -141,6 +144,7 @@ function edit(Request $request){
 
 
   return view('admin.bonus.addbonus')->with([
+    'users' => $users,
     'data' => $data,
     'userid' => $userid
   ]);

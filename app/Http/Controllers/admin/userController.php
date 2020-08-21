@@ -125,7 +125,11 @@ class userController extends Controller
 
     }
     function deleteUser(Request $request){
+
        if (isset($request->userid)) {
+           if (Auth::id() == $request->userid) {
+            return redirect()->route('listUser');
+           }
            user::where('id',$request->userid)
            ->update([
              'status' =>0,

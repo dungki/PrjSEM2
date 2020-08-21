@@ -56,6 +56,7 @@
                                     <td><a class="btn btn-primary" href="{{ route('showForm') }}?userid={{$item->id}}">Thưởng</a></td>
                                     <td><a class="btn btn-primary" href="{{ route('showContact') }}?userid={{$item->id}}">Liên hệ</a></td>
 
+                                    
                                     <td><a class="btn btn-danger" href="{{ route('deleteUser') }}?userid={{$item->id}}">Xóa</a></td>
 
                                 </tr>
